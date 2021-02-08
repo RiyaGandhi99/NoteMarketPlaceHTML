@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-point=1">
+
+    <!--Title-->
+    <title>NOTES MARKETPLACE</title>
+
+    <!--Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Homepage/favicon.ico">
+
+    <!--Fontawesome -->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light white-nav-top fixed-top">
+            <div class="container">
+                <a id="user-header" class="navbar-brand" href="#">
+                    <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Mobile Menu Close Button -->
+                <span id="mobile-nav-close-btn">&times;</span>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Notes
+                            </a>
+                            <div class="dropdown-menu" style="left:0;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Notes_Under_Review.html">Notes Under Review</a>
+                                <a class="dropdown-item" href="Published_Notes.html">Published Notes</a>
+                                <a class="dropdown-item" href="Downloaded_Notes.html">Downloaded Notes</a>
+                                <a class="dropdown-item" href="Rejected_Notes.html">Rejected Notes</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Members.html">Members</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Spam_Reports.html">Reports</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Settings
+                            </a>
+                            <div class="dropdown-menu" style="left:0;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Manage_System_Configuration.html">Manage System Configuration</a>
+                                <a class="dropdown-item" href="Manage_Administrator.html">Manage Administrator</a>
+                                <a class="dropdown-item" href="Manage_Category.html">Manage Category</a>
+                                <a class="dropdown-item" href="Manage_Type.html">Manage Type</a>
+                                <a class="dropdown-item" href="Manage_Country.html">Manage Countries</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle user-img dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/Homepage/user-img.png" alt="User-Photo" class="rounded-circle img-responsive"></a>
+                            <div class="dropdown-menu" style="left:0;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="My_Profile.html">Update Profile</a>
+                                <a class="dropdown-item" href="Change_Password.html">Change Password</a>
+                                <a class="dropdown-item" href="#">LOGOUT</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="submit">Logout</button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header ENDS -->
+    
+    <!-- Add Country -->
+    <section id="country">
+
+        <div class="content-box-md">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-12 text-left">
+
+                        <div class="horizontal-heading">
+                            <h2>Add Country</h2>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- country row  -->
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-12 col-12">
+
+                        <div class="row country-row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <form>
+                                    <div class="form-group text-left">
+                                        <label for="Country-Name">Country Name<span> *</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter your country name">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row country-row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <form>
+                                    <div class="form-group text-left">
+                                        <label for="Country-Code">Country Code<span> *</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter country code">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Country Button -->
+                <div class="row country-row">
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <form>
+                            <button type="submit" class="btn btn-info btn-rich-blue">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </section>
+    <!-- Add Country ENDS -->
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <div class="row footer-left">
+
+                <div class="col-md-6 col-sm-6 col-6 text-left">
+
+                    <p>Version: 1.1.24</p>
+
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-6 text-right">
+
+                    <p>Copyright &copy; Tatvasoft All rights reserved</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- Footer ENDS -->
+
+    <!-- JQuery-->
+    <script src="js/jquery-min.js"></script>
+
+    <!--Bootstrap JS-->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!--Custom JS-->
+    <script src="js/Script.js"></script>
+
+
+</body>
+
+</html>
