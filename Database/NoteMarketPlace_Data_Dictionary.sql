@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2021 at 07:57 PM
+-- Generation Time: Feb 11, 2021 at 11:59 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -26,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `categories`
 --
--- Creation: Feb 10, 2021 at 08:33 PM
+-- Creation: Feb 11, 2021 at 10:55 PM
 --
 
 CREATE TABLE `categories` (
@@ -37,7 +38,7 @@ CREATE TABLE `categories` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and ime when system has updated this record.Super Admin ID you can insert static.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information,Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information,Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -49,8 +50,7 @@ CREATE TABLE `categories` (
 --
 -- Table structure for table `countries`
 --
--- Creation: Feb 10, 2021 at 08:19 PM
--- Last update: Feb 10, 2021 at 08:19 PM
+-- Creation: Feb 11, 2021 at 10:55 PM
 --
 
 CREATE TABLE `countries` (
@@ -61,7 +61,7 @@ CREATE TABLE `countries` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.Super Admin ID you can insert static.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this rocord.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `countries` (
 --
 -- Table structure for table `downloads`
 --
--- Creation: Feb 11, 2021 at 05:54 PM
+-- Creation: Feb 11, 2021 at 10:54 PM
 --
 
 CREATE TABLE `downloads` (
@@ -81,9 +81,9 @@ CREATE TABLE `downloads` (
   `NoteID` int(11) NOT NULL COMMENT 'FOREIGN KEY relationship with SellerNotes table.',
   `Seller` int(11) NOT NULL COMMENT 'FOREIGN KEY relationship with Users table.',
   `Downloader` int(11) NOT NULL COMMENT 'FOREIGN KEY relationship with Users table.',
-  `IsSellerHasAllowedDownload` tinyint(1) NOT NULL COMMENT 'For paid notes default false.For free notes it will be true anyway.',
+  `IsSellerHasAllowedDownload` bit(2) NOT NULL DEFAULT b'0' COMMENT 'For paid notes default false.For free notes it will be true anyway.',
   `AttachmentPath` varchar(1000) DEFAULT NULL COMMENT 'for paid notes default false. for free notes it will be true anyway.',
-  `IsAttachmentDownloaded` tinyint(1) NOT NULL,
+  `IsAttachmentDownloaded` bit(2) NOT NULL DEFAULT b'0',
   `AttachmentDownloadedDate` datetime DEFAULT NULL COMMENT 'for paid notes default false. for free notes it will be true anyway.',
   `IsPaid` int(11) NOT NULL COMMENT 'default false. for free notes it will be true anyway.',
   `PurchasedPrice` bit(64) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `downloads` (
 --
 -- Table structure for table `referencedata`
 --
--- Creation: Feb 10, 2021 at 09:09 PM
+-- Creation: Feb 11, 2021 at 10:52 PM
 --
 
 CREATE TABLE `referencedata` (
@@ -122,7 +122,7 @@ CREATE TABLE `referencedata` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.Super Admin Id you can insert static.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record. Super Admin Id you can insert static.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `referencedata` (
 --
 -- Table structure for table `sellernotes`
 --
--- Creation: Feb 11, 2021 at 04:48 PM
+-- Creation: Feb 11, 2021 at 10:53 PM
 --
 
 CREATE TABLE `sellernotes` (
@@ -155,14 +155,14 @@ CREATE TABLE `sellernotes` (
   `Course` varchar(100) DEFAULT NULL,
   `CourseCode` varchar(100) DEFAULT NULL,
   `Professor` varchar(100) DEFAULT NULL,
-  `IsPaid` tinyint(1) NOT NULL COMMENT 'Set false if selling mode is free and set to true if selling mode is paid.',
+  `IsPaid` bit(2) NOT NULL DEFAULT b'0' COMMENT 'Set false if selling mode is free and set to true if selling mode is paid.',
   `SellingPrice` decimal(10,0) DEFAULT NULL COMMENT 'if selling mode is paid - selling price can not be null.',
   `NotesPreview` varchar(10000) DEFAULT NULL COMMENT 'if selling mode is paid - note preview cannot be null.',
   `CreatedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has created this record.',
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -186,7 +186,7 @@ CREATE TABLE `sellernotes` (
 --
 -- Table structure for table `sellernotesattachments`
 --
--- Creation: Feb 11, 2021 at 05:48 PM
+-- Creation: Feb 11, 2021 at 10:48 PM
 --
 
 CREATE TABLE `sellernotesattachments` (
@@ -198,7 +198,7 @@ CREATE TABLE `sellernotesattachments` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record. Super Admin ID you can insert static.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -242,7 +242,7 @@ CREATE TABLE `sellernotesreportedissues` (
 --
 -- Table structure for table `sellernotesreviews`
 --
--- Creation: Feb 11, 2021 at 05:50 PM
+-- Creation: Feb 11, 2021 at 10:47 PM
 --
 
 CREATE TABLE `sellernotesreviews` (
@@ -256,7 +256,7 @@ CREATE TABLE `sellernotesreviews` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record. ',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record. Super Admin Id you can insert static.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -274,7 +274,7 @@ CREATE TABLE `sellernotesreviews` (
 --
 -- Table structure for table `system_configuration`
 --
--- Creation: Feb 10, 2021 at 08:59 PM
+-- Creation: Feb 11, 2021 at 10:47 PM
 --
 
 CREATE TABLE `system_configuration` (
@@ -285,7 +285,7 @@ CREATE TABLE `system_configuration` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.Super Admin ID you can insert static.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record.Super Admin ID you can insert static.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -297,7 +297,7 @@ CREATE TABLE `system_configuration` (
 --
 -- Table structure for table `types`
 --
--- Creation: Feb 10, 2021 at 08:40 PM
+-- Creation: Feb 11, 2021 at 10:46 PM
 --
 
 CREATE TABLE `types` (
@@ -308,7 +308,7 @@ CREATE TABLE `types` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated this record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -359,7 +359,7 @@ CREATE TABLE `userprofile` (
 --
 -- Table structure for table `userroles`
 --
--- Creation: Feb 10, 2021 at 07:27 PM
+-- Creation: Feb 11, 2021 at 10:44 PM
 --
 
 CREATE TABLE `userroles` (
@@ -370,7 +370,7 @@ CREATE TABLE `userroles` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.Super Admin ID you can insert static.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has updated a record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who has updated this record. Super Admin ID you can insert static.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information,Default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information,Default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -382,7 +382,7 @@ CREATE TABLE `userroles` (
 --
 -- Table structure for table `users`
 --
--- Creation: Feb 11, 2021 at 04:21 PM
+-- Creation: Feb 11, 2021 at 10:56 PM
 --
 
 CREATE TABLE `users` (
@@ -392,12 +392,12 @@ CREATE TABLE `users` (
   `LastName` varchar(50) NOT NULL COMMENT 'Required Information',
   `EmailID` varchar(100) NOT NULL COMMENT 'Required Information | Unique EmailID across table.',
   `Password` varchar(24) NOT NULL COMMENT 'Required Information',
-  `IsEmailVerified` tinyint(1) DEFAULT NULL COMMENT 'Required Information, Default set to false.',
+  `IsEmailVerified` bit(2) DEFAULT b'0' COMMENT 'Required Information, Default set to false.',
   `CreatedDate` datetime DEFAULT current_timestamp() COMMENT 'Date and time when system has created a record.',
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'date and time when system has updated a record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who updateds this record.',
-  `IsActive` tinyint(1) NOT NULL COMMENT 'Required Information, default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'10' COMMENT 'Required Information, default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -646,68 +646,7 @@ ALTER TABLE `userprofile`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `RoleID` FOREIGN KEY (`RoleID`) REFERENCES `userroles` (`ID`);
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for table categories
---
-
---
--- Metadata for table countries
---
-
---
--- Metadata for table downloads
---
-
---
--- Metadata for table referencedata
---
-
---
--- Metadata for table sellernotes
---
-
---
--- Metadata for table sellernotesattachments
---
-
---
--- Metadata for table sellernotesreportedissues
---
-
---
--- Metadata for table sellernotesreviews
---
-
---
--- Metadata for table system_configuration
---
-
---
--- Metadata for table types
---
-
---
--- Metadata for table userprofile
---
-
---
--- Metadata for table userroles
---
-
---
--- Metadata for table users
---
-
---
--- Metadata for database notesmarketplace
---
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
