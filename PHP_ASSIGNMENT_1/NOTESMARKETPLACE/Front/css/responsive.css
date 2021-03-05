@@ -1,0 +1,1553 @@
+/*===============================
+             Mobile Menu
+================================= */
+.navbar-toggler {
+    color: #6255a5;
+    background-color: #fff;
+    margin-right: 20px;
+}
+
+#mobile-nav-close-btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    cursor: pointer;
+    color: #6255a5;
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    display: none;
+    z-index: 999;
+}
+
+#mobile-nav-close-btn:hover,
+#mobile-nav-close-btn:focus {
+    color: #6255a5;
+    background: none;
+}
+
+
+/*======================================
+             Bootstrap 3 Media Queries
+======================================== */
+
+/* Large Devices (Desktop & Laptop) */
+@media (min-width: 1200px) {
+
+    
+
+}
+
+
+/* Medium Devices (Medium Desktops & Landscape Tablets) */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    /*User profile*/
+    #user-profile-form #bd-form .row .col-md-6:nth-child(even),
+    #user-profile-form #ad-form .row .col-md-6:nth-child(even),
+    #user-profile-form #udetails-form .row .col-md-6:nth-child(even) {
+        padding-left: 15px;
+    }
+    #countrycode {
+        width: 100%;
+    }
+    #phoneno {
+        width: 100%;
+    }
+    #phone-no {
+        margin-left: -23px;
+    }
+    #user-profile-form input[type="text"],
+    #user-profile-form input[type="email"],
+    #user-profile-form select#gender {
+        width: 100%;
+    }
+    .seller {
+        margin-left: 10px;
+    }
+    #user-profile-form .add-border {
+        width: 100%;
+    }
+    /*Home Page*/
+    .work-img {
+        margin-left: 150px;
+    }
+    .testimonials-details {
+        width: 450px;
+    }
+    .testimonials-details h2 {
+        font-size: 24px;
+        padding: 40px 0 5px 30px;
+    }
+    .testimonials-details h4 {
+        font-size: 16px;
+        padding-left: 30px;
+    }
+     /*serach notes*/
+     .books .card {
+         width: 300px;
+     }
+    /*=========== My Rejected Notes Page ===========*/ 
+    /* Navigation */
+    .white-nav-top ul.navbar-nav {
+        padding-left: 5px;
+        margin-top: 10px;
+    }
+    .white-nav-top ul.navbar-nav > li > a {
+        padding-left: 5px;
+        font-size: 15px;
+    }
+    .white-nav-top ul.navbar-nav button {
+        width: 50px;
+        margin: 0;
+        padding: 6px;
+        font-size: 13px;
+    }
+    .user-img img {
+        width: 20px;
+        height: 20px;
+    }
+    /* Logo */
+    #user-header img {
+        width: 200px;
+    }
+    /* Pagination */
+    #manage-administrator .manage-administrator-row .pagination,
+    #manage-category .manage-category-row .pagination,
+    #manage-type .manage-type-row .pagination,
+    #manage-country .manage-country-row .pagination,
+    #my-sold-notes .my-sold-notes-row .pagination,
+    #my-rejected-notes .my-rejected-notes-row .pagination,
+    #my-downloads .my-downloads-row .pagination,
+    #buyer-requests .buyer-requests-row .pagination,
+    #members .members-row .pagination,
+    #spam-reports .spam-reports-row .pagination,
+    #top-notes .top-notes-row .pagination,
+    #member-notes .member-notes-row .pagination,
+    #rejected-notes .rejected-notes-row .pagination,
+    #downloaded-notes .downloaded-notes-row .pagination,
+    #published-notes .published-notes-row .pagination,
+    #notes-under-review .notes-under-review-row .pagination,
+    #note-preview .note-preview-row .pagination,
+    #in-progress-notes .in-progress-notes-row .pagination,
+    #publish-note .publish-note-row .pagination,
+    #search-pagination .pagination {
+        margin-left: 350px;
+    }
+    /* Button */
+    #manage-administrator .manage-administrator-row .btn-Blue,
+    #manage-category .manage-category-row .btn-Blue,
+    #manage-type .manage-type-row .btn-Blue,
+    #manage-country .manage-country-row .btn-Blue,
+    #my-sold-notes .my-sold-notes-row .btn-Blue,
+    #my-rejected-notes .my-rejected-notes-row .btn-Blue,
+    #my-downloads .my-downloads-row .btn-Blue,
+    #buyer-requests .buyer-requests-row .btn-Blue,
+    #members .members-row .btn-Blue,
+    #spam-reports .spam-reports-row .btn-Blue,
+    #published-notes .published-notes-row .btn-Blue,
+    #in-progress-notes .in-progress-notes-row .btn-Blue {
+        margin-left: 10px;
+    }
+    #manage-administrator .manage-administrator-row .btn-rich-blue,
+    #manage-category .manage-category-row .btn-rich-blue,
+    #manage-type .manage-type-row .btn-rich-blue,
+    #manage-country .manage-country-row .btn-rich-blue {
+        width: 170px;
+        font-size: 15px;
+    }
+    /* Search Box */
+    #manage-administrator .manage-administrator-row .form-group input[type="text"],
+    #manage-category .manage-category-row .form-group input[type="text"],
+    #manage-type .manage-type-row .form-group input[type="text"],
+    #manage-country .manage-country-row .form-group input[type="text"],
+    #my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+    #my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+    #my-downloads .my-downloads-row .form-group input[type="text"],
+    #buyer-requests .buyer-requests-row .form-group input[type="text"],
+    #members .members-row .form-group input[type="text"],
+    #spam-reports .spam-reports-row .form-group input[type="text"],
+    #published-notes .published-notes-row .form-group input[type="text"],
+    #in-progress-notes .in-progress-notes-row .form-group input[type="text"],
+    #rejected-notes .rejected-notes-row .form-group input[type="text"],
+    #downloaded-notes .downloaded-notes-row .form-group input[type="text"],
+    #notes-under-review .notes-under-review-row .form-group input[type="text"],
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 35px;
+        width: 190px;
+    }
+    
+    /*  My Profile Page*/
+    #bd_profile #bd_profile-row-inner .col-md-10 .form-control,
+    #administrator #administrator-row-inner .col-md-10 .form-control,
+    #profile .profile-row #profile-row-inner .col-md-10 .form-control {
+        margin-left: 15px;
+    }
+    /*css particular to this iframe*/
+    #Iframe-Cicis-Menu-To-Go {
+        max-width: 500px;
+        max-height: 600px;
+    }
+    .responsive-wrapper-padding-bottom-90pct {
+        height: 350px;
+    }
+    #note-preview .note-preview-row #customer {
+        width: 550px;
+        height: 400px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    
+}
+
+
+/* Small Devices (Small Desktops & Portrait Tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    
+    /*FAQ*/
+    #general-question,
+    #upload-question,
+    #download-question {
+        margin-top: 30px;
+    }
+    /*User profile*/
+    #user-profile-form #bd-form .row .col-md-6:nth-child(even),
+    #user-profile-form #ad-form .row .col-md-6:nth-child(even),
+    #user-profile-form #ud-form .row .col-md-6:nth-child(even) {
+        padding-left: 15px;
+    }
+
+    #user-profile-form #countrycode {
+        width: 100%;
+    }
+
+    #user-profile-form #phoneno {
+        width: 100%;
+    }
+
+    #user-profile-form #phone-no {
+        margin-left: -23px;
+    }
+    #user-profile-form input[type="text"],
+    #user-profile-form input[type="email"],
+    #user-profile-form select#gender {
+        width: 100%;
+    }
+    #user-profile-form .add-border {
+        width: 100%;
+    }
+    .heading h2 {
+        text-align: center;
+    }
+    /*Search Notes*/
+    .books {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    /*Home Page*/
+    .work-img {
+        margin-left: 90px;
+    }
+    .testimonials-details {
+        width: 350px;
+    }
+    .testimonials-details h2 {
+        font-size: 20px;
+        padding: 40px 0 5px 50px;
+    }
+    .testimonials-details h4 {
+        font-size: 14px;
+        padding-left: 50px;
+    }
+    .testimonials-details p { 
+        font-size: 12px;
+    }
+    /*=========== My Rejected Notes Page ===========*/ 
+    /* Navigation */
+    .white-nav-top ul.navbar-nav {
+        padding-left: 5px;
+        margin-top: 10px;
+    }
+    .white-nav-top ul.navbar-nav > li > a {
+        padding-left: 5px;
+        font-size: 15px;
+    }
+    .white-nav-top ul.navbar-nav button {
+        width: 50px;
+        margin: 0;
+        padding: 6px;
+        font-size: 10px;
+    }
+    .user-img img {
+        width: 20px;
+        height: 20px;
+    }
+    /* Logo */
+    #user-header img {
+        width: 200px;
+    }
+    /* Heading */
+    .horizontal-heading {
+        font-size: 15px;
+        font-weight: 400;
+    }
+    /* Pagination */
+    #manage-administrator .manage-administrator-row .pagination,
+    #manage-category .manage-category-row .pagination,
+    #manage-type .manage-type-row .pagination,
+    #manage-country .manage-country-row .pagination,
+    #my-sold-notes .my-sold-notes-row .pagination,
+    #my-rejected-notes .my-rejected-notes-row .pagination,
+    #my-downloads .my-downloads-row .pagination,
+    #buyer-requests .buyer-requests-row .pagination,
+    #members .members-row .pagination,
+    #spam-reports .spam-reports-row .pagination,
+    #top-notes .top-notes-row .pagination,
+    #member-notes .member-notes-row .pagination,
+    #rejected-notes .rejected-notes-row .pagination,
+    #downloaded-notes .downloaded-notes-row .pagination,
+    #published-notes .published-notes-row .pagination,
+    #notes-under-review .notes-under-review-row .pagination,
+    #note-preview .note-preview-row .pagination,
+    #in-progress-notes .in-progress-notes-row .pagination,
+    #publish-note .publish-note-row .pagination,
+    #search-pagination .pagination {
+        margin-left: 250px;
+    }
+    /* Button */
+    #manage-administrator .manage-administrator-row .btn-Blue,
+    #manage-category .manage-category-row .btn-Blue,
+    #manage-type .manage-type-row .btn-Blue,
+    #manage-country .manage-country-row .btn-Blue,
+    #my-sold-notes .my-sold-notes-row .btn-Blue,
+    #my-rejected-notes .my-rejected-notes-row .btn-Blue,
+    #my-downloads .my-downloads-row .btn-Blue,
+    #buyer-requests .buyer-requests-row .btn-Blue,
+    #members .members-row .btn-Blue,
+    #spam-reports .spam-reports-row .btn-Blue,
+    #published-notes .published-notes-row .btn-Blue,
+    #in-progress-notes .in-progress-notes-row .btn-Blue,
+    #publish-note .publish-note-row .btn-Blue {
+        margin-left: 0;
+        width: 70px;
+        padding: 6px;
+    }
+    #manage-administrator .manage-administrator-row .btn-rich-blue,
+    #manage-category .manage-category-row .btn-rich-blue,
+    #manage-type .manage-type-row .btn-rich-blue,
+    #manage-country .manage-country-row .btn-rich-blue {
+        width: 120px;
+        font-size: 13px;
+    }
+    /* Search Box */
+    #manage-administrator .manage-administrator-row .form-group input[type="text"],
+    #manage-category .manage-category-row .form-group input[type="text"],
+    #manage-type .manage-type-row .form-group input[type="text"],
+    #manage-country .manage-country-row .form-group input[type="text"],
+    #my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+    #my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+    #my-downloads .my-downloads-row .form-group input[type="text"],
+    #buyer-requests .buyer-requests-row .form-group input[type="text"],
+    #members .members-row .form-group input[type="text"],
+    #spam-reports .spam-reports-row .form-group input[type="text"],
+    #published-notes .published-notes-row .form-group input[type="text"],
+    #in-progress-notes .in-progress-notes-row .form-group input[type="text"],
+    #rejected-notes .rejected-notes-row .form-group input[type="text"],
+    #downloaded-notes .downloaded-notes-row .form-group input[type="text"],
+    #notes-under-review .notes-under-review-row .form-group input[type="text"] {
+        height: 35px;
+        width: 140px;
+        margin-left: 120px;
+    }
+
+    /* footer */
+    ul.social-list li a {
+        width: 23px;
+        height: 23px;
+    }
+
+    ul.social-list li a img {
+        padding-right: 5px;
+        padding-bottom: 18px;
+    }
+    /*  My Profile Page*/
+    #bd_profile #bd_profile-row-inner .col-md-10 .form-control,
+    #administrator #administrator-row-inner .col-md-10 .form-control,
+    #profile .profile-row #profile-row-inner .col-md-10 .form-control {
+        margin-left: 35px;
+    }
+    /*css particular to this iframe*/
+    #Iframe-Cicis-Menu-To-Go {
+        max-width: 500px;
+        max-height: 600px;
+    }
+    .responsive-wrapper-padding-bottom-90pct {
+        height: 350px;
+    }
+    #note-preview .note-preview-row #customer {
+        width: 550px;
+        height: 400px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    #notes-details .notes-details-row img {
+        height: 170px;
+        width: 150px;
+        margin-bottom: 50px;
+        margin-right: 20px;
+    }
+    #notes-details .notes-details-row .notes-details-row-inner p {
+        font-size: 8px;
+    }
+    #notes-details .notes-details-row h2,
+    #notes-details .notes-details-row h4 {
+        font-size: 12px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-star img,
+    #notes-details .notes-details-row .img-notes-preview-star img {
+        width: 10px;
+        height: 10px;
+    }
+    #notes-details .notes-details-row .btn-Blue {
+        margin-left: 0;
+        width: 100px;
+        padding: 6px;
+        font-size: 10px;
+    }
+    #note-detail .modal-content {
+        height: 350px;
+        width: 470px;
+        margin-top: 150px;
+    }
+    #note-detail .modal-body img {
+        height: 20px;
+        width: 20px;
+        margin-left: 200px;
+        margin-bottom: 0;
+    }
+    #note-detail .modal-body h1 {
+        font-size: 15px;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+    #note-detail .modal-body h3,
+     #note-detail .modal-body p  {
+        font-size: 10px;
+    }
+    /*Dashboard*/
+    #publish-note .publish-note-row .btn-Blue {
+        margin-top: 0;
+        font-size: 16px;
+        border: transparent;
+        text-transform: uppercase;
+        margin-left: 25px;
+    }
+    #publish-note .publish-note-row form select {
+        width: 100px;
+        margin-left: 10px;
+    }
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 35px;
+        width: 100px;
+        margin-left: 40px;
+    }
+}
+
+
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+@media (max-width: 767px) {
+
+    /*FAQ*/
+    #general-question,
+    #upload-question,
+    #download-question {
+        margin-top: 30px;
+    }
+    /*User profile*/
+    #user-profile-form #bd-form .row .col-md-6:nth-child(even),
+    #user-profile-form #ad-form .row .col-md-6:nth-child(even),
+    #user-profile-form #ud-form .row .col-md-6:nth-child(even) {
+        padding-left: 15px;
+    }
+    #user-profile-form #countrycode {
+        width: 100%;
+    }
+    #user-profile-form #phoneno {
+        width: 100%;
+    }
+    #user-profile-form #phone-no {
+        margin-left: -23px;
+    }
+    #user-profile-form input[type="text"],
+    #user-profile-form input[type="email"],
+    #user-profile-form select#gender {
+        width: 100%;
+    }
+    #user-profile-form .add-border {
+        width: 100%;
+    }
+    .heading h2 {
+        text-align: center;
+    }
+    /*search notes*/
+    .books {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    /*Add notes*/
+    #add-notes .heading h2 {
+        text-align: center;
+    }
+    /*Home Page*/
+    #home-content-inner {
+        padding-top: 205px;
+        left: 80px;
+    }
+    #home-heading h1 {
+        font-size: 30px;
+    }
+    #home-para {
+        font-size: 15px;
+    }
+    .work-img {
+        margin-left: 40px;
+    }
+    .work-download h2 {
+        font-size: 20px;
+    }
+    .work-download h4 {
+        font-size: 14px;
+    }
+    .work-download .sell {
+        margin-top: 28px;
+    }
+    .work-download .btn-sell {
+        margin-top: 20px;
+    }
+    .testimonials-details {
+        width: 500px;
+    }
+    .testimonials-details h2 {
+        font-size: 24px;
+        padding: 40px 0 5px 30px;
+    }
+    .testimonials-details h4 {
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    .testimonials-details p { 
+        font-size: 14px;
+    }
+    /*=========== My Rejected Notes Page ===========*/ 
+    /* Navigation */
+    a#user-header.navbar-brand {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    div#navbarSupportedContent.collapse.navbar-collapse {
+        width: 100px;
+    }
+    .white-nav-top ul.navbar-nav {
+        padding-left: 3px;
+        margin-top: 10px;
+    }
+    .white-nav-top ul.navbar-nav > li > a {
+        padding-left: 2px;
+        font-size: 12px;
+    }
+    .white-nav-top ul.navbar-nav button {
+        width: 50px;
+        margin: 0;
+        padding: 6px;
+        font-size: 8px;
+    }
+    .user-img img {
+        width: 20px;
+        height: 20px;
+    }
+    /* Logo */
+    #user-header img {
+        width: 200px;
+        margin: 0;
+        margin-right: 0;
+    }
+    /* Heading */
+    #about .horizontal-heading h2,
+    #work .horizontal-heading h2,
+    #testimonials .horizontal-heading h2,
+    #manage-administrator .manage-administrator-row .horizontal-heading h2,
+    #manage-category .manage-category-row .horizontal-heading h2,
+    #manage-type .manage-type-row .horizontal-heading h2,
+    #manage-country .manage-country-row .horizontal-heading h2, 
+    #my-sold-notes .my-sold-notes-row .horizontal-heading h2,
+    #my-rejected-notes .my-rejected-notes-row .horizontal-heading h2,
+    #my-downloads .my-downloads-row .horizontal-heading h2,
+    #buyer-requests .buyer-requests-row .horizontal-heading h2,
+    #members .members-row .horizontal-heading h2,
+    #spam-reports .spam-reports-row .horizontal-heading h2,
+    #top-notes .top-notes-row .horizontal-heading h2,
+    #member-notes .member-notes-row .horizontal-heading h2,
+    #rejected-notes .rejected-notes-row .horizontal-heading h2,
+    #downloaded-notes .downloaded-notes-row .horizontal-heading h2,
+    #published-notes .published-notes-row .horizontal-heading h2,
+    #notes-under-review .notes-under-review-row .horizontal-heading h2,
+    #note-preview .note-preview-row .horizontal-heading h2,
+    #in-progress-notes .in-progress-notes-row .horizontal-heading h2,
+    #publish-note .publish-note-row .horizontal-heading h2,
+    #dashboard-notes .dashboard-notes-row .horizontal-heading h2 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    /* Pagination */
+    #manage-administrator .manage-administrator-row .pagination,
+    #manage-category .manage-category-row .pagination,
+    #manage-type .manage-type-row .pagination,
+    #manage-country .manage-country-row .pagination,
+    #my-sold-notes .my-sold-notes-row .pagination,
+    #my-rejected-notes .my-rejected-notes-row .pagination,
+    #my-downloads .my-downloads-row .pagination,
+    #buyer-requests .buyer-requests-row .pagination,
+    #members .members-row .pagination,
+    #spam-reports .spam-reports-row .pagination,
+    #top-notes .top-notes-row .pagination,
+    #member-notes .member-notes-row .pagination,
+    #rejected-notes .rejected-notes-row .pagination,
+    #downloaded-notes .downloaded-notes-row .pagination,
+    #published-notes .published-notes-row .pagination,
+    #notes-under-review .notes-under-review-row .pagination,
+    #note-preview .note-preview-row .pagination,
+    #in-progress-notes .in-progress-notes-row .pagination,
+    #publish-note .publish-note-row .pagination,
+    #search-pagination .pagination {
+        margin-left: 150px;
+    }
+    /* Button */
+    #manage-administrator .manage-administrator-row .btn-Blue,
+    #manage-category .manage-category-row .btn-Blue,
+    #manage-type .manage-type-row .btn-Blue,
+    #manage-country .manage-country-row .btn-Blue,
+    #my-sold-notes .my-sold-notes-row .btn-Blue,
+    #my-rejected-notes .my-rejected-notes-row .btn-Blue,
+    #my-downloads .my-downloads-row .btn-Blue,
+    #buyer-requests .buyer-requests-row .btn-Blue,
+    #members .members-row .btn-Blue,
+    #spam-reports .spam-reports-row .btn-Blue,
+    #published-notes .published-notes-row .btn-Blue,
+    #in-progress-notes .in-progress-notes-row .btn-Blue {
+        margin-left: 30px;
+        width: 70px;
+        padding: 6px;
+    }
+    #manage-administrator .manage-administrator-row .btn-rich-blue,
+    #manage-category .manage-category-row .btn-rich-blue,
+    #manage-type .manage-type-row .btn-rich-blue,
+    #manage-country .manage-country-row .btn-rich-blue {
+        width: 80px;
+        font-size: 11px;
+    }
+    /* Search Box */
+    #manage-administrator .manage-administrator-row .form-group input[type="text"],
+    #manage-category .manage-category-row .form-group input[type="text"],
+    #manage-type .manage-type-row .form-group input[type="text"],
+    #manage-country .manage-country-row .form-group input[type="text"],
+    #my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+    #my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+    #my-downloads .my-downloads-row .form-group input[type="text"],
+    #buyer-requests .buyer-requests-row .form-group input[type="text"],
+    #members .members-row .form-group input[type="text"],
+    #spam-reports .spam-reports-row .form-group input[type="text"],
+    #published-notes .published-notes-row .form-group input[type="text"],
+    #in-progress-notes .in-progress-notes-row .form-group input[type="text"],
+    #rejected-notes .rejected-notes-row .form-group input[type="text"],
+    #downloaded-notes .downloaded-notes-row .form-group input[type="text"],
+    #notes-under-review .notes-under-review-row .form-group input[type="text"] {
+        height: 35px;
+        width: 120px;
+        margin-left: 30px;
+    }
+
+    /* footer */
+    footer .footer-left {
+        padding: 20px 20px 20px 15px;
+    }
+    ul.social-list li a {
+        width: 20px;
+        height: 20px;
+    }
+
+    ul.social-list li a img {
+        padding-right: 5px;
+        padding-bottom: 18px;
+    }
+    /*  My Profile Page*/
+    #bd_profile #bd_profile-row-inner .col-md-10 .form-control,
+    #administrator #administrator-row-inner .col-md-10 .form-control,
+    #profile .profile-row #profile-row-inner .col-md-10 .form-control {
+        margin-left: 50px;
+    }
+    div.btn-mdb-color {
+        margin-left: 50px;
+    }
+    /*css particular to this iframe*/
+    #Iframe-Cicis-Menu-To-Go {
+        max-width: 500px;
+        max-height: 600px;
+    }
+    #note-preview .note-preview-row #customer {
+        width: 450px;
+        height: 350px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    #notes-details .notes-details-row img {
+        height: 120px;
+        width: 100px;
+        margin-bottom: 50px;
+        margin-right: 10px;
+    }
+    #notes-details .notes-details-row .notes-details-row-inner p,
+    #notes-details .notes-details-row  p{
+        font-size: 8px;
+    }
+    #notes-details .notes-details-row h2,
+    #notes-details .notes-details-row h4 {
+        font-size: 15px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-star img,
+    #notes-details .notes-details-row .img-notes-preview-star img {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+    }
+    #notes-details .notes-details-row .btn-Blue {
+        margin-left: 0;
+        width: 100px;
+        padding: 6px;
+        font-size: 10px;
+    }
+    #note-detail .modal-content {
+        height: 350px;
+        width: 470px;
+        margin-top: 150px;
+    }
+    #note-detail .modal-body img {
+        height: 20px;
+        width: 20px;
+        margin-left: 200px;
+        margin-bottom: 0;
+    }
+    #note-detail .modal-body h1 {
+        font-size: 15px;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+    #note-detail .modal-body h3,
+     #note-detail .modal-body p  {
+        font-size: 10px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner h2 {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner h4 {
+        font-size: 8px;
+        margin-left: 0;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner p {
+        font-size: 6px;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-reviewers {
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 40px;
+    }
+    /*Dashboard*/
+    #publish-note .publish-note-row .btn-Blue {
+        margin-top: 0;
+        font-size: 16px;
+        border: transparent;
+        text-transform: uppercase;
+        margin-left: 5px;
+    }
+    #publish-note .publish-note-row form select {
+        width: 60px;
+        margin-left: 0;
+    }
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 35px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    
+}
+
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media (max-width: 575px) {
+
+    /*=========== My Rejected Notes Page ===========*/ 
+    /* Navigation */
+    a#user-header.navbar-brand {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    div#navbarSupportedContent.collapse.navbar-collapse {
+        width: 100px;
+    }
+    .white-nav-top ul.navbar-nav {
+        padding-left: 3px;
+        margin-top: 10px;
+    }
+    .white-nav-top ul.navbar-nav > li > a {
+        padding-left: 2px;
+        font-size: 11px;
+    }
+    .white-nav-top ul.navbar-nav button {
+        width: 50px;
+        margin: 0;
+        padding: 6px;
+        font-size: 8px;
+    }
+    .user-img img {
+        width: 20px;
+        height: 20px;
+    }
+    /* Logo */
+    #user-header img {
+        width: 180px;
+        margin: 0;
+        margin-right: 0;
+    }
+    /* Add Notes */
+    #add-notes .button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    /*Home Page*/
+    #home-content-inner {
+        padding-top: 205px;
+        left: 20px;
+    }
+    #home-heading h1 {
+        font-size: 20px;
+    }
+    #home-para p{
+        font-size: 10px;
+    }
+    #about-right {
+        font-size: 10px;
+    }
+    .work-img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .work-download h2 {
+        font-size: 20px;
+    }
+    .work-download h4 {
+        font-size: 14px;
+    }
+    .work-download .sell {
+        margin-top: 28px;
+    }
+    .work-download .btn-sell {
+        margin-top: 20px;
+    }
+    .testimonials-details {
+        width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .testimonials-details h2 {
+        font-size: 14px;
+        padding: 40px 0 5px 70px;
+    }
+    .testimonials-details h4 {
+        font-size: 12px;
+        padding-left: 70px;
+    }
+    .testimonials-details p { 
+        font-size: 10px;
+    }
+    /*Forget Password*/
+    #forgot-details form {
+        width: 300px;
+    }
+    #forgot input[type="email"],
+    #forgot .btn-rich-blue {
+        width: 100%;
+    }
+    #forgot img {
+        width: 230px;
+    }
+    /*Change password*/
+    #change form {
+        width: 300px;
+        height: 450px;
+    }
+    #change input[type="password"],
+    #change input[type="text"],
+    #change .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #change img {
+        width: 230px;
+    }
+    /*Login*/
+    #login form {
+        width: 290px;
+        height: 500px;
+    }
+    #login input[type="email"],
+    #login input[type="password"],
+    #login input[type="text"],
+    #login .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #login img {
+        width: 150px;
+    }
+    #login .form-group a {
+        margin-left: 80px;
+        font-size: 12px;
+    }
+    /*Sign*/
+    #sign form {
+        width: 290px;
+        height: 700px;
+    }
+    #sign input[type="text"],
+    #sign input[type="email"],
+    #sign input[type="password"],
+    #sign .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #sign img {
+        width: 150px;
+    }
+    #sign .form-group a {
+        margin-left: 80px;
+        font-size: 12px;
+    }
+    #change .field-icon,
+    #login .field-icon,
+    #sign .field-icon {
+        float: right;
+        margin-left: 255px;
+        margin-top: -33px;
+    }
+    #change .field-icon img,
+    #login .field-icon img,
+    #sign .field-icon img {
+        width: 10px;
+        height: 10px;
+    }
+    #login .btn-general-one p,
+    #sign .btn-general-one p {
+        margin-left: 20px;
+    }
+    #login .form-group label,
+    #sign .form-group label,
+    #forgot .form-group label,
+    #change .form-group label {
+        font-size: 12px;
+    }
+    #login .horizontal-heading h2,
+    #sign .horizontal-heading h2,
+    #forgot .horizontal-heading h2,
+    #change .horizontal-heading h2 {
+        font-size: 23px;
+    }
+    /* Heading */
+    #about .horizontal-heading h2,
+    #work .horizontal-heading h2,
+    #testimonials .horizontal-heading h2,
+    #manage-administrator .manage-administrator-row .horizontal-heading h2,
+    #manage-category .manage-category-row .horizontal-heading h2,
+    #manage-type .manage-type-row .horizontal-heading h2,
+    #manage-country .manage-country-row .horizontal-heading h2, 
+    #my-sold-notes .my-sold-notes-row .horizontal-heading h2,
+    #my-rejected-notes .my-rejected-notes-row .horizontal-heading h2,
+    #my-downloads .my-downloads-row .horizontal-heading h2,
+    #buyer-requests .buyer-requests-row .horizontal-heading h2,
+    #members .members-row .horizontal-heading h2,
+    #spam-reports .spam-reports-row .horizontal-heading h2,
+    #top-notes .top-notes-row .horizontal-heading h2,
+    #member-notes .member-notes-row .horizontal-heading h2,
+    #rejected-notes .rejected-notes-row .horizontal-heading h2,
+    #downloaded-notes .downloaded-notes-row .horizontal-heading h2,
+    #published-notes .published-notes-row .horizontal-heading h2,
+    #notes-under-review .notes-under-review-row .horizontal-heading h2,
+    #note-preview .note-preview-row .horizontal-heading h2,
+    #in-progress-notes .in-progress-notes-row .horizontal-heading h2,
+    #publish-note .publish-note-row .horizontal-heading h2,
+    #dashboard-notes .dashboard-notes-row .horizontal-heading h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    /* Pagination */
+    #manage-administrator .manage-administrator-row .pagination,
+    #manage-category .manage-category-row .pagination,
+    #manage-type .manage-type-row .pagination,
+    #manage-country .manage-country-row .pagination,
+    #my-sold-notes .my-sold-notes-row .pagination,
+    #my-rejected-notes .my-rejected-notes-row .pagination,
+    #my-downloads .my-downloads-row .pagination,
+    #buyer-requests .buyer-requests-row .pagination,
+    #members .members-row .pagination,
+    #spam-reports .spam-reports-row .pagination,
+    #top-notes .top-notes-row .pagination,
+    #member-notes .member-notes-row .pagination,
+    #rejected-notes .rejected-notes-row .pagination,
+    #downloaded-notes .downloaded-notes-row .pagination,
+    #published-notes .published-notes-row .pagination,
+    #notes-under-review .notes-under-review-row .pagination,
+    #in-progress-notes .in-progress-notes-row .pagination,
+    #publish-note .publish-note-row .pagination,
+    #search-pagination .pagination {
+        margin-left: 100px;
+    }
+    /* Button */
+    #manage-administrator .manage-administrator-row .btn-Blue,
+    #manage-category .manage-category-row .btn-Blue,
+    #manage-type .manage-type-row .btn-Blue,
+    #manage-country .manage-country-row .btn-Blue,
+    #my-sold-notes .my-sold-notes-row .btn-Blue,
+    #my-rejected-notes .my-rejected-notes-row .btn-Blue,
+    #my-downloads .my-downloads-row .btn-Blue,
+    #buyer-requests .buyer-requests-row .btn-Blue,
+    #members .members-row .btn-Blue,
+    #spam-reports .spam-reports-row .btn-Blue,
+    #published-notes .published-notes-row .btn-Blue,
+    #in-progress-notes .in-progress-notes-row .btn-Blue {
+        margin-left: 0;
+        width: 70px;
+        padding: 6px;
+    }
+    #manage-administrator .manage-administrator-row .btn-rich-blue,
+    #manage-category .manage-category-row .btn-rich-blue,
+    #manage-type .manage-type-row .btn-rich-blue,
+    #manage-country .manage-country-row .btn-rich-blue {
+        width: 80px;
+        font-size: 11px;
+    }
+    /* Search Box */
+    #manage-administrator .manage-administrator-row .form-group input[type="text"],
+    #manage-category .manage-category-row .form-group input[type="text"],
+    #manage-type .manage-type-row .form-group input[type="text"],
+    #manage-country .manage-country-row .form-group input[type="text"],
+    #my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+    #my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+    #my-downloads .my-downloads-row .form-group input[type="text"],
+    #buyer-requests .buyer-requests-row .form-group input[type="text"],
+    #members .members-row .form-group input[type="text"],
+    #spam-reports .spam-reports-row .form-group input[type="text"],
+    #published-notes .published-notes-row .form-group input[type="text"],
+    #in-progress-notes .in-progress-notes-row .form-group input[type="text"],
+    #rejected-notes .rejected-notes-row .form-group input[type="text"],
+    #downloaded-notes .downloaded-notes-row .form-group input[type="text"],
+    #notes-under-review .notes-under-review-row .form-group input[type="text"],
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 35px;
+        width: 80px;
+        margin-left: 5px;
+        padding-right: 10px;
+    }
+
+    /* footer */
+    footer .footer-left p {
+        padding: 5px;
+        font-size: 7px;
+    }
+    ul.social-list li a {
+        width: 19px;
+        height: 19px;
+    }
+
+    ul.social-list li a img {
+        padding-top: 0;
+        padding-right: 3px;
+        padding-bottom: 30px;
+    }
+    /*  My Profile Page*/
+    #bd_profile #bd_profile-row-inner .col-md-10 .form-control,
+    #administrator #administrator-row-inner .col-md-10 .form-control,
+    #profile .profile-row #profile-row-inner .col-md-10 .form-control {
+        margin-left: 33px;
+    }
+    div.btn-mdb-color {
+        margin-left: 130px;
+    }
+    /*css particular to this iframe*/
+    #Iframe-Cicis-Menu-To-Go {
+        max-width: 500px;
+        max-height: 600px;
+    }
+    .responsive-wrapper-padding-bottom-90pct {
+        height: 250px;
+    }
+    #note-preview .note-preview-row #customer {
+        width: 450px;
+        height: 310px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    #notes-details .notes-details-row img {
+        height: 120px;
+        width: 100px;
+        margin-bottom: 50px;
+        margin-right: 20px;
+    }
+    #notes-details .notes-details-row .notes-details-row-inner p,
+    #notes-details .notes-details-row p{
+        font-size: 5px;
+    }
+    #notes-details .notes-details-row h2,
+    #notes-details .notes-details-row h4 {
+        font-size: 12px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-star img,
+    #notes-details .notes-details-row .img-notes-preview-star img {
+        width: 10px;
+        height: 10px;
+    }
+    #notes-details .notes-details-row .btn-Blue {
+        margin-left: 0;
+        width: 80px;
+        padding: 6px;
+        font-size: 8px;
+    }
+    #note-detail .modal-content {
+        height: 350px;
+        width: 470px;
+        margin-top: 150px;
+    }
+    #note-detail .modal-body img {
+        height: 20px;
+        width: 20px;
+        margin-left: 200px;
+        margin-bottom: 0;
+    }
+    #note-detail .modal-body h1 {
+        font-size: 15px;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+    #note-detail .modal-body h3,
+    #note-detail .modal-body p  {
+        font-size: 10px;
+    }
+    #note-preview .note-preview-row .pagination {
+        margin-left: 150px;
+    }
+    /*Dashboard*/
+    #publish-note .publish-note-row .btn-Blue {
+        margin-top: 0;
+        font-size: 16px;
+        border: transparent;
+        text-transform: uppercase;
+        margin-left: 5px;
+    }
+    #publish-note .publish-note-row form select {
+        width: 60px;
+        margin-left: 0;
+    }
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 35px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    
+}
+
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media (max-width: 320px) {
+
+    
+    /*=========== My Rejected Notes Page ===========*/ 
+    /* Navigation */
+    a#user-header.navbar-brand {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    div#navbarSupportedContent.collapse.navbar-collapse {
+        width: 100px;
+    }
+    .white-nav-top ul.navbar-nav {
+        padding-left: 3px;
+        margin-top: 10px;
+    }
+    .white-nav-top ul.navbar-nav > li > a {
+        padding-left: 2px;
+        font-size: 10px;
+    }
+    .white-nav-top ul.navbar-nav button {
+        width: 50px;
+        margin: 0;
+        padding: 6px;
+        font-size: 8px;
+    }
+    .user-img img {
+        width: 20px;
+        height: 20px;
+    }
+    /* Logo */
+    #user-header img {
+        width: 150px;
+        margin: 0;
+        margin-right: 0;
+    }
+    /*Home Page*/
+    #home-content-inner {
+        padding-top: 205px;
+        left: 20px;
+    }
+    #home-heading h1 {
+        font-size: 15px;
+    }
+    #home-para p{
+        font-size: 8px;
+    }
+    #about-right {
+        font-size: 8px;
+    }
+    .work-img {
+        margin-left: 60px;
+    }
+    .work-download h2 {
+        font-size: 20px;
+    }
+    .work-download h4 {
+        font-size: 14px;
+    }
+    .work-download .sell {
+        margin-top: 28px;
+    }
+    .work-download .btn-sell {
+        margin-top: 20px;
+    }
+    .testimonials-details {
+        width: 260px;
+    }
+    .testimonials-details h2 {
+        font-size: 14px;
+        padding: 40px 0 5px 80px;
+    }
+    .testimonials-details h4 {
+        font-size: 12px;
+        padding-left: 80px;
+    }
+    .testimonials-details p { 
+        font-size: 8px;
+    }
+    /*Forget Password*/
+    #forgot-details form {
+        width: 200px;
+        height: 350px;
+    }
+    #forgot input[type="email"],
+    #forgot .btn-rich-blue {
+        width: 100%;
+    }
+    #forgot img {
+        width: 150px;
+    }
+    /*Change password*/
+    #change form {
+        width: 260px;
+        height: 450px;
+    }
+    #change input[type="password"],
+    #change input[type="text"],
+    #change .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #change img {
+        width: 150px;
+    }
+    /*Login*/
+    #login form {
+        width: 260px;
+        height: 500px;
+    }
+    #login input[type="email"],
+    #login input[type="password"],
+    #login input[type="text"],
+    #login .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #login img {
+        width: 150px;
+    }
+    #login .form-group a {
+        margin-left: 50px;
+        font-size: 12px;
+    }
+    /*Sign*/
+    #sign form {
+        width: 260px;
+        height: 700px;
+    }
+    #sign input[type="text"],
+    #sign input[type="email"],
+    #sign input[type="password"],
+    #sign .btn-rich-blue {
+        width: 100%;
+        margin-left: 5px;
+    }
+    #sign img {
+        width: 150px;
+    }
+    #sign .form-group a {
+        margin-left: 50px;
+        font-size: 12px;
+    }
+    #change .field-icon,
+    #login .field-icon,
+    #sign .field-icon {
+        float: right;
+        margin-left: 210px;
+        margin-top: -33px;
+        z-index: 3;
+    }
+    #change .field-icon img,
+    #login .field-icon img,
+    #sign .field-icon img {
+        width: 10px;
+        height: 10px;
+    }
+    #login .btn-general-one p,
+    #sign .btn-general-one p {
+        margin-left: 20px;
+    }
+    #login .form-group label,
+    #sign .form-group label,
+    #forgot .form-group label,
+    #change .form-group label {
+        font-size: 12px;
+    }
+    #login .horizontal-heading h2,
+    #sign .horizontal-heading h2,
+    #forgot .horizontal-heading h2,
+    #change .horizontal-heading h2 {
+        font-size: 18px;
+    }
+    /* Heading */
+    #about .horizontal-heading h2,
+    #work .horizontal-heading h2,
+    #testimonials .horizontal-heading h2,
+    #manage-administrator .manage-administrator-row .horizontal-heading h2,
+    #manage-category .manage-category-row .horizontal-heading h2,
+    #manage-type .manage-type-row .horizontal-heading h2,
+    #manage-country .manage-country-row .horizontal-heading h2, 
+    #my-sold-notes .my-sold-notes-row .horizontal-heading h2,
+    #my-rejected-notes .my-rejected-notes-row .horizontal-heading h2,
+    #my-downloads .my-downloads-row .horizontal-heading h2,
+    #buyer-requests .buyer-requests-row .horizontal-heading h2,
+    #members .members-row .horizontal-heading h2,
+    #spam-reports .spam-reports-row .horizontal-heading h2,
+    #top-notes .top-notes-row .horizontal-heading h2,
+    #member-notes .member-notes-row .horizontal-heading h2,
+    #rejected-notes .rejected-notes-row .horizontal-heading h2,
+    #downloaded-notes .downloaded-notes-row .horizontal-heading h2,
+    #published-notes .published-notes-row .horizontal-heading h2,
+    #notes-under-review .notes-under-review-row .horizontal-heading h2,
+    #note-preview .note-preview-row .horizontal-heading h2,
+    #in-progress-notes .in-progress-notes-row .horizontal-heading h2,
+    #publish-note .publish-note-row .horizontal-heading h2,
+    #dashboard-notes .dashboard-notes-row .horizontal-heading h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    /* Pagination */
+    #manage-administrator .manage-administrator-row .pagination,
+    #manage-category .manage-category-row .pagination,
+    #manage-type .manage-type-row .pagination,
+    #manage-country .manage-country-row .pagination,
+    #my-sold-notes .my-sold-notes-row .pagination,
+    #my-rejected-notes .my-rejected-notes-row .pagination,
+    #my-downloads .my-downloads-row .pagination,
+    #buyer-requests .buyer-requests-row .pagination,
+    #members .members-row .pagination,
+    #spam-reports .spam-reports-row .pagination,
+    #top-notes .top-notes-row .pagination,
+    #member-notes .member-notes-row .pagination,
+    #rejected-notes .rejected-notes-row .pagination,
+    #downloaded-notes .downloaded-notes-row .pagination,
+    #published-notes .published-notes-row .pagination,
+    #notes-under-review .notes-under-review-row .pagination,
+    #note-preview .note-preview-row .pagination,
+    #in-progress-notes .in-progress-notes-row .pagination,
+    #publish-note .publish-note-row .pagination,
+    #search-pagination .pagination {
+        margin-left: 50px;
+    }
+    /* Button */
+    #manage-administrator .manage-administrator-row .btn-Blue,
+    #manage-category .manage-category-row .btn-Blue,
+    #manage-type .manage-type-row .btn-Blue,
+    #manage-country .manage-country-row .btn-Blue,
+    #my-sold-notes .my-sold-notes-row .btn-Blue,
+    #my-rejected-notes .my-rejected-notes-row .btn-Blue,
+    #my-downloads .my-downloads-row .btn-Blue,
+    #buyer-requests .buyer-requests-row .btn-Blue,
+    #members .members-row .btn-Blue,
+    #spam-reports .spam-reports-row .btn-Blue,
+    .published-notes .published-notes-row .btn-Blue,
+    #in-progress-notes .in-progress-notes-row .btn-Blue {
+        margin-left: 0;
+        width: 50px;
+        padding: 6px;
+        font-size: 10px;
+    }
+    #manage-administrator .manage-administrator-row .btn-rich-blue,
+    #manage-category .manage-category-row .btn-rich-blue,
+    #manage-type .manage-type-row .btn-rich-blue,
+    #manage-country .manage-country-row .btn-rich-blue {
+        width: 50px;
+        font-size: 8px;
+        padding: 0;
+    }
+    /* Search Box */
+    #manage-administrator .manage-administrator-row .form-group input[type="text"],
+    #manage-category .manage-category-row .form-group input[type="text"],
+    #manage-type .manage-type-row .form-group input[type="text"],
+    #manage-country .manage-country-row .form-group input[type="text"],
+    #my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+    #my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+    #my-downloads .my-downloads-row .form-group input[type="text"],
+    #buyer-requests .buyer-requests-row .form-group input[type="text"],
+    #members .members-row .form-group input[type="text"],
+    #spam-reports .spam-reports-row .form-group input[type="text"],
+    #published-notes .published-notes-row .form-group input[type="text"],
+    #in-progress-notes .in-progress-notes-row .form-group input[type="text"],
+    #rejected-notes .rejected-notes-row .form-group input[type="text"],
+    #downloaded-notes .downloaded-notes-row .form-group input[type="text"],
+    #notes-under-review .notes-under-review-row .form-group input[type="text"],
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 30px;
+        width: 60px;
+        margin-left: 5px;
+        padding-right: 10px;
+    }
+
+    /* footer */
+    footer .footer-left p {
+        padding: 5px;
+        font-size: 5px;
+    }
+    ul.social-list li a {
+        width: 19px;
+        height: 19px;
+    }
+
+    ul.social-list li a img {
+        padding-top: 0;
+        padding-right: 3px;
+        padding-bottom: 30px;
+    }
+    /*  My Profile Page*/
+    #bd_profile #bd_profile-row-inner .col-md-10 .form-control,
+    #administrator #administrator-row-inner .col-md-10 .form-control,
+    #profile .profile-row #profile-row-inner .col-md-10 .form-control {
+        margin-left: 50px;
+    }
+    div.btn-mdb-color {
+        margin-left: 180px;
+    }
+    /*css particular to this iframe*/
+    #Iframe-Cicis-Menu-To-Go {
+        max-width: 500px;
+        max-height: 600px;
+    }
+    .responsive-wrapper-padding-bottom-90pct {
+        height: 230px;
+    }
+    #note-preview .note-preview-row #customer {
+        width: 550px;
+        height: 300px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    #notes-details .notes-details-row img {
+        height: 80px;
+        width: 80px;
+        margin-bottom: 50px;
+        margin-right: 20px;
+    }
+    #notes-details .notes-details-row .notes-details-row-inner p {
+        font-size: 5px;
+    }
+    #notes-details .notes-details-row h2,
+    #notes-details .notes-details-row h4 {
+        font-size: 8px;
+    }
+    #note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-star img,
+    #notes-details .notes-details-row .img-notes-preview-star img {
+        width: 10px;
+        height: 10px;
+    }
+    #notes-details .notes-details-row .btn-Blue {
+        margin-left: 0;
+        width: 80px;
+        padding: 6px;
+        font-size: 8px;
+    }
+    #note-detail .modal-content {
+        height: 350px;
+        width: 470px;
+        margin-top: 150px;
+    }
+    #note-detail .modal-body img {
+        height: 20px;
+        width: 20px;
+        margin-left: 200px;
+        margin-bottom: 0;
+    }
+    #note-detail .modal-body h1 {
+        font-size: 10px;
+        padding-top: 5px;
+        margin-top: 0;
+    }
+    #note-detail .modal-body h3,
+     #note-detail .modal-body p  {
+        font-size: 8px;
+    }
+    /*Dashboard*/
+    #publish-note .publish-note-row .btn-Blue {
+        margin-top: 0;
+        font-size: 8px;
+        border: transparent;
+        text-transform: uppercase;
+        margin-left: -10px;
+        width: 45px;
+        padding-left: 8px;
+    }
+    #publish-note .publish-note-row form select {
+        width: 40px;
+        height: 25px;
+        margin-left: -20px;
+    }
+    #publish-note .publish-note-row .form-group input[type="text"] {
+        height: 25px;
+        width: 30px;
+        margin-left: -10px;
+    }
+
+}
+
+
