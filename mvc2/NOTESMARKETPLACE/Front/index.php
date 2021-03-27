@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+
+    <!--Title-->
+    <title>NOTES MARKETPLACE</title>
+    
+    <!--Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Homepage/favicon.ico">
+    
+    <!--Fontawesome -->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
+
+    <!-- Preloader-->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header"> 
+        <nav class="navbar navbar-light navbar-expand-lg fixed-top">
+            <div class="container">
+                <a id="user-header" class="navbar-brand" href="#">
+                    <img src="images/Homepage/logo.png" alt="Logo" class="img-fluid">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Mobile Menu Close Button -->
+                <span id="mobile-nav-close-btn">&times;</span>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Search_Notes.php"><span>Search</span><span class="space">Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Dashboard.php">Sell<span> Your</span><span class="space">Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.php">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact_Us.php"><span>Contact</span><span class="space">Us</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <a href="Login.php"><button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
+                            </form>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header ENDS -->
+    
+    <!-- HOME -->
+    <section id="home">
+       
+        <!-- Home Content -->
+        <div id="home-content">
+            <div id="home-content-inner">
+
+                <div id="home-heading">
+                    <h1>Download Free/Paid Notes<br>or Sale your book</h1>
+                </div>
+
+                <div id="home-para">
+                    <p>Lorem Ipsum has been industry's standard dummy Text ever since the<br>1500s when an unkowns printer took a gallery of type.</p>
+                </div>
+
+                <div id="home-btn">
+                    <a href="FAQ.php" class="btn btn-general" title="Learn More" role="button">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- HOME ENDS -->
+    
+    <!-- About -->
+    <section id="about">
+       
+       <div class="content-box-md">
+          
+          <div class="container">
+             
+             <div class="row">
+                
+                <div class="col-md-5 col-sm-5 col-12">
+                   
+                    <div class="horizontal-heading">
+                        <h2>About <br> NotesMarketPlace</h2>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-7 col-sm-7 col-12">
+                   
+                    <div id="about-right">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12" id="about-right-01">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ipsam possimus, consectetur dolor est perferendis officiis optio deleniti! Voluptate, dicta quos voluptas libero consequatur et voluptatibus fuga quisquam tempore pariatur?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda ipsam possimus, consectetur dolor est perferendis officiis optio deleniti! Voluptate, dicta quos voluptas libero consequatur et voluptatibus fuga quisquam tempore pariatur.</p>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+                 
+             </div>
+              
+          </div>
+           
+       </div>
+        
+    </section>
+    <!-- About ENDS -->
+    
+    <!-- WORK -->
+    <section id="work">
+       
+       <div class="content-box-sm">
+          
+          <div class="container">
+             
+                <div class="row">
+                
+                    <div class="col-md-12 col-sm-12 col-12 text-center">
+                   
+                        <div class="horizontal-heading">
+                            <h2>How it Works</h2>
+                        </div>   
+                    
+                    </div>
+                 
+                </div>
+                
+                <div class="row text-center">
+                
+                    <div class="col-md-6 col-sm-6 col-12">
+                   
+                        <div class="work-download">
+                            <div class="work-img rounded-circle">
+                            <img src="images/Homepage/download.png" alt="Download" class="work-img-inner">
+                            </div>
+                            <h2>Download Free/Paid Notes</h2>
+                            <h4>Get Material for your<br>Cource etc.</h4>
+                            <div id="work-btn">
+                                <a href="Search_Notes.php" class="btn btn-general btn-Blue" title="Download" role="button">Download</a>
+                            </div>
+                        </div>   
+                    
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-12">
+                   
+                        <div class="work-download">
+                            <div class="work-img rounded-circle">
+                            <img src="images/Homepage/seller.png" alt="Seller" class="work-img-inner">
+                            </div>
+                            <h2>Seller</h2>
+                            <h4 class="sell">Upload and Download Cource<br>and Materials etc.</h4>
+                            <div id="work-btn">
+                                <a href="Dashboard.php" class="btn btn-general btn-Blue btn-sell" title="Sell Book" role="button">Sell Book</a>
+                            </div>
+                        </div>   
+                    
+                    </div>
+                        
+                </div>
+              
+          </div>
+           
+       </div>
+        
+    </section>
+    <!-- WORK ENDS -->
+      
+    <!-- Testimonials -->
+    <section id="testimonials">
+       
+       <div class="content-box-sm">
+          
+          <div class="container">
+             
+             <div class="row">
+                
+                <div class="col-md-12 col-sm-12 col-12 text-center">
+                   
+                        <div class="horizontal-heading">
+                            <h2>What our Customers are Saying</h2>
+                        </div>   
+                    
+                </div>
+                 
+             </div>
+             
+             <div class="row">
+                
+                <div class="col-md-6 col-sm-12 col-12">
+                    <div class="testimonials-details">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-3">
+                                <img src="images/Homepage/customer-1.png" alt="Testimonials 01" class="img-circle">
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-9">
+                                <h2>Walter Meller</h2>
+                                <h4>Founder & CEO, Matrix Group</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias totam option corporis, deserunt quia corrupt consequuntur a laudantium soluta. Error itaque eligendi quidem ratione. Soluta, est."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-sm-12 col-12">
+                    <div class="testimonials-details">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-3">
+                                <img src="images/Homepage/customer-2.png" alt="Testimonials 01" class="img-circle">
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-9">
+                                <h2>Jonnie Riley</h2>
+                                <h4>Emplyoee, Curious Snakcs</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias totam option corporis, deserunt quia corrupt consequuntur a laudantium soluta. Error itaque eligendi quidem ratione. Soluta, est."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+             </div>
+             
+             <div class="row">
+                
+                <div class="col-md-6 col-sm-12 col-12">
+                    <div class="testimonials-details">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-3">
+                                <img src="images/Homepage/customer-3.png" alt="Testimonials 01" class="img-circle">
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-9">
+                                <h2>Amilia Luna</h2>
+                                <h4>Teacher, Saint Joseph High School</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias totam option corporis, deserunt quia corrupt consequuntur a laudantium soluta. Error itaque eligendi quidem ratione. Soluta, est."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-sm-12 col-12">
+                    <div class="testimonials-details">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-3">
+                                <img src="images/Homepage/customer-4.png" alt="Testimonials 01" class="img-circle">
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-9">
+                                <h2>Daniel Cardos</h2>
+                                <h4>Software Engineer, Infinitum Company</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-12">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias totam option corporis, deserunt quia corrupt consequuntur a laudantium soluta. Error itaque eligendi quidem ratione. Soluta, est."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+             </div>
+              
+          </div>
+           
+       </div>
+        
+    </section>
+    <!-- Testimonials ENDS -->        
+        
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6 col-sm-6 col-6 text-left footer-left">
+
+                    <p>Copyright &copy; Tatvasoft All rights reserved</p>
+
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-6 text-right footer-right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="#">
+                                <img src="images/Homepage/facebook.png" alt="LinkedIn" class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/Homepage/twitter.png" alt="LinkedIn" class="img-responsive">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/Homepage/linkedin.png" alt="LinkedIn" class="img-responsive">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- Footer ENDS -->
+    
+        
+    <!-- JQuery-->
+    <script src="js/jquery-min.js"></script>
+    
+    <!--Bootstrap JS-->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!--Custom JS-->
+    <script src="js/Script.js"></script>
+
+    
+</body>
+
+</html>
