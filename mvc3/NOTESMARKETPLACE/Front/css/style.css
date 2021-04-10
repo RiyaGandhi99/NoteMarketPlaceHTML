@@ -1,0 +1,1996 @@
+﻿/*==================================
+  Default Theme
+  ----------------------------------
+  Font: Open Sans
+  ----------------------------------
+  Colors:
+        Rich Blue:          #6255a5
+        black:              #000
+        white:              #fff 
+        light grey:         #d1d1d1
+====================================*/
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Open Sans", sans-serif;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 24px;
+}
+
+/*==================================HOME PAGE====================================*/
+/*===============================
+             Preloader
+================================= */
+#preloader {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+#status {
+    background-image: url("../images/preloader/preloader.gif");
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    margin-left: -30px;
+    margin-top: -30px;
+}
+
+
+/*==================================
+             HOME
+====================================*/
+#home {
+    z-index: -1;
+    background-size: cover;
+    background-image: url("../images/Homepage/banner-with-overlay.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+#home-content {
+    width: 1000px;
+}
+
+#home-content-inner {
+    padding-top: 205px;
+    left: 160px;
+    position: relative;
+}
+
+#home-heading h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 54px;
+    color: #fff;
+}
+
+#home-para {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+}
+
+#home-btn a {
+    border: 1px solid #fff;
+    color: #fff;
+    width: 122px;
+    height: 35px;
+    border-radius: 3px;
+    -webkit-text-decoration-color: #fff;
+    text-decoration-color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-style: bold;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+/*===============================
+             ABOUT
+================================= */
+#about-right {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #333333;
+}
+
+#about-right-01 {
+    padding-bottom: 30px;
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+/*===============================
+             WORK
+================================= */
+#work {
+    background-color: #f4f4f4;
+}
+
+.work-img {
+    width: 150px;
+    height: 150px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    padding-bottom: 30px;
+    margin-left: 195px;
+    margin-bottom: 10px;
+}
+
+.work-img-inner {
+    margin-top: 50px;
+}
+
+.work-download h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #6255a5;
+    padding-bottom: 10px;
+}
+
+.work-download h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 4000;
+    line-height: 22px;
+    color: #333333;
+    padding-bottom: 20px;
+}
+
+#work-btn a {
+    border: 1px solid #fff;
+    color: #fff;
+    width: 142px;
+    height: 40px;
+    border-radius: 3px;
+    -webkit-text-decoration-color: #fff;
+    text-decoration-color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-style: bold;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+/*===============================
+             Testimonials
+================================= */
+.testimonials-details {
+    width: 550px;
+    height: 300px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    margin-top: 30px;
+}
+
+.testimonials-details img {
+    width: 100px;
+    height: 100px;
+    margin: 40px 20px 30px 40px;
+}
+
+.testimonials-details h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #6255a5;
+    padding: 40px 0 5px 20px;
+}
+
+.testimonials-details h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    padding-left: 20px;
+}
+
+.testimonials-details p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #333333;
+    padding-top: 0;
+    padding-left: 38px;
+}
+
+/*===============================
+             BUTTONS
+================================= */
+.btn-general {
+    text-transform: uppercase;
+    margin: 10px 0;
+    text-align: center;
+    -webkit-transition: all 5s;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+}
+
+.btn-Blue {
+    background-color: #6255a5;
+    color: #fff;
+    width: 80px;
+    border: transparent;
+}
+
+.btn-rich-blue {
+    border: transparent;
+    background-color: #6255a5;
+    width: 350px;
+    height: 40px;
+    border-radius: 3px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 22px;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+/*===============================
+             CONTENT BOXS
+================================= */
+.content-box-lg {
+    padding: 170px 0 70px 0;
+}
+.content-box-md {
+    padding: 100px 0 60px 0;
+}
+
+.content-box-sm {
+    padding: 30px 0 60px 0;
+}
+
+.content-box-xs {
+    padding: 60px 0 20px 0;
+}
+
+.content-box-notes {
+    padding: 80px 0 20px 0;
+}
+
+.content-box-login {
+    padding: 150px 0;
+}
+
+.content-box-sign {
+    padding: 180px 10px 10px 10px;  
+}
+
+.content-box-change {
+    padding: 100px 10px 10px 10px;
+}
+
+/*===============================
+            Horizontal Heading
+================================= */
+.horizontal-heading {
+    font-family: "Open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 38px;
+    color: #6255a5;
+    font-style: bold;
+}
+
+/*===============================
+             Footer
+================================= */
+footer {
+    border-top: 1px solid #f4f4f4;
+    margin-top: 40px;
+}
+
+footer .footer-left {
+    padding: 35px 35px 35px 18px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #333333;
+}
+
+ul.social-list {
+    padding: 0;
+    margin-top: 35px;
+}
+
+ul.social-list li {
+    display: inline-block;
+    padding: 0;
+}
+
+ul.social-list li a {
+    background-color: #6255a5;
+    border: 1px solid #6255a5;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    line-height: 35px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+ul.social-list li a img {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+
+/*===============================
+            Navigation
+=================================*/ 
+.navbar {
+    padding: 35px 0 20px 0;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.navbar-brand {
+    padding: 13px 15px;
+}
+
+ul.navbar-nav {
+    padding-left: 150px;
+}
+
+ul.navbar-nav > li > a {
+    font-family: "Open Sans", sans-serif;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+ul.navbar-nav > li > a.login-header {
+    background-color: #fff;
+    color: #6255a5;
+}
+
+ul.navbar-nav > li > a:hover,
+ul.navbar-nav > li > a:focus {
+    background-color: #fff !important;
+    color: #6255a5 !important;
+}
+
+/* White Navigation */
+.white-nav-top {
+    background: #fff;
+    padding: 10px 0;
+    -webkit-box-shadow: 0 8px 6px -9px #999;
+    box-shadow: 0 8px 6px -9px #999;
+    z-index: 2;
+}
+
+.white-nav-top ul.navbar-nav {
+    padding-left: 150px;
+}
+
+.white-nav-top ul.navbar-nav > li > a {
+    background-color: #fff;
+    color: #6255a5;
+}
+
+.white-nav-top ul.navbar-nav > li > a .space {
+    margin-left: 5px;
+}
+
+.white-nav-top ul.navbar-nav form {
+    margin-left: 10px;
+}
+
+.white-nav-top ul.navbar-nav > li > a {
+    color: #212226 !important;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.white-nav-top ul.navbar-nav > li > a:hover,
+.white-nav-top ul.navbar-nav > li > a:focus {
+    color: #fff !important;
+    background-color: #6255a5 !important;
+
+}
+
+/* Scroll Spy Active State*/
+.white-nav-top ul.navbar-nav > li.active > a.nav-link {
+    color: #6255a5;
+    font-weight: 600;
+    border-bottom: 3px solid #6255a5;
+}
+
+#user-header img {
+    width: 250px;
+}
+
+.user-img img {
+    width: 30px;
+    height: 30px;
+}
+
+/*==================================LOGIN PAGE====================================*/
+#login-body {
+    background-image: url("../images/pre-login/banner-with-overlay.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#login {
+    width: 100%;
+    height: 100%;
+}
+
+#login-details form {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    width: 415px;
+    height: 450px;
+}
+
+#login .logo {
+    margin-top: 150px;
+}
+
+#login form h2,
+#sign form h2,
+#forgot form h2,
+#change form h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+    padding-bottom: 6px;
+    padding-top: 10px;
+}
+
+#login form p,
+#sign form p,
+#forgot form p,
+#change form p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #333333;
+    padding-bottom: 25px;
+}
+
+#login .form-group label,
+#sign .form-group label,
+#forgot .form-group label,
+#change .form-group label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+}
+
+#login .form-group label,
+#login input[type="email"],
+#login input[type="password"],
+#login input[type="text"],
+#change .form-group label,
+#change input[type="password"],
+#change input[type="text"],
+#sign .form-group label,
+#sign input[type="email"],
+#sign input[type="password"],
+#sign input[type="text"] {
+    margin-left: 20px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    border: 1px solid #6255a5;
+    width: 350px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+#login input[type="password"] {
+    border-left: 5px solid #6255a5;
+    border-color: #6255a5;
+}
+
+#login .form-group a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #6255a5;
+    margin-left: 150px;
+}
+
+.form-check {
+    height: 40px;
+}
+
+.form-check #Checkbox {
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+}
+
+.form-check-label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 10px;
+    color: #333333;
+    text-align: center;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.btn-info {
+    margin-top: 5px;
+}
+
+#login button,
+#change button,
+#sign button {
+    margin-left: 20px;
+}
+
+#login .btn-general-one p,
+#sign .btn-general-one p {
+    margin-left: 100px;
+}
+
+.field-icon {
+    float: right;
+    margin-right: 30px;
+    margin-top: -33px;
+    position: relative;
+    z-index: 2;
+    width: 30px;
+    height: 20px;
+}
+
+#login #login-msg {
+    color: #ff0000;
+    font-family: "Open Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-left: 20px;
+}
+
+/*==================================SIGN UP PAGE====================================*/
+#sign-body {
+    background-image: url("../images/pre-login/banner-with-overlay.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#sign {
+    width: 100%;
+    height: 100%;
+}
+
+#sign-details form {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    width: 415px;
+    height: 645px;
+    margin-top: 30px;
+}
+
+#sign form p {
+    padding-bottom: 10px;
+}
+
+#sign .logo {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#sign .form-group .form-control {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #6255a5;
+}
+
+#sign #sign-msg {
+    color: #55a630;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-left: 20px;
+}
+
+/*==============================FORGOT PASSWORD PAGE=================================*/
+#forgot {
+    background-image: url("../images/pre-login/banner-with-overlay.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+#forgot-details form {
+    background-color: #fff;
+    width: 415px;
+    height: 300px;
+    margin: 25px auto;
+}
+
+#forgot-details .logo {
+    margin-top: 200px;
+    margin-bottom: 20px;
+}
+
+
+/*==============================CHANGE PASSWORD PAGE=================================*/
+#change {
+    background-image: url("../images/pre-login/banner-with-overlay.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100% !important;
+    background-size: cover;
+}
+
+#change-details form {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    width: 415px;
+    height: 440px;
+    margin: 25px auto;
+}
+
+#change .logo {
+    margin-top: 120px;
+    margin-bottom: 20px;
+}
+
+#sign .P1,
+#change .P1,
+#login #P1 {
+    float: right;
+    margin-left: 335px;
+    margin-top: -33px;
+}
+
+/*===============================BUTTON HOVER EFFECT=============================*/
+#login .btn-rich-blue:hover,
+#login .btn-rich-blue:focus,
+#sign .btn-rich-blue:hover,
+#sign .btn-rich-blue:focus,
+#forgot .btn-rich-blue:hover,
+#forgot .btn-rich-blue:focus,
+#change .btn-rich-blue:hover,
+#change .btn-rich-blue:focus,
+#my-sold-notes .my-sold-notes-row .btn-Blue:hover,
+#my-sold-notes .my-sold-notes-row .btn-Blue:focus,
+#my-rejected-notes .my-rejected-notes-row .btn-Blue:hover,
+#my-rejected-notes .my-rejected-notes .btn-Blue:focus,
+#my-downloads .my-downloads-row .btn-Blue:hover,
+#my-downloads .my-downloads-row .btn-Blue:focus,
+#buyer-requests .buyer-requests-row .btn-Blue:hover,
+#buyer-requests .buyer-requests-row .btn-Blue:focus,
+#published-notes .published-notes-row .btn-Blue:hover,
+#published-notes .published-notes-row .btn-Blue:focus,
+#notes-details .notes-details-row .btn-Blue:hover,
+#notes-details .notes-details-row .btn-Blue:focus,
+#in-progress-notes .in-progress-notes-row .btn-Blue:hover,
+#in-progress-notes .in-progress-notes-row .btn-Blue:focus,
+#dashboard-notes .dashboard-notes-row .btn-Blue:hover,
+#dashboard-notes .dashboard-notes-row .btn-Blue:focus,
+.white-nav-top ul.navbar-nav .btn-Blue:hover,
+.white-nav-top ul.navbar-nav .btn-Blue:focus,
+ul.navbar-nav .btn-Blue:hover,
+ul.navbar-nav .btn-Blue:focus {
+    background-color: #6255a5;
+    border: transparent;
+}
+
+
+
+/*==================================USER PROFILE PAGE====================================*/
+#bg-image-user-profile {
+    background-image: url('../images/User-Profile/banner-with-overlay.jpg');
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#bg-image-user-profile #title {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+#user-profile-form {
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#user-profile-form #bd-form {
+    margin-top: 20px;
+}
+
+#user-profile-form #ad-form {
+    margin-top: 20px;
+}
+
+#user-profile-form #address-details {
+    margin-top: 30px;
+}
+
+#user-profile-form #university-details {
+    margin-top: 30px;
+}
+
+#user-profile-form #ud-form {
+    margin-top: 20px;
+}
+
+#user-profile-form .heading h2 {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+    margin-bottom: 0;
+}
+
+#user-profile-form input[type="text"] {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 480px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+#user-profile-form select#gender {
+    width: 480px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+#user-profile-form input[type="email"] {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 480px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+#user-profile-form .shift-right {
+    float: right;
+    margin-left: -50px;
+    margin-top: -40px;
+    margin-right: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+#user-profile-form .shift-right-r {
+    float: right;
+    margin-left: -50px;
+    margin-top: -40px;
+    margin-right: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+#user-profile-form #shift-right-co {
+    float: right;
+    margin-left: -50px;
+    margin-top: -40px;
+    margin-right: -30px;
+    position: relative;
+    z-index: 2;
+}
+
+#user-profile-form #countrycode {
+    width: 100%;
+}
+
+#user-profile-form #phoneno {
+    width: 100%;
+}
+
+#user-profile-form #phone-no {
+    margin-left: -23px;
+}
+
+#user-profile-form .add-border {
+    border: 1px solid #d1d1d1;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    width: 480px;
+}
+
+#user-profile-form label img,
+#user-profile-form label p {
+    cursor: pointer;
+}
+
+#user-profile-form #shift-center {
+    position: relative;
+    z-index: 2;
+    margin-top: -83px;
+    margin-right: 305px;
+    float: right;
+}
+
+#user-profile-form #dp {
+    height: 100px;
+    padding-left: 145px;
+    padding-top: 58px;
+}
+
+#user-profile-form .btn-Blue {
+    margin-top: 20px;
+    padding: 5px 20px;
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: "open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+#user-profile-form #bd-form .row .col-md-6:nth-child(even),
+#user-profile-form #ad-form .row .col-md-6:nth-child(even),
+#user-profile-form #ud-form .row .col-md-6:nth-child(even) {
+    padding-left: 74px;
+}
+
+#user-profile-form .custom-select {
+    display: block;
+    height: 50px;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    font-family: 'open sans', sans-serif;
+    background: url('../../images/down-arrow.png')no-repeat right .75rem center/8px 10px;
+    background-size: 20px 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+/*==================================ADD NOTES PAGE====================================*/
+#bg-image-add-notes {
+    background-image: url('../images/Add-Notes/banner-with-overlay.jpg');
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#bg-image-add-notes #title {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+#add-notes,
+.institute-information-form,
+#selling-information {
+    margin-top: 60px;
+}
+
+#add-notes .heading {
+    margin-bottom: 40px;
+}
+
+#add-notes .heading h2 {
+    font-family: "open sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+#add-notes input[type="text"] {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+}
+
+#add-notes input[type="radio"] {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #d1d1d1;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+#add-notes label {
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+#add-notes select {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    height: 50px !important;
+    border-radius: 3px;
+}
+
+#notes-title,
+#category,
+#dp,
+#upload_notes,
+.selling-information,
+#country,
+#note-type {
+    margin-bottom: 30px;
+}
+
+#add-notes #shift-center {
+    position: relative;
+    z-index: 2;
+    margin-top: -110px;
+    margin-right: 270px;
+    float: right;
+}
+
+#add-notes #dp,
+#add-notes #upload_notes {
+    height: 100px;
+    padding-left: 179px;
+    padding-top: 58px;
+}
+
+#add-notes #upload_notes {
+    height: 100px;
+    padding-left: 190px;
+    padding-top: 58px;
+}
+
+#add-notes #upload_file {
+    height: 90%;
+    padding-left: 190px;
+    padding-top: 58px;
+}
+
+#add-notes textarea {
+    height: 153px !important;
+    width: 100%;
+}
+
+#add-notes #sell {
+    margin-bottom: 10px;
+}
+
+#add-notes .btn-Blue {
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    font-family: "Open sans", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    margin-right: 25px;
+    color: #fff;
+}
+
+#add-notes label#free-lbl,
+#add-notes label#paid-lbl {
+    position: relative;
+    top: -10px;
+    margin-right: 15px;
+}
+
+#add-notes .custom-select {
+    display: block;
+    height: 50px;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    font-family: 'open sans', sans-serif;
+    background: url('../images/Add-Notes/down-arrow.png')no-repeat right .75rem center/8px 10px;
+    background-size: 20px 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#add-notes .add-border {
+    border: 1px solid #d1d1d1;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#add-notes label img,
+#add-notes label p {
+    cursor: pointer;
+}
+
+
+/*==================================CONTACT US PAGE====================================*/
+#bg-image-contact-us {
+    background-size: cover !important;
+    background-image: url('../images/Contact-Us/banner-with-overlay.jpg');
+    height: 190px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#bg-image-contact-us #title {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+#contact-us {
+    margin-top: 60px;
+}
+
+#contact-us #heading h2 {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+#contact-us #heading p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+}
+
+#contact-form {
+    margin-top: 50px;
+}
+
+#contact-us input[type="text"] {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+#contact-us input[type="email"] {
+    font-family: "open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+#contact-us textarea {
+    border: 1px solid #d1d1d1;
+    width: 100%;
+    height: 280px;
+    border-radius: 3px;
+}
+
+#contact-us .btn-Blue {
+    margin-top: 20px;
+    padding: 5px 20px;
+    background-color: #6255a5;
+    width: 150px;
+    height: 50px;    
+    border-radius: 3px;
+    color:#fff;
+    font-family: "open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+/*===================================FAQ PAGE======================================*/
+#bg-image-faq {
+    background-image: url('../images/FAQ/banner-with-overlay.jpg');
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-image-faq #title {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+#general-question,
+#upload-question,
+#download-question {
+    margin-top: 60px;
+}
+
+#general-question .heading h2,
+#upload-question .heading h2,
+#download-question .heading h2 {
+    font-family: "open sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #6255a5;
+    margin-bottom: 30px;
+}
+
+#general-question .questions,
+#upload-question .questions,
+#download-question .questions {
+    margin-top: 15px;
+}
+
+#general-question .card-header h2,
+#upload-question .card-header h2,
+#download-question .card-header h2 {
+    font-family: "open sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #333333;
+}
+
+#general-question .card-body,
+#upload-question .card-body,
+#download-question .card-body {
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #333333;
+    padding: 0 20px;
+    padding-bottom: 15px;
+}
+
+/*================MY SOLD/REJECTED/DOWNLOAD/BUYER REQUEST/DASHBOARD PAGE============*/
+#my-sold-notes .my-sold-notes-row .table,
+#my-rejected-notes .my-rejected-notes-row .table,
+#my-downloads .my-downloads-row .table,
+#buyer-requests .buyer-requests-row .table,
+#published-notes .published-notes-row .table,
+#in-progress-notes .in-progress-notes-row .table {
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    color: #333333;
+}
+
+#my-sold-notes .my-sold-notes-row .table img,
+#my-rejected-notes .my-rejected-notes-row .table img,
+#my-downloads .my-downloads-row .table img,
+#buyer-requests .buyer-requests-row .table img,
+#published-notes .published-notes-row .table img,
+#in-progress-notes .in-progress-notes-row .table img {
+    color: #d1d1d1;
+    padding-right: 8px;
+}
+
+#my-sold-notes .my-sold-notes-row .table th,
+#my-rejected-notes .my-rejected-notes-row .table th,
+#my-downloads .my-downloads-row .table th,
+#buyer-requests .buyer-requests-row .table th,
+#published-notes .published-notes-row .table th,
+#in-progress-notes .in-progress-notes-row .table th {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: #000;
+}
+
+#my-sold-notes .my-sold-notes-row .table td,
+#my-rejected-notes .my-rejected-notes-row .table td,
+#my-downloads .my-downloads-row .table td,
+#buyer-requests .buyer-requests-row .table td,
+#published-notes .published-notes-row .table td,
+#notes-under-review .notes-under-review-row .table td,
+#in-progress-notes .in-progress-notes-row .table td {
+    text-align: match-parent;
+}
+
+#manage-administrator .manage-administrator-row .table tbody th,
+#manage-category .manage-category-row .table tbody th,
+#manage-type .manage-type-row .table tbody th,
+#manage-country .manage-country-row .table tbody th,
+#my-sold-notes .my-sold-notes-row .table tbody th,
+#my-rejected-notes .my-rejected-notes-row .table tbody th,
+#my-downloads .my-downloads-row .table tbody th,
+#buyer-requests .buyer-requests-row .table tbody th,
+#members .members-row .table tbody th,
+#spam-reports .spam-reports-row .table tbody th,
+#member-notes .member-notes-row .table tbody th,
+#rejected-notes .rejected-notes-row .table tbody th
+#downloaded-notes .downloaded-notes-row .table tbody th
+#published-notes .published-notes-row .table tbody th
+#notes-under-review .notes-under-review-row .table tbody th,
+#in-progress-notes .in-progress-notes-row .table tbody th {
+    text-align: match-parent;
+    padding-left: 20px;
+} 
+
+#manage-administrator .manage-administrator-row .form-group input[type="text"],
+#manage-category .manage-category-row .form-group input[type="text"],
+#manage-type .manage-type-row .form-group input[type="text"],
+#manage-country .manage-country-row .form-group input[type="text"],
+#my-sold-notes .my-sold-notes-row .form-group input[type="text"],
+#my-rejected-notes .my-rejected-notes-row .form-group input[type="text"],
+#my-downloads .my-downloads-row .form-group input[type="text"],
+#buyer-requests .buyer-requests-row .form-group input[type="text"],
+#members .members-row .form-group input[type="text"],
+#spam-reports .spam-reports-row .form-group input[type="text"],
+#published-notes .published-notes-row .form-group input[type="text"],
+#in-progress-notes .in-progress-notes-row .form-group input[type="text"] {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 100;
+    color: #d1d1d1;
+    margin-bottom: 20px;
+    margin-left: 170px;
+    font-size: 16px;
+    padding-left: 40px;
+    border: 1px solid #d1d1d1;
+    height: 35px;
+    width: 270px;
+    background-image: url("../images/Dashboard/search.jpg");
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-origin: border-box;
+}
+
+#manage-administrator .manage-administrator-row .btn-Blue,
+#manage-category .manage-category-row .btn-Blue,
+#manage-type .manage-type-row .btn-Blue,
+#manage-country .manage-country-row .btn-Blue,
+#my-sold-notes .my-sold-notes-row .btn-Blue,
+#my-rejected-notes .my-rejected-notes-row .btn-Blue,
+#my-downloads .my-downloads-row .btn-Blue,
+#buyer-requests .buyer-requests-row .btn-Blue,
+#members .members-row .btn-Blue,
+#spam-reports .spam-reports-row .btn-Blue,
+#published-notes .published-notes-row .btn-Blue,
+#in-progress-notes .in-progress-notes-row .btn-Blue {
+    margin-top: 0;
+    font-size: 16px;
+    border: transparent;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+#manage-administrator .manage-administrator-row .btn-rich-blue,
+#manage-category .manage-category-row .btn-rich-blue,
+#manage-type .manage-type-row .btn-rich-blue,
+#manage-country .manage-country-row .btn-rich-blue {
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 230px;
+    font-size: 16px;
+}
+
+/*===================== Datatable ========================*/
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: white !important;
+    border: transparent !important;
+    background-color:#6255a5 !important;
+    border-radius:50% !important;
+    background:-webkit-gradient(linear, left top, left bottom, from(#6255a5), to(#6255a5));
+    background:linear-gradient(to bottom, #6255a5 0%, #6255a5 100%);
+}
+table.dataTable{
+    border-collapse:collapse !important;
+}
+table.dataTable thead th,table.dataTable thead td{
+    border-bottom: 1px solid #d1d1d1 !important;
+}
+.dataTables_wrapper .dataTables_paginate{
+    float: none !important;
+    text-align:center !important;
+    color: #6255a5 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: #666 !important;
+    border: 1px solid transparent;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #6255a5 !important;
+    border: 1px solid #111;
+    background-color: white!important;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));
+    background: linear-gradient(to bottom, white 0%, white 100%);
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    outline: none;
+    color: white;
+    background-color: white !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6255a5), to(#6255a5));
+    background: linear-gradient(to bottom, #6255a5 0%, #6255a5 100%);
+    -webkit-box-shadow: inset 0 0 3px #111;
+    box-shadow: inset 0 0 3px #111;
+}
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #6255a5;
+}
+.dataTables_wrapper.no-footer div.dataTables_scrollHead table.dataTable,
+.dataTables_wrapper.no-footer div.dataTables_scrollBody > table {
+    border-bottom: none;
+}
+
+
+#manage-administrator .manage-administrator-row .pagination,
+#manage-category .manage-category-row .pagination,
+#manage-type .manage-type-row .pagination,
+#manage-country .manage-country-row .pagination,
+#my-sold-notes .my-sold-notes-row .pagination,
+#my-rejected-notes .my-rejected-notes-row .pagination,
+#my-downloads .my-downloads-row .pagination,
+#buyer-requests .buyer-requests-row .pagination,
+#members .members-row .pagination,
+#spam-reports .spam-reports-row .pagination,
+#top-notes .top-notes-row .pagination,
+#member-notes .member-notes-row .pagination,
+#rejected-notes .rejected-notes-row .pagination,
+#downloaded-notes .downloaded-notes-row .pagination,
+#published-notes .published-notes-row .pagination,
+#notes-under-review .notes-under-review-row .pagination,
+#note-preview .note-preview-row .pagination,
+#in-progress-notes .in-progress-notes-row .pagination,
+#search-pagination .pagination {
+    margin-left: 460px;
+}
+
+#manage-administrator .manage-administrator-row ul.pagination > li a,
+#manage-category .manage-category-row ul.pagination > li a,
+#manage-type .manage-type-row ul.pagination > li a,
+#manage-country .manage-country-row ul.pagination > li a,
+#my-sold-notes .my-sold-notes-row ul.pagination > li a,
+#my-rejected-notes .my-rejected-notes-row ul.pagination > li a,
+#my-downloads .my-downloads-row ul.pagination > li a,
+#buyer-requests .buyer-requests-row ul.pagination > li a,
+#members .members-row ul.pagination > li a,
+#spam-reports .spam-reports-row ul.pagination > li a,
+#top-notes .top-notes-row ul.pagination > li a,
+#member-notes .member-notes-row ul.pagination > li a,
+#rejected-notes .rejected-notes-row ul.pagination > li a,
+#downloaded-notes .downloaded-notes-row ul.pagination > li a,
+#published-notes .published-notes-row ul.pagination > li a,
+#notes-under-review .notes-under-review-row ul.pagination > li a,
+#note-preview .note-preview-row ul.pagination > li a,
+#in-progress-notes .in-progress-notes-row ul.pagination > li a,
+#search-pagination ul.pagination > li a {
+    border-style: none;
+    color: #6255a5;
+}
+
+#manage-administrator .manage-administrator-row ul.pagination > li.active a,
+#manage-category .manage-category-row ul.pagination > li.active a,
+#manage-type .manage-type-row ul.pagination > li.active a,
+#manage-country .manage-country-row ul.pagination > li.active a,
+#my-sold-notes .my-sold-notes-row ul.pagination > li.active a,
+#my-rejected-notes .my-rejected-notes-row ul.pagination > li.active a,
+#my-downloads .my-downloads-row ul.pagination > li.active a,
+#buyer-requests .buyer-requests-row ul.pagination > li.active a,
+#members .members-row ul.pagination > li.active a,
+#spam-reports .spam-reports-row ul.pagination > li.active a,
+#top-notes .top-notes-row ul.pagination > li.active a,
+#member-notes .member-notes-row ul.pagination > li.active a,
+#rejected-notes .rejected-notes-row ul.pagination > li.active a,
+#downloaded-notes .downloaded-notes-row ul.pagination > li.active a,
+#published-notes .published-notes-row ul.pagination > li.active a,
+#notes-under-review .notes-under-review-row ul.pagination > li.active a,
+#note-preview .note-preview-row ul.pagination > li.active a,
+#in-progress-notes .in-progress-notes-row ul.pagination > li.active a,
+#search-pagination ul.pagination > li.active a {
+    border-radius: 50%;
+    background-color: #6255a5;
+    color: #fff;
+    z-index: -1;
+}
+
+
+#dashboard-notes .dashboard-notes-row h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #6255a5;
+    padding-top: 20px;
+}
+
+#dashboard-notes .dashboard-notes-row p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    padding-top: 10px;
+}
+
+#dashboard-notes .dashboard-notes-row span {
+    float: right;
+    padding-right: 30px;
+    padding-top: 5px;
+}
+
+#dashboard-notes .dashboard-notes-row .col-md-2,
+#dashboard-notes .dashboard-notes-row .col-md-1,
+#dashboard-notes .dashboard-notes-row .col-md-4 {
+    border: 1px solid #d1d1d1;
+}
+
+#dashboard-notes .dashboard-notes-row .dashboard-gap {
+    margin-left: 20px;
+}
+
+
+/*==========================SEARCH NOTES PAGE================================*/
+#bg-image-search-notes {
+    background-image: url('../images/Search/banner-with-overlay.jpg');
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#bg-image-search-notes #title {
+    font-family: "open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+#search-notes {
+    margin-top: 60px;
+}
+
+.shift-left {
+    float: left;
+    margin-top: -38px;
+    margin-left: 15px;
+    color: #8a8a8a;
+
+}
+
+.shift-right {
+    float: right;
+    margin-left: -25px;
+    margin-top: -32px;
+    margin-right: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+#search {
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+}
+
+#search-notes .heading h2,
+#books .heading h2 {
+    font-family: "open sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #6255a5;
+}
+
+#search-boxes {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    padding: 30px;
+}
+
+#search-notes #drop-downs {
+    margin-top: 20px;
+}
+
+#books {
+    margin-top: 60px;
+}
+
+#search-notes .custom-select {
+    display: block;
+    height: 50px;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    font-family: 'open sans', sans-serif;
+    background: url('../images/User-Profile/down-arrow.png')no-repeat right .75rem center/8px 10px;
+    background-size: 20px 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+}
+
+.books {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+#books .books .card {
+    margin-bottom: 30px;
+}
+
+#books .books .card {
+    width: 360px;
+}
+
+#books .card-text img {
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+#books .card-text span {
+    margin-left: 15px;
+}
+
+#books h5.card-title {
+    font-family: "open sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #6255a5;
+    height: 80px;
+}
+
+#books .card-text span {
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+}
+
+#books .flag {
+    color: #df3434 !important;
+}
+
+/*-----Rating-----*/
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+#books .book-rating img{
+    height: 20px;
+    width: 20px;
+}
+
+
+/*==========================NOTES DETAILS PAGE================================*/
+#notes-details .text-left h2,
+#note-preview .text-left h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #6255a5;
+    font-style: bold;
+}
+
+#notes-details .notes-details-row {
+    border-bottom: 1px solid #d1d1d1;
+}
+
+#notes-details .notes-details-row img {
+    height: 220px;
+    width: 200px;
+    margin-bottom: 50px;
+}
+
+#notes-details .notes-details-row .btn-Blue {
+    border: transparent;
+    width: 150px;
+    text-transform: uppercase;
+}
+#notes-details .notes-details-row .notes-details-row-inner .col-md-6 {
+    padding: 0;
+    margin-bottom: 0;
+}
+/*======= PDF SHOW PART =======*/
+/*
+   general styles
+*/
+.center-block-horiz {
+   margin-left: auto !important;
+   margin-right: auto !important;
+ }
+.set-margin-cicis-menu-to-go {
+  margin: 20px;
+}
+.set-padding-cicis-menu-to-go {
+  padding: 20px;
+}
+.set-border-cicis-menu-to-go {
+   border: 5px inset #4f4f4f;
+}
+set-box-shadow-cicis-menu-to-go {
+  -webkit-box-shadow: 4px 4px 14px #4f4f4f;
+          box-shadow: 4px 4px 14px #4f4f4f;
+}
+  
+/*
+** Style the iframe
+** =========================
+*/
+/*
+    css commmon to all iframes
+*/
+.responsive-wrapper {
+  position: relative;
+  height: 0;    /* gets height from padding-bottom */
+  overflow: hidden;
+  /* put following styles (necessary for overflow and 
+     scrolling handling) inline in .embed-responsive-element-wrapper around iframe because not stable in CSS
+    -webkit-overflow-scrolling: touch; 
+                      overflow: auto; */
+}
+.responsive-wrapper img,
+.responsive-wrapper object,
+.responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   
+  border-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+    css particular to this iframe
+*/
+
+#Iframe-Cicis-Menu-To-Go {
+    max-width: 500px;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+/*
+   padding-bottom = h/w as %
+*/
+.responsive-wrapper-padding-bottom-90pct {
+  padding-bottom: 90%;
+}
+
+
+
+#note-preview .note-preview-row #customer {
+    overflow-y: scroll;
+    max-height: 400px;
+    height: 400px;
+    width: 650px;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-star img,
+#notes-details .notes-details-row .img-notes-preview-star img {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner .img-notes-preview-reviewers {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #6255a5;
+    margin-top: 5px;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #333333;
+    margin-left: 0;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #333333;
+    padding-top: 0;
+}
+
+#note-preview .note-preview-row .note-preview-row-inner .border-down {
+    border-bottom: 1px solid #d1d1d1;
+}
+
+#notes-details .notes-details-row .col-md-6 p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-left: 20px;
+}
+
+#notes-details .notes-details-row .member-Blue p,
+#my-rejected-notes .my-rejected-notes-row .table .member-Blue,
+#my-sold-notes .my-sold-notes-row .table .member-Blue,
+#my-downloads .my-downloads-row .table .member-Blue,
+#buyer-requests .buyer-requests-row .table .member-Blue {
+    color: #6255a5;
+    margin-left: 0;
+}
+
+/*==========================NOTES DETAILS THANKS POPOP ================================*/
+.modal-body h5 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: #6255a5;
+}
+
+.modal-body textarea {
+    height: 200px;
+}
+
+.modal-body .btn-danger {
+    margin-left: 320px;
+}
+
+#note-detail .modal-content {
+    height: 380px;
+    width: 570px;
+    margin-top: 150px;
+}
+
+#note-detail .modal-body img {
+    height: 50px;
+    width: 50px;
+    margin-left: 200px;
+    margin-bottom: 0;
+}
+
+#note-detail .modal-body h1  {
+    color: #6255a5;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #6255a5;
+    font-style: bold;
+    padding-top: 10px;
+    margin-top: 0;
+}
+
+#note-detail .modal-body h3 {
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    font-style: bold;
+} 
+
+#note-detail .modal-body p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    font-style: bold;
+} 
+
+
+
+/*==========================DROPDOWN IN TABLE================================*/
+.dropbtn {
+  background-color: #fff;
+  color: white;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #fff;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #fff;}
+
+
+.shadow-box {
+    -webkit-box-shadow: 20px 5px 20px 5px rgba(0,0,0,0.15);
+    box-shadow: 20px 5px 20px 5px rgba(0,0,0,0.15);
+}
+
