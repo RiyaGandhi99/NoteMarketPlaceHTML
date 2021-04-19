@@ -1,11 +1,45 @@
 <!-- Header -->
 <?php ob_start(); ?>
-<?php include "Header.php"; ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
+  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+
+    <!--Title-->
+    <title>NOTES MARKETPLACE</title>
+
+    <!--Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Homepage/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    
+    <!-- datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
 
 <script>
-
+    
     function validateForm() {
         var First_Name = document.forms["Sign_UP_Form"]["First_Name"].value;
         if (First_Name == "") {
@@ -32,11 +66,32 @@
             alert("Confirm Password must be filled out");
             return false;
         }
-        
+        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email_Address))
+        {
+            alert("You have entered an invalid email address!")
+            return false;
+        }
+        if(!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$/.test(Password))
+        {
+            alert("You have entered an invalid Pattern Password!")
+            return false;
+        }
+        if(!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$/.test(Confirm_Password))
+        {
+            alert("You have entered an invalid Pattern Password!")
+            return false;
+        }
+        if(Confirm_Password != Password){
+            alert("Password and Confirm_Password should be same!")
+            return false;
+        }
+            
+        return true;
     }
 
 </script>
-   <section id="sign-body">
+    
+    <section id="sign-body">
        <section id="sign">
            <div class="content-box-sign">
                <div class="container">
@@ -92,6 +147,8 @@
                                     } else {
                                         $Count=1;
                                         
+                                        $host=  $_SERVER["HTTP_HOST"]; 
+                                        $path= rtrim(dirname($_SERVER["PHP_SELF"]),"/\\");
                                         
                                         $to = $EmailID;
 
@@ -116,7 +173,7 @@
                                                     </h5>
                                                     <p style='font-family: Open Sans, sans-serif;font-size: 16px;font-weight: 400;line-height: 20px;color: #333333;padding-bottom: 25px;margin-left: 420px'>Thank you for Signup!<br><br>Simply Click below for email verification.</p>
                                                     <form action='' method='post'>    
-                                                        <a href='http://localhost:8080/NOTESMARKETPLACE/front/Update_Email_Status.php?Email=$EmailID'><button type='submit' name='Email_Verification' style='width: 560px;height: 50px;margin-left: 420px;background-color:#6255a5;color:#fff;text-transform:uppercase;border: transparent;font-weight: 600'>Verify Email Address</button></a>
+                                                        <a href='http://$host$path/Update_Email_Status.php?Email=$EmailID'><button type='submit' name='Email_Verification' style='width: 560px;height: 50px;margin-left: 420px;background-color:#6255a5;color:#fff;text-transform:uppercase;border: transparent;font-weight: 600'>Verify Email Address</button></a>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -172,7 +229,7 @@
                                <div class="form-group text-left">
                                    <label for="Password">Password</label>
                                    <input type="password" name="Password" class="form-control" placeholder="Enter your password" id="password-field4" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$">
-                                   <span toggle="#password-field4" class="eye field-icon"><img src="images/pre-login/eye.png" alt="eye"></span>
+                                   <span toggle="#password-field4" class="P1 eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
                                </div>
                            </div>
 
@@ -180,13 +237,13 @@
                                <div class="form-group text-left">
                                    <label for="Confirm_Password"> Confirm Password</label>
                                    <input type="password" name="Confirm_Password" class="form-control" placeholder="Re-enter your password" id="password-field5" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$">
-                                   <span toggle="#password-field5" class="eye field-icon"><img src="images/pre-login/eye.png" alt="eye"></span>
+                                   <span toggle="#password-field5" class="P1 eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
                                </div>
                            </div>
 
                            <div class="col-lg-12 col-md-12 col-sm-12 btn-general-one">
                                <button type="submit" name="Sign_Up" class="btn btn-info btn-rich-blue">Sign Up</button>
-                               <p>Already have an account? <a href="Login.php">Login</a></p>
+                               <p>Already have an account? <a href="Login.php" style="text-decoration:none;color:#6255a5;">Login</a></p>
                            </div>
                        </form>
                    </div>

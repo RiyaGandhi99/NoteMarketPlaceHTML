@@ -8,16 +8,30 @@
     
     $(document).ready(function(){
         
+        
         $('#books').load('SearchNotesFilter.php');
         
         $('select').on('change',function(){
         var Select_Item = $(this).val();
+        var type = $("#type").val();
+        var category = $("#category").val();
+        var university = $("#university").val();
+        var course = $("#course").val();
+        var country = $("#country").val();
+        var rating = $("#rating").val();
             
+         
             $.ajax({
                 url:"SearchNotesFilter.php",
                 type:"POST",
                 data:{
-                    select: Select_Item
+                    Type:type,
+                    Category:category,
+                    University:university,
+                    Course:course,
+                    Country:country,
+                    Rating:rating,
+                    select:Select_Item
                 },
                 success:function(d){
                     $('#books').html(d);
@@ -39,26 +53,37 @@
         });
         
         $(document).on('click','.pagination .page-item a',function(e){
-            e.preventDefault();
-            $('.Loader').show();
-          
-            var Page = $(this).text();
+        e.preventDefault();
+        var Page = $(this).text();
+            
+        var type = $("#type").val();
+        var category = $("#category").val();
+        var university = $("#university").val();
+        var course = $("#course").val();
+        var country = $("#country").val();
+        var rating = $("#rating").val();
             
             $.ajax({
                 url:"SearchNotesFilter.php",
-                type:"GET",
-                data:{"Page":Page},
+                type:"POST",
+                data:{
+                    "Page":Page,
+                    Type:type,
+                    Category:category,
+                    University:university,
+                    Course:course,
+                    Country:country,
+                    Rating:rating
+                },
                 success:function(d){
                     $('#books').html(d);
                 }
             });
-            $('.Loader').hide();
             
         });
        
     });
         
-     // window.history.back();  
         
 </script>   
    
@@ -72,7 +97,6 @@
         }
         
     ?>
-    <!--<div class="Loader text-center" style="visibility:hidden;"><img src="images/preloader/preloader.gif"></div>-->
         
     
     <!-- Search Notes -->

@@ -1,89 +1,20 @@
 <!-- Header -->
 <?php ob_start(); ?>
-<?php include "Header.php"; ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
-   
-   //Check Whether Folder Exist and put file/img in it
-        $PDF = "../Uploads/Members/{$NoteID}/Attachments";
-        for($r=0;$r<$Upload_Notes.length;$r++){
-            if(!is_dir($PDF))  { 
-                mkdir($PDF,0777,true); 
-                move_uploaded_file($Upload_Notes_tempname, "../Uploads/$Upload_Notes");
-            }else{ 
-                move_uploaded_file($Upload_Notes_tempname, "../Uploads/$Upload_Notes");
-            }
-        }
-    $Image = "../Uploads/Members/{$NoteID}/Image";
-        if(!is_dir($Image))  { 
-            mkdir($Image,0777,true);
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$NoteID}/Image/$Display_Picture");
-            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$NoteID}/Image/$Upload_File");
-        }else{
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$NoteID}/Image/$Display_Picture");
-            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$NoteID}/Image/$Upload_File");
-        }   
-
+ 
+<?php   
         
+        session_start();
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+            include "Registered_Header.php"; 
+        }else{
+            header("Location: Login.php");
+        }
+        
+?>
    
    
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-light navbar-expand-lg  white-nav-top fixed-top">
-            <div class="container">
-                <a id="user-header" class="navbar-brand" href="#">
-                    <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Mobile Menu Close Button -->
-                <span id="mobile-nav-close-btn">&times;</span>
-               
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="Search_Notes.html"><span>Search</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sell<span>Your</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Buyer_Requests.html"><span>Buyer</span><span class="space">Requests</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FAQ.html">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact_Us.html"><span>Contact</span><span class="space">Us</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle user-img dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/Homepage/user-img.png" alt="User-Photo" class="rounded-circle img-responsive"></a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../Admin/My_Profile.html">My Profile</a>
-                                <a class="dropdown-item" href="My_Downloads.html">My Downloads</a>
-                                <a class="dropdown-item" href="My_Sold_Notes.html">My Sold Notes</a>
-                                <a class="dropdown-item" href="My_Rejected_Notes.html">My Rejected Notes</a>
-                                <a class="dropdown-item" href="Change_Password.html">Change Password</a>
-                                <a class="dropdown-item" href="#">LOGOUT</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <form class="form-inline my-2 my-lg-0">
-                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="submit">Logout</button>
-                            </form>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-</header>
-    <!-- Header ENDS -->
     
     <?php
     
@@ -94,7 +25,8 @@
             if($row = mysqli_fetch_assoc($Edit_Notes)){
                 $TitleOld = $row['Title'];
                 $CategoryOld = $row['Category'];
-                $Display_PictureOld = $row['DisplayPicture'];
+                $DisplayPictureOld = $row['DisplayPicture'];
+                $NotesPreviewOld = $row['NotesPreview'];
                 $TypeOld = $row['NoteType'];
                 $NumberOfNotesOld = $row['NumberOfPages'];
                 $DescriptionOld = $row['Description'];
@@ -108,6 +40,43 @@
             }else {
                 die("Query Failed" . mysqli_error($connection));
             } 
+           
+        //Type Details 
+        $query = "SELECT * FROM types WHERE ID=$TypeOld";
+        $Type_select_all = mysqli_query($connection,$query);
+        if($row = mysqli_fetch_assoc($Type_select_all)){
+            $TypeIDOld = $row['Name'];
+        }else {
+            die("Query Failed" . mysqli_error($connection));
+        }
+        
+        //Category Details
+        $query = "SELECT * FROM categories WHERE ID=$CategoryOld";
+        $Category_select_all = mysqli_query($connection,$query);
+        if($row = mysqli_fetch_assoc($Category_select_all)){
+            $CategoryIDOld = $row['Name'];
+        }else {
+            die("Query Failed" . mysqli_error($connection));
+        }
+        
+        
+        //Country Details
+        $query = "SELECT * FROM countries WHERE ID=$CountryOld";
+        $Country_select_all = mysqli_query($connection,$query);
+        if($row = mysqli_fetch_assoc($Country_select_all)){
+            $CountryIDOld = $row['Name'];
+        }else {
+            die("Query Failed" . mysqli_error($connection));
+        }
+        
+           
+           
+            $query = "SELECT * FROM sellernotesattachments WHERE NoteID=$ID";
+            $Notes_select = mysqli_query($connection,$query);
+            if($row = mysqli_fetch_assoc($Notes_select)){
+                $FileNameOld = $row['FileName'];
+            }
+           
        }
     
     
@@ -128,7 +97,7 @@
     <?php
     
     /*
-        Edit Notes (form has to edit data to database)
+        Edit Notes (form has to update data to database)
     */
     
     if(isset($_POST['save'])){
@@ -145,6 +114,8 @@
         $Country = $_POST['country'];
         $Institute_Name = $_POST['institute_name'];
         $Proffessor = $_POST['proffessor'];
+        $CourseName = $_POST['CourseName'];
+        $CourseCode = $_POST['CourseCode'];
         $sell = $_POST['sell'];        
         $sell_price = $_POST['sell_price'];
         $Upload_File = $_FILES['upload_file']['name'];
@@ -179,10 +150,20 @@
         }
         
         
-        
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            $EmailID=  $_SESSION['EmailID'];
+            $query = "SELECT * FROM users WHERE EmailID='$EmailID'";
+                             
+            $Users_select = mysqli_query($connection,$query);
+            while($row = mysqli_fetch_assoc($Users_select)){
+                $Id = $row['ID'];
+            }
+        }else {
+            
+        }
         
         //Update Data into sellernotes table..
-        $query = "UPDATE sellernotes SET  SellerID='{$ID}',Status='6',Title='{$Title}',Category='{$CategoryID}',DisplayPicture='{$Display_Picture}',NoteType='{$TypeID}',NumberOfPages='{$Pages}',Description='{$Description}',UniversityName='{$Institute_Name}',Country='{$CountryID}',Course='GOGO',CourseCode='023',Professor='{$Proffessor}',IsPaid=$sell,SellingPrice='{$sell_price}',NotesPreview='{$Upload_File}' WHERE ID=$ID";
+        $query = "UPDATE sellernotes SET  Status='6',Title='{$Title}',Category='{$CategoryID}',DisplayPicture='{$Display_Picture}',NoteType='{$TypeID}',NumberOfPages='{$Pages}',Description='{$Description}',UniversityName='{$Institute_Name}',Country='{$CountryID}',Course='{$CourseName}',CourseCode='{$CourseCode}',Professor='{$Proffessor}',IsPaid=$sell,SellingPrice='{$sell_price}',NotesPreview='{$Upload_File}' WHERE ID=$ID";
         
         $Notes_Details = mysqli_query($connection,$query);
         if(!$Notes_Details){
@@ -190,24 +171,23 @@
         }    
         
         //Update Attachments sellernotesattachments in table..
-        $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$NoteID}',FileName='{$Upload_Notes}',FilePath='Members/{$ID}/{$NoteID}/Attachments/$Upload_Notes' WHERE ID=$ID";
+        $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$ID}',FileName='{$Upload_Notes}',FilePath='Members/{$Id}/{$ID}/Attachments/$Upload_Notes' WHERE NoteID=$ID";
         
         $Notes_Attachments = mysqli_query($connection,$query_Attachments);
         if(!$Notes_Attachments){
             die("Query Failed" . mysqli_error($connection));
         }
         
+        
         //Check Whether Folder Exist and put file/img in it
-        $Folder = "../Uploads";
+        $Folder = "../Uploads/Members/{$Id}/{$ID}/Images";
         if(!is_dir($Folder))  { 
-            mkdir($Folder);
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/$Display_Picture"); 
-            move_uploaded_file($Upload_Notes_tempname, "../Uploads/$Upload_Notes");
-            move_uploaded_file($Upload_File_tempname, "../Uploads/$Upload_File");
+            mkdir($Folder,0777,true);
+            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture"); 
+            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
         }else{
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/$Display_Picture"); 
-            move_uploaded_file($Upload_Notes_tempname, "../Uploads/$Upload_Notes");
-            move_uploaded_file($Upload_File_tempname, "../Uploads/$Upload_File");
+            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture"); 
+            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
         }
         
     }
@@ -240,9 +220,14 @@
                                         //Category Details
                                         $query = "SELECT * FROM categories";
                                         $Category_select = mysqli_query($connection,$query);
+                                        if(isset($_GET['edit'])){
+                                                echo "<option value='" . $CategoryIDOld . "' selected> " . $CategoryIDOld . "</option>";
+                                        }
                                         while($row = mysqli_fetch_assoc($Category_select)){
                                             $CategoryName = $row['Name'];
-                                            echo "<option value='" . $CategoryName . "'> " . $CategoryName . "</option>";
+                                            if($CategoryIDOld!=$CategoryName){
+                                                echo "<option value='" . $CategoryName . "'> " . $CategoryName . "</option>";
+                                            }   
                                         }
                                     ?>    
                                 </select>
@@ -257,7 +242,7 @@
                                     <div class="add-border">
                                     <label for="dp" class="upload-profile">
                                         <img src="images/Add-Notes/upload-file.png">
-                                        <p style="color: lightgray;" id="upload-picture">Upload a Picture</p>
+                                        <p style="color: lightgray;" id="upload-picture"> <?php if(isset($_GET['edit'])){ echo $DisplayPictureOld; }else{  echo "Upload a Picture"; } ?></p>
                                         <input type="file" name="dp" id="dp" style="display: none;">
                                     </label>
                                     </div>
@@ -273,7 +258,7 @@
                                         <div class="add-border">
                                         <label for="upload_notes" class="upload-profile">
                                             <img src="images/Add-Notes/upload-note.png">
-                                            <p style="color: lightgray;" id="PDF_files">Upload a Notes</p>
+                                            <p style="color: lightgray;" id="PDF_files"><?php if(isset($_GET['edit'])){ echo $FileNameOld; }else{  echo "Upload a Notes"; } ?></p>
                                             <input type="file" name="upload_notes" id="upload_notes" style="display: none;" multiple>
                                         </label>
                                         </div>
@@ -290,9 +275,14 @@
                                         //Type Details 
                                         $query = "SELECT * FROM types";
                                         $Type_select = mysqli_query($connection,$query);
+                                        if(isset($_GET['edit'])){
+                                                echo "<option value='" . $TypeIDOld . "' selected> " . $TypeIDOld . "</option>";
+                                        }
                                         while($row = mysqli_fetch_assoc($Type_select)){
                                             $TypeName = $row['Name'];
-                                            echo "<option value='". $TypeName . "'>" . $TypeName ."</option>";
+                                            if($TypeIDOld!=$TypeName){
+                                                echo "<option value='". $TypeName . "'>" . $TypeName ."</option>";
+                                            }
                                         }
                                     
                                     ?>
@@ -304,17 +294,18 @@
                                 <label for="note_pages">Pages*</label>
                                 <select class="form-control custom-select" name="note_pages" id="note-pages" required>
                                     <option value="<?php if(isset($_GET['edit'])){echo $PagesOld; }else if(isset($_POST['save'])){echo $Pages;} ?>" selected>Enter number of note pages</option>
+                                    <option>10</option>
                                     <option>20</option>
-                                    <option>100</option>
                                     <option>50</option>
+                                    <option>100</option>
+                                    <option>200</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="Description" id="description">Description*</label>
-                                <textarea class="form-control"  value="<?php if(isset($_GET['edit'])){echo $DescriptionOld; }else if(isset($_POST['save'])){echo $Description;} ?>" name="Description" id="Description"
-                                    placeholder="Enter your Description" required></textarea>
+                                <textarea class="form-control"  placeholder="<?php if(isset($_GET['edit'])){echo $DescriptionOld; }else if(isset($_POST['save'])){echo $Description;}else{ echo "Enter your Description"; } ?>" name="Description" id="Description" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -323,7 +314,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="heading">
-                                <h2>Institute Details</h2>
+                                <h2>Institute Information</h2>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
@@ -349,6 +340,30 @@
                                 <label for="institute_name">Institution name</label>
                                 <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $Institute_Name;} ?>" class="form-control" name="institute_name" id="institute_name"
                                     placeholder="Enter your institute name" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="institute-information-form">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="heading">
+                                <h2>Course Details</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Name">Course Name</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $CourseOld; }else if(isset($_POST['save'])){echo $CourseName;} ?>" class="form-control" name="CourseName" id="Course_Name"
+                                    placeholder="Enter your Course Name">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Code">Course Code</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $CourseCodeOld; }else if(isset($_POST['save'])){echo $CourseCode;} ?>" class="form-control" name="CourseCode" id="Course_Code"
+                                    placeholder="Enter your Course Code">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
@@ -392,7 +407,7 @@
                                     <div class="add-border">
                                     <label for="upload_file" class="upload-profile">
                                         <img src="images/Add-Notes/upload-file.png">
-                                        <p style="color: lightgray;" id="note-preview">Upload a Picture</p>
+                                        <p style="color: lightgray;" id="note-preview"><?php if(isset($_GET['edit'])){ echo $NotesPreviewOld; }else{  echo "Upload a Preview"; } ?></p>
                                         <input type="file" name="upload_file" id="upload_file" style="display: none;" onclick="return PaidNotes()">
                                     </label>
                                     </div>

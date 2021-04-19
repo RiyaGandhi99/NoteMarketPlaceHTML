@@ -3,8 +3,9 @@
 <?php
             
             
-            if(isset($_GET['Page'])){
-                $Page = $_GET['Page'];
+            if(isset($_POST['Page'])){
+                $Page = (int)$_POST['Page'];
+               
             }else{
                 $Page = "";
             }
@@ -16,60 +17,71 @@
                 $Page_1 = (($Page*$N)-$N);
             }
             
-            $query = "SELECT * FROM sellernotes ";
-            if(isset($_POST['search']) ){
+            $query = "SELECT *,sn.ID AS ID FROM sellernotes AS sn LEFT JOIN sellernotesreviews AS sr ON sn.ID=sr.NoteID  WHERE sn.IsActive=1 ";
+            if(isset($_POST['search'])){
                 $Title = $_POST['search'];
                 
                 /*Notes Details (To Search Title through Search Box ) */
-                $query .= "WHERE Title LIKE '%$Title%'";
+                $query .= "AND sn.Title LIKE '%$Title%'";
                 
-            }else if(isset($_POST['select'])){
-                $Select = $_POST['select'];
-                
-                /*Notes Details (To Search Course or University through Dropdown) */
-                $query .= " WHERE Course='{$Select}' OR UniversityName='{$Select}'";
-                
-                /*Notes Details (To Search Category through Dropdown) */
-                $Category = "SELECT * FROM categories WHERE Name='{$Select}' ";
-                $Category_select_all = mysqli_query($connection,$Category);
-                if(mysqli_num_rows($Category_select_all)!=0){
-                    if($row = mysqli_fetch_assoc($Category_select_all)){
-                        $CategoryID = $row['ID'];
-                        
-                        $query .= "OR Category=$CategoryID";
-                    }else {
-                        die("Query Failed" . mysqli_error($connection));
+            }
+            if(isset($_POST['select']) || isset($_POST['Page'])){
+                if($_POST['Type']!="" && $_POST['Type']!="Select type"){
+                    $T = $_POST['Type'];
+                    /*Notes Details (To Filter through type from Dropdown)*/
+                    $Types = "SELECT * FROM types WHERE Name='{$T}' ";
+                    $Type_select_all = mysqli_query($connection,$Types);
+                    if(mysqli_num_rows($Type_select_all)!=0){
+                        if($row = mysqli_fetch_assoc($Type_select_all)){
+                            $TypeID = $row['ID'];
+                            $query .= "AND sn.NoteType=$TypeID ";
+                        }else {
+                            die("Query Failed" . mysqli_error($connection));
+                        }
                     }
                 }
-                
-                
-                /*Notes Details (To Search Country through Dropdown) */
-                $Country = "SELECT * FROM countries WHERE Name='{$Select}' ";
-                $Country_select_all = mysqli_query($connection,$Country);
-                if(mysqli_num_rows($Country_select_all)!=0){
-                    if($row = mysqli_fetch_assoc($Country_select_all)){
-                        $CountryID = $row['ID'];
-                        
-                        $query .= "OR Country=$CountryID";
-                    }else {
-                        die("Query Failed" . mysqli_error($connection));
+                if($_POST['Category']!="" && $_POST['Category']!="Select category"){
+                    $category = $_POST['Category'];
+                    //Category Details
+                    $Category = "SELECT * FROM categories WHERE Name='{$category}' ";
+                    $Category_select_all = mysqli_query($connection,$Category);
+                    if(mysqli_num_rows($Category_select_all)!=0){
+                        if($row = mysqli_fetch_assoc($Category_select_all)){
+                            $CategoryID = $row['ID'];
+                            $query .= "AND sn.Category=$CategoryID ";
+                        }else {
+                            die("Query Failed" . mysqli_error($connection));
+                        }
                     }
                 }
-
-                /*Notes Details (To Filter through type from Dropdown) */
-                $Type = "SELECT * FROM types WHERE Name='{$Select}' ";
-                $Type_select_all = mysqli_query($connection,$Type);
-                if(mysqli_num_rows($Type_select_all)!=0){
-                    if($row = mysqli_fetch_assoc($Type_select_all)){
-                        $TypeID = $row['ID'];
-                        
-                        $query .= "OR NoteType=$TypeID";
-                    }else {
-                        die("Query Failed" . mysqli_error($connection));
+                if($_POST['Country']!="" && $_POST['Country']!="Select country"){
+                    $Country = $_POST['Country'];
+                    /*Notes Details (To Search Country through Dropdown)*/
+                    $C1 = "SELECT * FROM countries WHERE Name='{$Country}' ";
+                    $Country_select_all = mysqli_query($connection,$C1);
+                    if(mysqli_num_rows($Country_select_all)!=0){
+                        if($row = mysqli_fetch_assoc($Country_select_all)){
+                            $CountryID = $row['ID'];
+                            $query .= "AND sn.Country=$CountryID ";
+                        }else {
+                            die("Query Failed" . mysqli_error($connection));
+                        }
                     }
+                }
+                if($_POST['University']!="" && $_POST['University']!="Select University"){
+                        $University = $_POST['University'];
+                        $query .= " AND sn.UniversityName='{$University}' ";
+                }
+                if($_POST['Course']!="" && $_POST['Course']!="Select course"){
+                        $Course = $_POST['Course'];
+                        $query .= " AND sn.Course='{$Course}' ";
+                }
+                if($_POST['Rating']!="" && $_POST['Rating']!="Select rating"){
+                        $Rating = $_POST['Rating'];
+                        $query .= " AND sr.Ratings='{$Rating}' ";
                 }
             }
-            
+            $query.=" GROUP BY sn.ID";
             $Note_select = mysqli_query($connection,$query) or die("Query Failed" . mysqli_error($connection));
             $Notes_Count = mysqli_num_rows($Note_select);
             if($Notes_Count == 0){
@@ -78,6 +90,7 @@
                 
             
             ?>
+            
             <section id="books">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
@@ -98,62 +111,73 @@
                 
                 <?php
                     
-                    $query = "SELECT * FROM sellernotes ";
-                    
-                    if(isset($_POST['search'])){
-                        $Title = $_POST['search'];
+                    $query = "SELECT *,sn.ID AS ID FROM sellernotes AS sn LEFT JOIN sellernotesreviews AS sr ON sn.ID=sr.NoteID WHERE sn.IsActive=1 ";
+                    if(isset($_POST['search']) ){
+                    $Title = $_POST['search'];
 
-                        //Notes Details
-                        $query .= "WHERE Title LIKE '%$Title%'";
+                    /*Notes Details (To Search Title through Search Box ) */
+                    $query .= "AND sn.Title LIKE '%$Title%'";
 
-                    }else if(isset($_POST['select'])){
-                        $Select = $_POST['select'];
+                    }
+                    if(isset($_POST['select']) || isset($_POST['Page'])){
 
-                        //Notes Details
-                        $query .= "WHERE Course='{$Select}' OR UniversityName='{$Select}'";
-
-                        //Category Details
-                        $Category = "SELECT * FROM categories WHERE Name='{$Select}' ";
-                        $Category_select_all = mysqli_query($connection,$Category);
-                        if(mysqli_num_rows($Category_select_all)!=0){
-                            if($row = mysqli_fetch_assoc($Category_select_all)){
-                                $CategoryID = $row['ID'];
-                            
-                                $query .= "OR Category=$CategoryID";
-                            }else {
-                            die("Query Failed" . mysqli_error($connection));
+                        if($_POST['Type']!="" && $_POST['Type']!="Select type"){
+                            $Type = $_POST['Type'];
+                            /*Notes Details (To Filter through type from Dropdown)*/
+                            $Types = "SELECT * FROM types WHERE Name='{$Type}' ";
+                            $Type_select_all = mysqli_query($connection,$Types);
+                            if(mysqli_num_rows($Type_select_all)!=0){
+                                if($row = mysqli_fetch_assoc($Type_select_all)){
+                                    $TypeID = $row['ID'];
+                                    $query .= "AND sn.NoteType=$TypeID ";
+                                }else {
+                                    die("Query Failed" . mysqli_error($connection));
+                                }
                             }
                         }
-
-
-                        //Country Details
-                        $Country = "SELECT * FROM countries WHERE Name='{$Select}' ";
-                        $Country_select_all = mysqli_query($connection,$Country);
-                        if(mysqli_num_rows($Country_select_all)!=0){
-                            if($row = mysqli_fetch_assoc($Country_select_all)){
-                                $CountryID = $row['ID'];
-                            
-                                $query .= "OR Country=$CountryID";
-                            }else {
-                                die("Query Failed" . mysqli_error($connection));
+                        if($_POST['Category']!="" && $_POST['Category']!="Select category"){
+                            $category = $_POST['Category'];
+                            //Category Details
+                            $Category = "SELECT * FROM categories WHERE Name='{$category}' ";
+                            $Category_select_all = mysqli_query($connection,$Category);
+                            if(mysqli_num_rows($Category_select_all)!=0){
+                                if($row = mysqli_fetch_assoc($Category_select_all)){
+                                    $CategoryID = $row['ID'];
+                                    $query .= "AND sn.Category=$CategoryID ";
+                                }else {
+                                    die("Query Failed" . mysqli_error($connection));
+                                }
                             }
                         }
-
-                        //Type Details
-                        $Type = "SELECT * FROM types WHERE Name='{$Select}' ";
-                        $Type_select_all = mysqli_query($connection,$Type);
-                        if(mysqli_num_rows($Type_select_all)!=0){
-                            if($row = mysqli_fetch_assoc($Type_select_all)){
-                                $TypeID = $row['ID'];
-                                
-                                $query .= "OR NoteType=$TypeID";
-                            }else {
-                                die("Query Failed" . mysqli_error($connection));
+                        if($_POST['Country']!="" && $_POST['Country']!="Select country"){
+                            $Country = $_POST['Country'];
+                            /*Notes Details (To Search Country through Dropdown)*/
+                            $C1 = "SELECT * FROM countries WHERE Name='{$Country}' ";
+                            $Country_select_all = mysqli_query($connection,$C1);
+                            if(mysqli_num_rows($Country_select_all)!=0){
+                                if($row = mysqli_fetch_assoc($Country_select_all)){
+                                    $CountryID = $row['ID'];
+                                    $query .= "AND sn.Country=$CountryID ";
+                                }else {
+                                    die("Query Failed" . mysqli_error($connection));
+                                }
                             }
+                        }
+                        if($_POST['University']!="" && $_POST['University']!="Select University"){
+                            $University = $_POST['University'];
+                            $query .= " AND sn.UniversityName='{$University}' ";
+                        }
+                        if($_POST['Course']!="" && $_POST['Course']!="Select course"){
+                            $Course = $_POST['Course'];
+                            $query .= " AND sn.Course='{$Course}' ";
+                        }
+                        if($_POST['Rating']!="" && $_POST['Rating']!="Select rating"){
+                            $Rating = $_POST['Rating'];
+                            $query .= " AND sr.Ratings='{$Rating}' ";
                         }
                     }
                     
-                    $query .= " LIMIT $Page_1,9";
+                    $query .= " GROUP BY sn.ID LIMIT $Page_1,9 ";
                     $Notes_select = mysqli_query($connection,$query);
                     while($row = mysqli_fetch_assoc($Notes_select)){
                         $ID = $row['ID'];
@@ -161,7 +185,15 @@
                         $Title = $row['Title'];
                         $NumberOfPages = $row['NumberOfPages'];
                         $UniversityName = $row['UniversityName'];
-                        $CreatedDate = $row['CreatedDate'];
+                        $CountryID = $row['Country'];
+                        $PDate = $row['PublishedDate'];
+                        $PublishedDate= date('D, M d Y',strtotime($PDate));
+                    
+                    $C = "SELECT * FROM countries WHERE ID='{$CountryID}' ";
+                    $Country_select_all = mysqli_query($connection,$C);
+                    if($row = mysqli_fetch_assoc($Country_select_all)){
+                        $Country = $row['Name'];
+                    }
                     
                     //Find the number of users marked this note inappropriate 
                     $query = "SELECT * FROM sellernotesreportedissues WHERE NoteID=$ID";
@@ -180,7 +212,7 @@
                     $Review_Note = mysqli_num_rows($Notesreported_Select);
                     
                     
-                    $query = "SELECT * FROM sellernotes AS sn JOIN users AS us ON sn.SellerID=us.ID WHERE sn.ID=$ID";
+                    $query = "SELECT * FROM sellernotes WHERE ID=$ID";
                     $select_all = mysqli_query($connection,$query);
                     if($row = mysqli_fetch_assoc($select_all)){
                         $NoteID = $row['ID'];
@@ -196,10 +228,18 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $Title; ?></h5>
                         <p class="card-text">
-                            <img src="images/Search/university.png"><span><?php echo $UniversityName; ?></span><br>
+                            <img src="images/Search/university.png"><span><?php echo $UniversityName.", ".$Country; ?></span><br>
                             <img src="images/Search/pages.png"><span><?php echo $NumberOfPages; ?> Pages</span><br>
-                            <img src="images/Search/calendar.png"><span><?php echo $CreatedDate; ?></span><br>
-                            <?php  
+                            <?php if($PublishedDate!=Null){ ?>
+                            <img src="images/Search/calendar.png"><span>
+                            <?php   echo $PublishedDate; ?>
+                            </span><br>
+                            <?php
+                            }else{
+                                echo "<br><br>";    
+                            }
+                            ?>
+                            <?php
                             if($Report_issue==0){
                                 echo "<br><br>"; 
                             }else{ ?>
@@ -298,7 +338,7 @@
                         //$N= $Page+$C;
                     ?>    
                         <li class="page-item">
-                            <a class="page-link" href="Search_Notes.php?Page=<?php echo $P; ?>" aria-label="Previous">
+                            <a class="page-link" href="Search_Notes.php" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
                         </li>
@@ -326,7 +366,7 @@
                         ?>
                         
                         <li class="page-item">
-                            <a class="page-link" href="Search_Notes.php?Page=<?php echo $N; ?>" aria-label="Previous">
+                            <a class="page-link" href="Search_Notes.php" aria-label="Previous">
                                 <span aria-hidden='true'>&gt;</span>
                             </a>
                         </li>

@@ -9,9 +9,11 @@
         if(confirm("“Are you sure you want to download this Paid note. Please confirm.”")){
             return true;
         }else{
+            //$('#PaidDL').modal('hide').css('data-backdrop','static');
             return false;
         }
     }
+
 
 </script>
   
@@ -69,7 +71,7 @@
                             $UniversityName = $row['UniversityName'];
                             $Course = $row['Course'];
                             $CourseCode = $row['CourseCode'];
-                            $Proffessor = $row['Professor'];                       
+                            $Proffessor = $row['Professor'];
                         }else{
                             die("Query Failed" . mysqli_error($connection));
                         }
@@ -92,7 +94,7 @@
                             die("Query Failed" . mysqli_error($connection));
                         }
                         
-                        $query = "SELECT * FROM sellernotes AS sn JOIN users AS us ON sn.SellerID=us.ID WHERE sn.ID=$ID";
+                        $query = "SELECT * FROM sellernotes WHERE ID=$ID";
                         $select_all = mysqli_query($connection,$query);
                         if($row = mysqli_fetch_assoc($select_all)){
                             $NoteID = $row['ID'];
@@ -115,6 +117,12 @@
                         }
                     }
                 
+                    $query = "SELECT * FROM system_configuration WHERE ID=7";
+                    $Default_select = mysqli_query($connection,$query);
+                    while($row = mysqli_fetch_assoc($Default_select)){
+                        $Default_IMG = $row['Value'];
+                    }
+                
                 ?>
                  
                 <div class="row notes-details-row">
@@ -123,7 +131,7 @@
                         
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-6">
-                                <img src="<?php if(isset($_GET['Note'])){ echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$Display_Picture"; }else{ echo 'images/Search/1.jpg';} ?>" alt="Book Image" class="img-responsive">
+                                <img src="<?php if(isset($_GET['Note']) && $Display_Picture!=""){ echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$Display_Picture"; }else{ echo "../Uploads/Default_Images/$Default_IMG";} ?>" alt="Book Image" class="img-responsive">
                             </div>
                             <div class="col-md-8 col-sm-8 col-6">
                                 <div class="horizontal-heading">
@@ -140,7 +148,7 @@
                                     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                         if($SellType=='Paid'){
                                             echo "<a href='Attachments_Downloads.php?DownloadPaid=$ID'>
-                                                    <button type='button' class='btn btn-primary btn-Blue' id='PaidDL' data-toggle='modal' data-target='#ThankModalCenter' onclick='return PaidDownload()'>
+                                                    <button type='button' class='btn btn-primary btn-Blue ' id='PaidDL' data-toggle='modal' data-target='#ThankModalCenter' onclick='return PaidDownload()'>
                                                         Download/$$SellingPrice
                                                     </button>
                                                   </a>";
@@ -153,7 +161,7 @@
                                         }
                                     }
                                     else {
-                                        echo "<a href='Login.php'><button type='button' class='btn btn-primary btn-Blue'>Download/$15</button></a>";
+                                        echo "<a href='../Login.php'><button type='button' class='btn btn-primary btn-Blue'>Download/$15</button></a>";
                                     }
                                     
                                 ?> 
@@ -284,14 +292,26 @@
                                         <p><?php if(isset($_GET['Note'])){ echo $NumberOfPages; }else{ echo "277"; } ?></p>
                                     </div>
                                 </div>
+                                <?php
+                                    
+                                    $query = "SELECT * FROM sellernotes WHERE Status=9 AND ID=$ID";
+                                    $Note_Published = mysqli_query($connection,$query);
+                                    if($row = mysqli_fetch_assoc($Note_Published)){
+                                        $PDate = $row['PublishedDate'];
+                                        $PublishedDate = date('M d Y',strtotime($PDate));
+                                    }
+                                    
+                                if(mysqli_num_rows($Note_Published)!=0){
+                                ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Approved Date:</p>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 member-Blue">
-                                        <p>November 25 2020</p>
+                                        <p><?php echo $PublishedDate; ?></p>
                                     </div>
                                 </div>
+                                <?php } ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Rating:</p>
@@ -451,7 +471,7 @@
                                         die("Query Failed" . mysqli_error($connection));
                                     }
                                     
-                                    $query = "SELECT * FROM sellernotes AS sn JOIN users AS us ON sn.SellerID=us.ID WHERE sn.ID=$ID";
+                                    $query = "SELECT * FROM sellernotes WHERE ID=$ID";
                                     $select_all = mysqli_query($connection,$query);
                                     if($row = mysqli_fetch_assoc($select_all)){
                                         $NoteID = $row['ID'];
@@ -464,13 +484,14 @@
                                     $User_Name = mysqli_query($connection,$query);
                                     if($row = mysqli_fetch_assoc($User_Name)){
                                         $Profile_Picture = $row['Profile Picture'];
+                                        $UID = $row['UserID'];
                                     }else{
                                         die("Query Failed" . mysqli_error($connection));
                                     }?>
                                 
                         <div class="row note-preview-row-inner">
                             <div class="col-md-2 col-sm-2 col-2">
-                                <img class="rounded-circle img-responsive img-notes-preview-reviewers" src="<?php echo "../Uploads/Members/{$Id}/Profile_Photo/$Profile_Picture"; ?>" alt="Customer 01" >
+                                <img class="rounded-circle img-responsive img-notes-preview-reviewers" src="<?php echo "../Uploads/Members/{$UID}/Profile_Photo/$Profile_Picture"; ?>" alt="Customer 01" >
                             </div>
                             <div class="col-md-10 col-sm-10 col-10">
                                 <div class="row">

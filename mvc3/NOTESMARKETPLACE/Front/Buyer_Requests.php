@@ -90,6 +90,8 @@
                     if(isset($_GET['email']) && isset($_GET['UserID'])){
                         $EmailID = $_GET['email'];
                         $UserID = $_GET['UserID'];
+                        $DownloadID = $_GET['DownloadID'];
+                        
                         
                         $query_user = "SELECT * FROM users WHERE ID=$UserID";
                         $seller_select = mysqli_query($connection,$query_user);  
@@ -97,7 +99,7 @@
                             $seller = $row['FirstName'];
                         }
                         
-                        $query_user = "SELECT * FROM users WHERE EmailID='$EmailID'";
+                        $query_user = "SELECT * FROM users WHERE ID=$DownloadID";
                         $buyer_select = mysqli_query($connection,$query_user);  
                         while($row = mysqli_fetch_assoc($buyer_select)){
                             $buyer = $row['FirstName'];
@@ -178,7 +180,7 @@
                                     }
                         
                                     
-                                    $query = "SELECT * FROM downloads WHERE Seller='$UserID' AND IsPaid=1 AND IsSellerHasAllowedDownload=0";
+                                    $query = "SELECT * FROM downloads WHERE Seller='$UserID' AND IsPaid=1 AND IsSellerHasAllowedDownload=0 AND IsActive=1 ORDER BY AttachmentDownloadedDate DESC";
                                     
                                     $Buyer_Request = mysqli_query($connection,$query);
                                     if(!$Buyer_Request){
@@ -193,6 +195,10 @@
                                             $Title = $row['NoteTitle'];
                                             $Category = $row['NoteCategory'];
                                             $PurchasedPrice = $row['PurchasedPrice'];
+                                            $AD = $row['AttachmentDownloadedDate'];   
+                                                
+                                            $AttachmentDownloadedDate = date("M d Y, H:i:s",strtotime($AD));  
+                                                
                                         
                                             //For Paid Notes Name    
                                             $query = "SELECT * FROM referencedata WHERE ID=4";
@@ -227,6 +233,12 @@
                                                 die("Query Failed" . mysqli_error($connection));
                                             }
                                             
+                                            //Default Admin's emailId
+                                            $query = "SELECT * FROM system_configuration WHERE ID=3";
+                                            $config_select = mysqli_query($connection,$query);
+                                            while($row = mysqli_fetch_assoc($config_select)){
+                                                $Default_EmailID = $row['Value'];
+                                            }
                                             
                                             $j++;
                                             echo "<tr><th scope='row'>$j</th>
@@ -236,13 +248,13 @@
                                             <td>$Buyer_Phone_number_Country_Code $Buyer_Phone_number</td>
                                             <td>$SellType</td>
                                             <td>$$PurchasedPrice</td>
-                                            <td>27 Nov 2020,11:24:34</td>
+                                            <td>NA</td>
                                             <td>
                                                 <a href='Notes_Details.php?Note=$ID'><img src='images/tables/eye.png' alt='Eye'></a>
                                                 <div class='dropdown'>
                                                     <img src='images/tables/dots.png' alt='Setting Image' class='dropbtn'>
                                                     <div class='dropdown-content'>
-                                                        <a href='Buyer_Requests.php?email=gandhiriya99@gmail.com&DownloadID=$DownloadID&NoteID=$ID&UserID=$UserID'>Yes,I Received</a>
+                                                        <a href='Buyer_Requests.php?email=$Buyer_Email&DownloadID=$DownloadID&NoteID=$ID&UserID=$UserID'>Yes,I Received</a>
                                                     </div>
                                                 </div>
                                             </td></tr>";

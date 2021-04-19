@@ -12,8 +12,14 @@
         if(!$Attachment_select){
             die("Query Failed" . mysqli_error($connection));
         }
+        $files=[];
         while($row =mysqli_fetch_assoc($Attachment_select)){
             $FilePath = $row['FilePath'];
+                
+            $Path ="../Uploads/$FilePath";
+            array_push($files,$Path);
+            $FilePath = $row['FilePath'];
+            
         }
         
         
@@ -72,15 +78,7 @@
                 }
             }
         
-        $files=[];
-        while($row =mysqli_fetch_assoc($Attachment_select)){
-            $FilePath = $row['FilePath'];
-                
-            $Path ="../Uploads/$FilePath";
-            array_push($files,$Path);
-            $FilePath = $row['FilePath'];
-            
-        }
+        
         if(mysqli_num_rows($Attachment_select)>1){
             
             /* File Download (Multiple/Single) */

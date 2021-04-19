@@ -1,54 +1,18 @@
 <!-- Header -->
 <?php ob_start(); ?>
-<?php include "Header.php"; ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
 
-
-<!-- Header ENDS -->
-   
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-light navbar-expand-lg  white-nav-top fixed-top">
-            <div class="container">
-                <a id="user-header" class="navbar-brand" href="#">
-                    <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Mobile Menu Close Button -->
-                <span id="mobile-nav-close-btn">&times;</span>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="Search_Notes.html"><span>Search</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sell<span>Your</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FAQ.html">FAQ</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="Contact_Us.html"><span>Contact</span><span class="space">Us</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <form class="form-inline my-2 my-lg-0">
-                                <a href="Login.php"><button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
-                            </form>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Header ENDS -->
+    <?php   
+        
+        session_start();
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+            include "Registered_Header.php"; 
+        }else{
+            include "Unregistered_Header.php";
+        }
+        
+    ?>
     
     
     <script>
@@ -67,6 +31,13 @@
         var EmailID = document.forms["Contact_Us_Form"]["EmailID"].value;
         if (EmailID == "") {
             alert("Email Address must be filled out");
+            return false;
+        }
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(EmailID))
+        {
+            return true;
+        }else{
+            alert("You have entered an invalid email address!")
             return false;
         }
         var Description = document.forms["Contact_Us_Form"]["Description"].value;
@@ -106,7 +77,13 @@
                         
                         $firstname = $_POST['firstname'];
                         
-                        $to = "gandhiriya99@gmail.com";
+                        $query = "SELECT * FROM system_configuration WHERE ID=3";
+                        $config_select = mysqli_query($connection,$query);
+                        while($row = mysqli_fetch_assoc($config_select)){
+                            $Default_EmailID = $row['Value'];
+                        }
+                        
+                        $to = $Default_EmailID;
                         
                         $header = "MIME_Version:1.0" . "\r\n";
                         $header .= "Content-type: text/html; charset=iso-8859-1"."\r\n";
@@ -126,7 +103,6 @@
                         
                     }
                     
-                        session_start();
                         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             $EmailID=  $_SESSION['EmailID'];
                             $query = "SELECT * FROM users WHERE EmailID='$EmailID'";
@@ -151,13 +127,13 @@
                                         <div class="col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="firstname" id="fname">Firstname*</label>
-                                                <input type="text" value="<?php if(isset($_SESSION['EmailID'])){ echo $FirstName; }else{ echo ""; }?>" name="firstname" class="form-control" id="firstname" placeholder="Enter your first name" required>
+                                                <input type="text" value="<?php if(isset($_SESSION['EmailID'])){ echo $FirstName; }else{ echo ""; }?>" name="firstname" class="form-control" id="firstname" placeholder="Enter your first name" <?php if(isset($_SESSION['EmailID'])){ echo "readonly"; }else{ echo "required"; } ?>>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="EmailID" id="email">Email*</label>
-                                                <input type="email" value="<?php if(isset($_SESSION['EmailID'])){ echo $EmailID_New; }else{ echo ""; }?>" name="EmailID" class="form-control" id="EmailID" placeholder="Enter your email address" required>
+                                                <input type="email" value="<?php if(isset($_SESSION['EmailID'])){ echo $EmailID_New; }else{ echo ""; }?>" name="EmailID" class="form-control" id="EmailID" placeholder="Enter your email address" <?php if(isset($_SESSION['EmailID'])){ echo "readonly"; }else{ echo "required"; } ?>>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-12">

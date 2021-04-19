@@ -63,7 +63,7 @@
             </script>
             
             <?php
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -131,16 +131,14 @@
                                         }
                                         
                                         
-                                        $query = "SELECT * FROM downloads WHERE Downloader=$ID AND IsSellerHasAllowedDownload=1";
+                                        $query = "SELECT * FROM downloads WHERE Downloader=$ID AND IsSellerHasAllowedDownload=1 AND IsActive=1 ORDER BY AttachmentDownloadedDate DESC";
                                     
                                         $Search_all = mysqli_query($connection,$query);
                                         if(!$Search_all){
                                             die("Query Failed" . mysqli_error($connection));
                                         }
                                 
-                                        if(mysqli_num_rows($Search_all)==0){
-                                            echo "<tr><td colspan='8' class='text-center'><h1>Data Not Found</h1></td></tr>";
-                                        }else{
+                                        if(mysqli_num_rows($Search_all)!=0){
                                             $j=0;
                                             while($row =mysqli_fetch_assoc($Search_all)){
                                                 $DownloadID = $row['ID'];
@@ -150,12 +148,11 @@
                                                 $PurchasedPrice = $row['PurchasedPrice'];
                                                 $NoteTitle = $row['NoteTitle'];
                                                 $Category = $row['NoteCategory'];
-                                                $AttachmentDownloadedDate = $row['AttachmentDownloadedDate'];
-                                                $Downloader = $row['Downloader'];
-                                                  
+                                                $AD = $row['AttachmentDownloadedDate'];   
                                                 
-                                                if($Seller!=$Downloader){
-                                                    
+                                                $AttachmentDownloadedDate = date("M d Y, H:i:s",strtotime($AD));  
+                                                
+                                                if($Seller!=$Downloader){    
                                                 
                                                 $query = "SELECT * FROM users WHERE ID=$Downloader";
                                                 $Users_select = mysqli_query($connection,$query);
@@ -220,20 +217,20 @@
                                                     <h5 class="modal-title" id="ReviewModalLabel">Add Review</h5>
                                                     <form action="" method="post">
                                                     <div class="rate form-group">
-                                                        <input type="radio" id="star5" name="rate" value="5" />
-                                                        <label for="star5" title="text">5 stars</label>
-                                                        <input type="radio" id="star4" name="rate" value="4" />
-                                                        <label for="star4" title="text">4 stars</label>
-                                                        <input type="radio" id="star3" name="rate" value="3" />
-                                                        <label for="star3" title="text">3 stars</label>
-                                                        <input type="radio" id="star2" name="rate" value="2" />
-                                                        <label for="star2" title="text">2 stars</label>
-                                                        <input type="radio" id="star1" name="rate" value="1" />
-                                                        <label for="star1" title="text">1 star</label>
+                                                        <input type="radio" id="star5<?php echo $j; ?>" name="rates" value="5" />
+                                                        <label for="star5<?php echo $j; ?>" title="text">5 stars</label>
+                                                        <input type="radio" id="star4<?php echo $j; ?>" name="rates" value="4" />
+                                                        <label for="star4<?php echo $j; ?>" title="text">4 stars</label>
+                                                        <input type="radio" id="star3<?php echo $j; ?>" name="rates" value="3" />
+                                                        <label for="star3<?php echo $j; ?>" title="text">3 stars</label>
+                                                        <input type="radio" id="star2<?php echo $j; ?>" name="rates" value="2" />
+                                                        <label for="star2<?php echo $j; ?>" title="text">2 stars</label>
+                                                        <input type="radio" id="star1<?php echo $j; ?>" name="rates" value="1" />
+                                                        <label for="star1<?php echo $j; ?>" title="text">1 star</label>
                                                     </div><br>
                                                         <div class="form-group">
                                                             <label for="message-text" class="col-form-label" style="margin-right:280px;" >Comments<span> *</span></label>
-                                                            <textarea class="form-control" id="message-text" name="Comments" placeholder="Comments..."></textarea>
+                                                            <textarea class="form-control" id="message-text<?php echo $j; ?>" name="Comments" placeholder="Comments..."></textarea>
                                                             <input type="hidden" name="NoteID" value="<?php echo $ID; ?>">
                                                             <input type="hidden" name="DownloadID" value="<?php echo $DownloadID; ?>">
                                                             
@@ -259,8 +256,8 @@
                                                     </h5>
                                                     <form action="" method="post">
                                                         <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Remarks</label>
-                                                            <textarea class="form-control" id="message-text" name="Remark" placeholder="Write remarks"></textarea>
+                                                            <label for="messages-texts<?php echo $j; ?>" class="col-form-label">Remarks</label>
+                                                            <textarea class="form-control" id="messages-texts<?php echo $j; ?>" name="Remark" placeholder="Write remarks"></textarea>
                                                             <input type="hidden" name="NoteID" value="<?php echo $ID; ?>">
                                                             <input type="hidden" name="DownloadID" value="<?php echo $DownloadID; ?>">
                                                         </div>
@@ -296,7 +293,7 @@
 
         if(isset($_POST['Rate'])){
             $Comments = $_POST['Comments'];
-            $Rating = $_POST['rate'];
+            $Rating = $_POST['rates'];
             $NoteID = $_POST['NoteID'];
             $DownloadID = $_POST['DownloadID'];
 
@@ -326,13 +323,54 @@
             $Users_select = mysqli_query($connection,$query);
             while($row = mysqli_fetch_assoc($Users_select)){
                 $UserID = $row['ID'];
+                $FirstName = $row['FirstName'];
+                $LastName = $row['LastName'];
             }
-
+            
+            $query = "SELECT * FROM sellernotes WHERE ID=$NoteID";
+            $Note_select = mysqli_query($connection,$query);
+            while($row = mysqli_fetch_assoc($Note_select)){
+                $SID = $row['SellerID'];
+                $Title = $row['Title'];
+            }
+                
+            $query = "SELECT * FROM users WHERE ID=$SID";
+            $Users_select = mysqli_query($connection,$query);
+            while($row = mysqli_fetch_assoc($Users_select)){
+                $Seller_FN = $row['FirstName'];
+                $Seller_LN = $row['LastName'];
+            }
+            
+            $query = "SELECT * FROM system_configuration WHERE ID=3";
+            $config_select = mysqli_query($connection,$query);
+            while($row = mysqli_fetch_assoc($config_select)){
+                $Default_EmailID = $row['Value'];
+            }
+            
             $query = "INSERT INTO sellernotesreportedissues(NoteID,ReportedBYID,AgainstDownloadID,Remarks) VALUES ($NoteID,$UserID,$DownloadID,'{$Remark}')";
             $Users_select = mysqli_query($connection,$query);
             if(!$Users_select){
                 die("Query Failed" . mysqli_error($connection));
             }
+            
+            /* 5.6 When Downloader Reports a Spam/Issue, Notify Admin */
+            $to = $Default_EmailID;
+
+            $header = "MIME_Version:1.0" . "\r\n";
+            $header .= "Content-type: text/html; charset=iso-8859-1"."\r\n";
+            $header .= 'From: gogoproject2020@gmail.com';
+
+            $subject = $FirstName." ".$LastName." Reported an issue for ".$Title;
+
+            $comments = "Hello Admins,  <br><br>";
+            $comments .= "<p>We want to inform you that, ".$FirstName." ".$LastName." Reported an issue for ".$Seller_FN." ".$Seller_LN."’s Note with title ".$Title.". Please look at the notes and take required actions. </p><br><br>";
+            
+            $comments .= "<br><br> Regards, <br> Notes Marketplace";
+            
+            if(!mail($to,$subject,$comments,$header)){
+                die("Email verification Failed");
+            }
+            
         }  
 
     ?>

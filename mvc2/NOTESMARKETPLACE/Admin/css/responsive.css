@@ -152,6 +152,8 @@
     #note-preview .note-preview-row #customer {
         width: 550px;
         height: 400px;
+        overflow-y: scroll;
+        max-height: 400px;
         margin-top: 20px;
         margin-bottom: 30px;
     }
@@ -306,6 +308,8 @@
         height: 350px;
     }
     #note-preview .note-preview-row #customer {
+        overflow-y: scroll;
+        max-height: 400px;
         width: 550px;
         height: 400px;
         margin-top: 20px;
@@ -564,6 +568,8 @@
         max-height: 600px;
     }
     #note-preview .note-preview-row #customer {
+        overflow-y: scroll;
+        max-height: 350px;
         width: 450px;
         height: 350px;
         margin-top: 10px;
@@ -915,6 +921,8 @@
         height: 250px;
     }
     #note-preview .note-preview-row #customer {
+        overflow-y: scroll;
+        max-height: 310px;
         width: 450px;
         height: 310px;
         margin-top: 20px;
@@ -1266,6 +1274,8 @@
         height: 230px;
     }
     #note-preview .note-preview-row #customer {
+        overflow-y: scroll;
+        max-height: 300px;
         width: 550px;
         height: 300px;
         margin-top: 20px;

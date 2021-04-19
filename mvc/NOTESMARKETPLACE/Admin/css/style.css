@@ -47,7 +47,7 @@ p {
 
 .btn-Blue {
     background-color: #6255a5;
-    color: #fff;
+    color: #fff !important;
     width: 80px;
     border: transparent;
 }

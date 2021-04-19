@@ -31,13 +31,25 @@
 
 </head>
 
+<script>
+        
+        function LogoutUser(){
+            if(confirm("Are you sure, you want to logout?")){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+</script>
+
 <body>
    
     <!-- Header -->
     <header>
         <nav class="navbar navbar-light navbar-expand-lg  white-nav-top fixed-top">
             <div class="container">
-                <a id="user-header" class="navbar-brand" href="#">
+                <a id="user-header" class="navbar-brand" href="index.php">
                     <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
                 </a>
                 
@@ -86,23 +98,29 @@
                                         $IMG = $row['Profile Picture'];
                                     }
                                 
+                                    $query = "SELECT * FROM system_configuration WHERE ID=8";
+                                    $Default_select = mysqli_query($connection,$query);
+                                    while($row = mysqli_fetch_assoc($Default_select)){
+                                        $Default_IMG = $row['Value'];
+                                    }
+                                
                             ?>
                             
-                            <img src="<?php echo "../Uploads/Members/$ID/Profile_Photo/$IMG"; ?>" alt="User-Photo" class="rounded-circle img-responsive">
+                            <img src="<?php if(mysqli_num_rows($Users_select)==0){ echo "../Uploads/Default_Images/$Default_IMG"; }else{ echo "../Uploads/Members/$ID/Profile_Photo/$IMG"; }?>" alt="User-Photo" class="rounded-circle img-responsive">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../Admin/My_Profile.php">My Profile</a>
+                                <a class="dropdown-item" href="User_Profile.php">My Profile</a>
                                 <a class="dropdown-item" href="My_Downloads.php">My Downloads</a>
                                 <a class="dropdown-item" href="My_Sold_Notes.php">My Sold Notes</a>
                                 <a class="dropdown-item" href="My_Rejected_Notes.php">My Rejected Notes</a>
-                                <a class="dropdown-item" href="Change_Password.php">Change Password</a>
-                                <a class="dropdown-item" onclick="return Logout()" href="Login.php">LOGOUT</a>
+                                <a class="dropdown-item" href="../Change_Password.php">Change Password</a>
+                                <a class="dropdown-item" onclick="return Logout()" href="../Login.php">LOGOUT</a>
                             </div>
                         </li>
 
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0" action="" method="post">
-                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onsubmit="return Logout()">Logout</button>
+                                <button class="btn my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onclick="return LogoutUser()">Logout</button>
                             </form>
                         </li>
                         
@@ -112,7 +130,7 @@
                             if(isset($_POST['Logout'])){
                                 session_start(); //to ensure you are using same session
                                 session_destroy(); //destroy the session
-                                header("Location: Login.php"); 
+                                header("Location: ../Login.php"); 
                                 exit();
                             }
                         
@@ -124,14 +142,3 @@
     </header>
     <!-- Header ENDS -->
     
-<script>
-        
-        function Logout(){
-            if(confirm("Are you sure, you want to logout?")){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        
-</script>

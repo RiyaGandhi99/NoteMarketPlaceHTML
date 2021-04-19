@@ -69,18 +69,16 @@
     </footer>
     <!-- Footer ENDS -->
     
-
-
     
     <!-- JQuery-->
     <script src="js/jquery-min.js"></script>
-    
-    <!--Bootstrap JS-->
-    <script src="js/bootstrap/bootstrap.min.js"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
     <!--Custom JS--> 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    
+    <!--Bootstrap JS-->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
 
     <!--Custom JS-->
     <script src="js/Script.js"></script>

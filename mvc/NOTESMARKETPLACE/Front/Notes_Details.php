@@ -1,66 +1,18 @@
 <!-- Header -->
 <?php ob_start(); ?>
-<?php include "Header.php"; ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
 
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-light navbar-expand-lg  white-nav-top fixed-top">
-            <div class="container">
-                <a id="user-header" class="navbar-brand" href="#">
-                    <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Mobile Menu Close Button -->
-                <span id="mobile-nav-close-btn">&times;</span>
-               
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="Search_Notes.html"><span>Search</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sell<span>Your</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Buyer_Requests.html"><span>Buyer</span><span class="space">Requests</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FAQ.html">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact_Us.html"><span>Contact</span><span class="space">Us</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle user-img dropbtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/Homepage/user-img.png" alt="User-Photo" class="rounded-circle img-responsive"></a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../Admin/My_Profile.html">My Profile</a>
-                                <a class="dropdown-item" href="My_Downloads.html">My Downloads</a>
-                                <a class="dropdown-item" href="My_Sold_Notes.html">My Sold Notes</a>
-                                <a class="dropdown-item" href="My_Rejected_Notes.html">My Rejected Notes</a>
-                                <a class="dropdown-item" href="Change_Password.html">Change Password</a>
-                                <a class="dropdown-item" href="#">LOGOUT</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <form class="form-inline my-2 my-lg-0">
-                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="submit">Logout</button>
-                            </form>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Header ENDS -->
+    <?php   
+        
+        session_start();
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+            include "Registered_Header.php"; 
+        }else{
+            include "Unregistered_Header.php";
+        }
+        
+    ?>
     
     <!-- Notes Details -->
     <section id="notes-details">
@@ -150,7 +102,6 @@
                                 <form>
                                 <?php
                                     
-                                    session_start();
                                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                         echo "<button type='button' class='btn btn-primary btn-Blue' data-toggle='modal' data-target='#ThankModalCenter'>
                                         Download/$15</button>";

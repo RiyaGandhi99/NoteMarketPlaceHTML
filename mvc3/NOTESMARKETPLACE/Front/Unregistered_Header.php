@@ -65,7 +65,7 @@
                         </li>
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0">
-                                <a href="../Login.php"><button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
+                                <a href="../Login.php"><button class="btn my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
                             </form>
                         </li>
 

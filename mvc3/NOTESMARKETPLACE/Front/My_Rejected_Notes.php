@@ -147,7 +147,7 @@
                                             
                                             $j++;
                                             echo "<tr><th scope='row'>$j</th>
-                                            <td><a href='Notes_Details.php?EYE=$ID'>$Title</a></td>
+                                            <td><a href='Notes_Details.php?Note=$ID'>$Title</a></td>
                                             <td>$Category</td>
                                             <td>$AdminRemarks</td>
                                             <td><a href='#'>Clone</a></td>

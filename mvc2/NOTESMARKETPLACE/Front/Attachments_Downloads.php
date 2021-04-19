@@ -9,41 +9,17 @@
         
         $query = "SELECT * FROM sellernotesattachments WHERE NoteID=$ID";
         $Attachment_select = mysqli_query($connection,$query);
-        if($row =mysqli_fetch_assoc($Attachment_select)){
-            $FilePath = $row['FilePath'];
-        }
         if(!$Attachment_select){
             die("Query Failed" . mysqli_error($connection));
         }
-        
         $files=[];
-        /* File Download (Multiple/Single) */
-        if(mysqli_num_rows($Attachment_select)>1){
-            for($i=1;$i<=mysqli_num_rows($Attachment_select);$i++){
-                $Path ="../Uploads/$FilePath";
-                array_push($files,$Path);
-                $FilePath = $row['FilePath'];
-            }
+        while($row =mysqli_fetch_assoc($Attachment_select)){
+            $FilePath = $row['FilePath'];
+                
+            $Path ="../Uploads/$FilePath";
+            array_push($files,$Path);
+            $FilePath = $row['FilePath'];
             
-            $Zip_Name="Multiple_File_".date('Y-m-d').".zip";
-            $zip = new ZipArchive;
-            $zip->open($Zip_Name, ZipArchive::CREATE);
-            foreach($files as $File){
-                $zip->addFile($File,basename($File));
-            }
-            $zip->close();
-            //echo 'Archive created!';
-            header('Content-disposition: attachment; filename='.$Zip_Name);
-            header('Content-type: application/zip');
-            readfile($Zip_Name);
-            
-            unlink($Zip_Name);
-            
-            
-        }else{
-            header("Content-Type: application/pdf"); 
-            header("Content-Disposition: attachment; filename=" .basename("../Uploads/$FilePath"));
-            readfile("../Uploads/$FilePath");
         }
         
         
@@ -86,9 +62,9 @@
                     if(!$Download_select){
                         die("Query Failed" . mysqli_error($connection));
                     }
-                    
+                    //echo mysqli_num_rows($Download_select);
                     if(mysqli_num_rows($Download_select)==0){
-        
+                    
                     
                     $date = date('Y-m-d H:i:s');
         
@@ -101,7 +77,32 @@
                     }
                 }
             }
+        
+        
+        if(mysqli_num_rows($Attachment_select)>1){
+            
+            /* File Download (Multiple/Single) */
+            $Zip_Name="Multiple_File_".date('Y-m-d').".zip";
+            $zip = new ZipArchive;
+            $zip->open($Zip_Name, ZipArchive::CREATE);
+            foreach($files as $File){
+                $zip->addFile($File,basename($File));
+            }
+            $zip->close();
+            //echo 'Archive created!';
+            header('Content-disposition: attachment; filename='.$Zip_Name);
+            header('Content-type: application/zip');
+            readfile($Zip_Name);
+            
+            unlink($Zip_Name);
+            
+            
+        }else{
+            header("Content-Type: application/pdf"); 
+            header("Content-Disposition: attachment; filename=" .basename("../Uploads/$FilePath"));
+            readfile("../Uploads/$FilePath");
         }
+    }
        
 ?>
 
@@ -163,9 +164,9 @@
                     
                     if(mysqli_num_rows($Download_select)==0){
                         
-                        $date = date('Y-m-d H:i:s');
+                        
 
-                        $query = "INSERT INTO `downloads`(`NoteID`, `Seller`, `Downloader`, `IsSellerHasAllowedDownload`, `AttachmentPath`, `IsAttachmentDownloaded`,`AttachmentDownloadedDate`, `IsPaid`, `PurchasedPrice`, `NoteTitle`, `NoteCategory`) VALUES ($ID,$SellerID,$DownloadID,0,'{$FilePath}',0,'{$date}',1,{$SellingPrice},'{$NoteTitle}','{$Category}')";
+                        $query = "INSERT INTO `downloads`(`NoteID`, `Seller`, `Downloader`, `IsSellerHasAllowedDownload`, `AttachmentPath`, `IsAttachmentDownloaded`, `IsPaid`, `PurchasedPrice`, `NoteTitle`, `NoteCategory`) VALUES ($ID,$SellerID,$DownloadID,0,'{$FilePath}',0,1,{$SellingPrice},'{$NoteTitle}','{$Category}')";
 
 
                         $Download_Insert = mysqli_query($connection,$query);

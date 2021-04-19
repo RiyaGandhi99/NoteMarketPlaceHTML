@@ -47,7 +47,7 @@ p {
 
 .btn-Blue {
     background-color: #6255a5;
-    color: #fff;
+    color: #fff !important;
     width: 80px;
     border: transparent;
 }
@@ -354,15 +354,15 @@ MANAGE SYSTEM CONFIGURATION PAGE
     margin-bottom: 10px;
 }
 
-#administrator #administrator-row-inner .col-md-2 .form-control,
+#administrator #administrator-row-inner .col-md-2 select,
 #profile #profile-row-inner .col-md-2 .form-control {
-    width: 90px;
+    width:  90px !important;
     height: 40px;
 }
 
-#administrator #administrator-row-inner .col-md-10 .form-control,
+#administrator #administrator-row-inner .col-md-10 input[type="text"],
 #profile .profile-row #profile-row-inner .col-md-10 .form-control {
-    width: 455px;
+    width: 455px  !important;
 }
 
 #profile #Profile-Picture input[type="file"],
@@ -823,6 +823,8 @@ set-box-shadow-cicis-menu-to-go {
 
 
 #note-preview .note-preview-row #customer {
+    overflow-y: scroll;
+    max-height: 400px;
     width: 650px;
     height: 400px;
     border: 1px solid #d1d1d1;
@@ -969,7 +971,6 @@ set-box-shadow-cicis-menu-to-go {
     width: 150px;
     margin-left: 10px;
 }
-
 /*==========================NOTES UNDER REVIEW POPPER================================*/
 .modal-body h5 {
     font-family: "Open Sans", sans-serif;

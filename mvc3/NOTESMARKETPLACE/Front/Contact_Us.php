@@ -22,6 +22,13 @@
             alert("Email Address must be filled out");
             return false;
         }
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(EmailID))
+        {
+            return true;
+        }else{
+            alert("You have entered an invalid email address!")
+            return false;
+        }
         var Description = document.forms["Contact_Us_Form"]["Description"].value;
         if (Description == "") {
             alert("Description must be filled out");
@@ -69,7 +76,13 @@
                         
                         $firstname = $_POST['firstname'];
                         
-                        $to = "gandhiriya99@gmail.com";
+                        $query = "SELECT * FROM system_configuration WHERE ID=3";
+                        $config_select = mysqli_query($connection,$query);
+                        while($row = mysqli_fetch_assoc($config_select)){
+                            $Default_EmailID = $row['Value'];
+                        }
+                        
+                        $to = $Default_EmailID;
                         
                         $header = "MIME_Version:1.0" . "\r\n";
                         $header .= "Content-type: text/html; charset=iso-8859-1"."\r\n";
@@ -143,7 +156,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </section>
     </div>

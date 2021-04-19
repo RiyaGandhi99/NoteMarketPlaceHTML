@@ -13,7 +13,7 @@
                 header("Location: Sign_Up.php");
                 die("Query Failed" . mysqli_error($connection)); 
             }else{
-                header("Location: Login.php");
+                header("Location: ../Login.php");
             }
         }
 

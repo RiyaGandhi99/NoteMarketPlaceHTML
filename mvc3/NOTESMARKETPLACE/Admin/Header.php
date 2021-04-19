@@ -151,7 +151,7 @@
                         </li>
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0" action="" method="post">
-                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onclick="return LogoutAdmin()">Logout</button>
+                                <button class="btn my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onclick="return LogoutAdmin()">Logout</button>
                             </form>
                         </li>
                         <?php

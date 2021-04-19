@@ -10,7 +10,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -38,18 +38,23 @@
         $Category = $_POST['Category'];
         $Display_Picture = $_FILES['dp']['name']; 
         $Display_Picture_tempname = $_FILES['dp']['tmp_name'];
+        $Display_Picture_Type = $_FILES['dp']['type'];
         $Upload_Notes[] = $_FILES['upload_notes']['name'];
         $Upload_Notes_tempname[] = $_FILES['upload_notes']['tmp_name'];
+        $Upload_Notes_Type[] = $_FILES['upload_notes']['type'];
         $Type = $_POST['note_type'];
         $Pages = $_POST['note_pages'];
         $Description = $_POST['Description'];
         $Country = $_POST['country'];
         $Institute_Name = $_POST['institute_name'];
+        $CourseName = $_POST['CourseName'];
+        $CourseCode = $_POST['CourseCode'];
         $Proffessor = $_POST['proffessor'];
         $sell = $_POST['sell'];        
         $sell_price = $_POST['sell_price'];
         $Upload_File = $_FILES['upload_file']['name'];
         $Upload_File_tempname = $_FILES['upload_file']['tmp_name'];
+        $Upload_File_Type = $_FILES['upload_file']['type'];
         
 
         //Type Details 
@@ -92,9 +97,31 @@
             
         }
         
+        $errors     = array();
+        $acceptable_img = array(
+            'image/jpeg',
+            'image/jpg',
+            'image/gif',
+            'image/png'
+        );
+        $acceptable_pdf = array(
+            'application/pdf'
+        );
+        
+        if((!in_array($Display_Picture_Type, $acceptable_img)) && (!empty($Display_Picture_Type))) {
+                    $errors[] = 'Invalid file type. Only JPG, GIF and PNG types are accepted.';
+        }
+        
+        if((!in_array($Upload_Notes_Type, $acceptable_pdf)) && (!empty($Upload_Notes_Type)) &&
+          (!in_array($Upload_File_Type, $acceptable_pdf)) && (!empty($Upload_File_Type))) {
+                    $errors[] = 'Invalid file type. Only PDF types are accepted.';
+        }
+        
+        if(count($errors) === 0) {
+                
         
         //Insert Data into sellernotes table..
-        $query = "INSERT INTO sellernotes(SellerID,Status,Title,Category,DisplayPicture,NoteType,NumberOfPages,Description,UniversityName,Country,Course,CourseCode,Professor,IsPaid,SellingPrice,NotesPreview) VALUES ('{$Id}','6','{$Title}','{$CategoryID}','{$Display_Picture}','{$TypeID}','{$Pages}','{$Description}','{$Institute_Name}','{$CountryID}','GOGO','023','{$Proffessor}',$sell,'{$sell_price}','{$Upload_File}')";
+        $query = "INSERT INTO sellernotes(SellerID,Status,Title,Category,DisplayPicture,NoteType,NumberOfPages,Description,UniversityName,Country,Course,CourseCode,Professor,IsPaid,SellingPrice,NotesPreview) VALUES ('{$Id}','6','{$Title}','{$CategoryID}','{$Display_Picture}','{$TypeID}','{$Pages}','{$Description}','{$Institute_Name}','{$CountryID}','{$CourseName}','{$CourseCode}','{$Proffessor}',$sell,'{$sell_price}','{$Upload_File}')";
         
         $Notes_Details = mysqli_query($connection,$query);
         if(!$Notes_Details){
@@ -117,7 +144,6 @@
                 $query = "SELECT * FROM sellernotesattachments WHERE ID =(SELECT MAX(ID) FROM sellernotesattachments)";
                 $Last_insert = mysqli_query($connection,$query);
                 $row = mysqli_fetch_assoc($Last_insert);
-                $PdfID = $row['ID'] + 1;
                 $Upload_Notes = $_FILES['upload_notes']['name'][$r];
                 $Upload_Notes_tempname = $_FILES['upload_notes']['tmp_name'][$r];
                 
@@ -153,7 +179,14 @@
             move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$NoteID}/Images/$Upload_File");
         }
         
-            
+        header("Location: Dashboard.php");
+        }else {
+            foreach($errors as $error) {
+                echo '<script>
+                    alert("'.$error.'");
+                </script>';
+            }
+        }
         
     }
     
@@ -249,9 +282,11 @@
                                 <label for="note_pages">Pages*</label>
                                 <select class="form-control custom-select" name="note_pages" id="note-pages" required>
                                     <option value="<?php if(isset($_GET['edit'])){echo $PagesOld; }else if(isset($_POST['save'])){echo $Pages;} ?>" selected>Enter number of note pages</option>
+                                    <option>10</option>
                                     <option>20</option>
-                                    <option>100</option>
                                     <option>50</option>
+                                    <option>100</option>
+                                    <option>200</option>
                                 </select>
                             </div>
                         </div>
@@ -268,7 +303,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="heading">
-                                <h2>Institute Details</h2>
+                                <h2>Institute Information</h2>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
@@ -294,6 +329,30 @@
                                 <label for="institute_name">Institution name</label>
                                 <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $Institute_Name;} ?>" class="form-control" name="institute_name" id="institute_name"
                                     placeholder="Enter your institute name" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="institute-information-form">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="heading">
+                                <h2>Course Details</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Name">Course Name</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $CourseName;} ?>" class="form-control" name="CourseName" id="Course_Name"
+                                    placeholder="Enter your Course Name">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Code">Course Code</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $CourseCode;} ?>" class="form-control" name="CourseCode" id="Course_Code"
+                                    placeholder="Enter your Course Code">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
@@ -389,9 +448,14 @@
                             die("Query Failed" . mysqli_error($connection));
                         }
                         
+                        $query = "SELECT * FROM system_configuration WHERE ID=3";
+                        $config_select = mysqli_query($connection,$query);
+                        while($row = mysqli_fetch_assoc($config_select)){
+                            $Default_EmailID = $row['Value'];
+                        }
                         
                         //Mail to the admin for publish notes confirmation
-                        $to = "gandhiriya99@gmail.com";
+                        $to = $Default_EmailID;
                         
                         $header = "MIME_Version:1.0" . "\r\n";
                         $header .= "Content-type: text/html; charset=iso-8859-1"."\r\n";
@@ -461,9 +525,6 @@
             }
         }
         
-        
-        
-        
         /*  Notes Preview js  */
         var notes = document.getElementById( 'upload_file' );
         var preview = document.getElementById( 'note-preview' );
@@ -476,19 +537,6 @@
             preview.textContent = 'File name: ' + fileName3;
         }
         
-        
-        /*function PaidNotes(){
-            if (document.getElementById('paid-lbl').checked){
-                //var upload_file = document.forms["Add_Notes_Form"]["upload_file"].value;
-                if (preview == "") {
-                    alert("upload file must be filled out");
-                    return false;
-                }
-                return true;
-            }else{
-                return false;
-            }
-        }*/
     
     
 </script> 

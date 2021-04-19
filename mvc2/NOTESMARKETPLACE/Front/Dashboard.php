@@ -3,7 +3,17 @@
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
 
-
+    <?php   
+        
+        session_start();
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+            include "Registered_Header.php"; 
+        }else{
+            header("Location: ../Login.php");
+        }
+        
+    ?>
+    
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -74,18 +84,7 @@
 
 </script>
    
-    <?php   
-        
-        session_start();
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-            include "Registered_Header.php"; 
-        }else{
-            header("Location: Login.php");
-        }
-        
-    ?>
-    
-    
+   
     <!-- Dashboard -->
     <section id="dashboard-notes">
 
@@ -125,18 +124,18 @@
                         //to find number of sold notes and total earning
                         $Total_Earned = 0;
                         $query = "SELECT * FROM downloads WHERE Seller=$UserID AND
-                        IsAttachmentDownloaded=1";
+                        IsAttachmentDownloaded=1 AND IsActive=1";
                         $SoldNotes = mysqli_query($connection,$query);
                         while($row = mysqli_fetch_assoc($SoldNotes)){
                             $Price = $row['PurchasedPrice'];
                             $Total_Earned = $Total_Earned + $Price;
                         }
-                        //echo $Total_Earned;
+                        
                         
                         $SoldNotes_Count = mysqli_num_rows($SoldNotes);
                         
                         //to find number of downloads notes
-                        $query = "SELECT * FROM downloads WHERE Downloader=$UserID AND IsAttachmentDownloaded=1";
+                        $query = "SELECT * FROM downloads WHERE Downloader=$UserID AND IsAttachmentDownloaded=1 AND IsActive=1";
                         $Downloads = mysqli_query($connection,$query);
                         if(!$Downloads){
                             die("Query Failed" . mysqli_error($connection));   
@@ -145,7 +144,7 @@
                         $Downloads_Count = mysqli_num_rows($Downloads);
                         
                         //to find number of Rejected notes
-                        $query = "SELECT * FROM sellernotes WHERE SellerID=$UserID AND Status=10";
+                        $query = "SELECT * FROM sellernotes WHERE SellerID=$UserID AND Status=10 AND IsActive=1";
                         $Rejected = mysqli_query($connection,$query);
                         if(!$Rejected){
                             die("Query Failed" . mysqli_error($connection));   
@@ -154,7 +153,7 @@
                         $Rejected_Count = mysqli_num_rows($Rejected);
                         
                         //to find number of Buyer request notes
-                        $query = "SELECT * FROM downloads WHERE Seller='$UserID' AND IsPaid=1 AND IsSellerHasAllowedDownload=0";
+                        $query = "SELECT * FROM downloads WHERE Seller='$UserID' AND IsPaid=1 AND IsSellerHasAllowedDownload=0 AND IsActive=1";
                         $Buyer_Request = mysqli_query($connection,$query);
                         if(!$Buyer_Request){
                             die("Query Failed" . mysqli_error($connection));
@@ -263,7 +262,7 @@
                     <div class="col-md-12 col-sm-12 col-12">
 
                     <div class="table-responsive">
-                        <table class="table table-hover" id="In_Progress_Notes_table">
+                        <table class="table table-hover datatable" id="In_Progress_Notes_table">
                             <thead>
                                 <tr>
                                     <th scope="col">ADDED DATE</th>
@@ -277,7 +276,7 @@
                                 
                         <?php
                                 
-                                $query = "SELECT * FROM sellernotes WHERE Status IN (6,7,8)";
+                                $query = "SELECT * FROM sellernotes WHERE Status IN (6,7,8) AND SellerID=$UserID AND IsActive=1 ORDER BY CreatedDate DESC";
                                 
                                 
                                 $Search_all = mysqli_query($connection,$query);
@@ -286,14 +285,14 @@
                                 }
                                 
                                 
-                                if(mysqli_num_rows($Search_all)==0){
-                                    echo "<tr><td colspan='5' class='text-center'><h1>Data Not Found</h1></td></tr>";
-                                }else{
+                                if(mysqli_num_rows($Search_all)!=0){
                                     while($row =mysqli_fetch_assoc($Search_all)){
                                         $Status = $row['Status'];
-                                        $CreatedDate = $row['CreatedDate'];
+                                        $CDate = $row['CreatedDate'];
                                         $Title = $row['Title'];
                                         $Category = $row['Category'];
+                                        
+                                        $CreatedDate = date('d-m-Y',strtotime($CDate));
                                         
                                         
                                         $query = "SELECT * FROM referencedata WHERE ID=$Status";
@@ -331,7 +330,7 @@
                                                 echo "<td><a href='Edit_Notes.php?edit=$ID'><img src='images/Dashboard/edit.png' alt='Edit'></a><a href='?delete=$ID' onclick='return DELETE()'><img src='images/Dashboard/delete.png' alt='Delete'></a></td></tr>";
                                         }else{
                                             
-                                                echo "<td><a href='Notes_Details.php?Note=$ID'><img src='images/tables/eye.png' alt='Eye'></a></tr>";
+                                                echo "<td><a href='Notes_Details.php?Note=$ID'><img src='images/tables/eye.png' alt='Eye'></a></td></tr>";
                                         }
                                     }
                                 }
@@ -405,22 +404,21 @@
                                
                     <?php
                                 
-                                $query = "SELECT * FROM sellernotes WHERE Status='9' ";
+                                $query = "SELECT * FROM sellernotes WHERE Status='9' AND SellerID=$UserID AND IsActive=1 ORDER BY CreatedDate DESC";
                                 
                                 $Search_all = mysqli_query($connection,$query);
                                 if(!$Search_all){
                                     die("Query Failed" . mysqli_error($connection));
                                 }
                                 
-                                if(mysqli_num_rows($Search_all)==0){
-                                    echo "<tr><td colspan='6' class='text-center'><h1>Data Not Found</h1></td></tr>";
-                                }else{
+                                if(mysqli_num_rows($Search_all)!=0){
                                     while($row =mysqli_fetch_assoc($Search_all)){
                                         $IsPaid = $row['IsPaid'];
-                                        $CreatedDate = $row['CreatedDate'];
+                                        $CDate = $row['CreatedDate'];
                                         $Title = $row['Title'];
                                         $Category = $row['Category'];
                                         $SellingPrice = $row['SellingPrice'];
+                                        $CreatedDate = date('d-m-Y',strtotime($CDate));
                                         
                                         if($IsPaid==1){
                                             $query = "SELECT * FROM referencedata WHERE ID=4";
@@ -455,7 +453,8 @@
                                                 <td>$Category</td>
                                                 <td>$SellType</td>
                                                 <td>$$SellingPrice</td>
-                                                <td><a href='Notes_Details.php?Note=$ID'><img src='images/tables/eye.png' alt='Eye'></a></tr>";
+                                                <td><a href='Notes_Details.php?Note=$ID'><img src='images/tables/eye.png' alt='Eye'></a></td>
+                                            </tr>";
 
                                     }
                                 }

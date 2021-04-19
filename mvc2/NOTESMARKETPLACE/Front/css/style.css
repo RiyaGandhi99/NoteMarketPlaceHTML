@@ -246,7 +246,7 @@ p {
 
 .btn-Blue {
     background-color: #6255a5;
-    color: #fff;
+    color: #fff !important;
     width: 80px;
     border: transparent;
 }
@@ -694,8 +694,9 @@ input[type="text"] {
     margin-bottom: 20px;
 }
 
-#change .eye,
-#login .eye {
+#sign .P1,
+#change .P1,
+#login #P1 {
     float: right;
     margin-left: 335px;
     margin-top: -33px;

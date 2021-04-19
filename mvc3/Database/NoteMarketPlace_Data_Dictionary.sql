@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 09:57 PM
+-- Generation Time: Apr 19, 2021 at 03:29 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -314,21 +314,25 @@ CREATE TABLE `downloads` (
 --
 
 INSERT INTO `downloads` (`ID`, `NoteID`, `Seller`, `Downloader`, `IsSellerHasAllowedDownload`, `AttachmentPath`, `IsAttachmentDownloaded`, `AttachmentDownloadedDate`, `IsPaid`, `PurchasedPrice`, `NoteTitle`, `NoteCategory`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
-(73, 4, 27, 20, b'00', 'Members/27/4/Attachments/AI.pdf', b'00', '0000-00-00 00:00:00', 1, b'0000000000000000000000000000000000000000000000000000000111110100', 'AI Learning', 'Computer', NULL, NULL, NULL, NULL, b'01'),
-(74, 21, 27, 20, b'00', 'Members/27/21/Attachments/J.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'jjjjjj', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(73, 4, 27, 20, b'01', 'Members/27/4/Attachments/AI.pdf', b'01', '2021-04-02 10:38:38', 1, b'0000000000000000000000000000000000000000000000000000000111110100', 'AI Learning', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(74, 21, 27, 20, b'00', 'Members/27/21/Attachments/J.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'jjjjjj', 'Computer', NULL, NULL, NULL, NULL, b'00'),
 (75, 20, 25, 10, b'01', 'Members/25/20/Attachments/Spring.pdf', b'01', '2021-04-10 04:40:32', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'Spring ', 'Computer', NULL, NULL, NULL, NULL, b'01'),
 (76, 24, 29, 10, b'01', 'Members/29/24/Attachments/AWS.pdf', b'01', '2021-04-10 04:49:26', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'AWS', 'Science', NULL, NULL, NULL, NULL, b'01'),
-(77, 21, 27, 10, b'00', 'Members/27/21/Attachments/J.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'jjjjjj', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(77, 21, 27, 10, b'00', 'Members/27/21/Attachments/J.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'jjjjjj', 'Computer', NULL, NULL, NULL, NULL, b'00'),
 (78, 40, 23, 20, b'00', 'Members/23/40/Attachments/CA1.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000000011111111', 'CA1', 'Computer', NULL, NULL, NULL, NULL, b'01'),
-(79, 28, 27, 20, b'00', 'Members/27/28/Attachments/CN.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000010011100010000', 'CN', 'Science', NULL, NULL, NULL, NULL, b'01'),
+(79, 28, 27, 20, b'01', 'Members/27/28/Attachments/CN.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000010011100010000', 'CN', 'Science', NULL, NULL, NULL, NULL, b'01'),
 (80, 49, 29, 20, b'00', 'Members/29/49/Attachments/MVC.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000011110100001001000000', 'MVC', 'Science', NULL, NULL, NULL, NULL, b'01'),
 (81, 39, 10, 20, b'01', 'Members/10/39/Attachments/Math-I.pdf,Members/10/39/Attachments/Notes Marketplace - Admin.pdf', b'01', '2021-04-10 21:15:29', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'Maths', 'Computer', NULL, NULL, NULL, NULL, b'01'),
-(82, 4, 27, 19, b'00', 'Members/27/4/Attachments/AI.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000000111110100', 'AI Learning', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(82, 4, 27, 19, b'01', 'Members/27/4/Attachments/AI.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000000111110100', 'AI Learning', 'Computer', NULL, NULL, NULL, NULL, b'01'),
 (83, 24, 29, 19, b'01', 'Members/29/24/Attachments/AWS.pdf', b'01', '2021-04-10 21:20:43', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'AWS', 'Science', NULL, NULL, NULL, NULL, b'01'),
 (84, 49, 29, 19, b'00', 'Members/29/49/Attachments/MVC.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000011110100001001000000', 'MVC', 'Science', NULL, NULL, NULL, NULL, b'01'),
 (85, 20, 25, 19, b'01', 'Members/25/20/Attachments/Spring.pdf', b'01', '2021-04-10 21:25:25', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'Spring ', 'Computer', NULL, NULL, NULL, NULL, b'01'),
 (86, 3, 27, 19, b'00', 'Members/27/3/Attachments/Security.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000000011111010', 'Java Security', 'IT', NULL, NULL, NULL, NULL, b'01'),
-(87, 30, 25, 19, b'00', 'Members/25/30/Attachments/DataStructure.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'Data Structure', 'Computer', NULL, NULL, NULL, NULL, b'01');
+(87, 30, 25, 19, b'00', 'Members/25/30/Attachments/DataStructure.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000001110110110', 'Data Structure', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(88, 55, 10, 26, b'01', 'Members/10/55/Attachments/S3.pdf', b'01', '2021-04-16 22:59:48', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'S3 Service', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(89, 4, 27, 44, b'00', 'Members/27/4/Attachments/AI.pdf', b'00', NULL, 1, b'0000000000000000000000000000000000000000000000000000000111110100', 'AI Learning', 'Computer', NULL, NULL, NULL, NULL, b'01'),
+(90, 57, 40, 44, b'01', 'Members/40/57/Attachments/Political economy.pdf', b'01', '2021-04-17 15:33:16', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'Political economy', 'History', NULL, NULL, NULL, NULL, b'01'),
+(94, 39, 10, 10, b'01', 'Members/10/39/Attachments/Notes Marketplace - Admin.pdf', b'01', '2021-04-18 02:25:23', 0, b'0000000000000000000000000000000000000000000000000000000000000000', 'Maths', 'Computer', NULL, NULL, NULL, NULL, b'01');
 
 -- --------------------------------------------------------
 
@@ -405,35 +409,37 @@ CREATE TABLE `sellernotes` (
 
 INSERT INTO `sellernotes` (`ID`, `SellerID`, `Status`, `ActionBy`, `AdminRemarks`, `PublishedDate`, `Title`, `Category`, `DisplayPicture`, `NoteType`, `NumberOfPages`, `Description`, `UniversityName`, `Country`, `Course`, `CourseCode`, `Professor`, `IsPaid`, `SellingPrice`, `NotesPreview`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
 (3, 27, 9, 3, NULL, '2021-02-23 09:32:29', 'Java Security', 3, 'j.jpg', 1, 20, 'Lorem ipsum is simply dummy text', 'IIT', 1, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '250', 'Security.pdf', '2021-02-23 09:32:29', NULL, '2021-02-23 09:32:29', NULL, b'01'),
-(4, 27, 10, 31, NULL, '2021-04-01 14:46:35', 'AI Learning', 1, 'l1.jpg', 3, 10, 'OK!!! IT is very useful notes.. ', 'LJIET', 4, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '500', 'AI.pdf', '2021-02-23 09:49:08', NULL, '2021-02-23 09:49:08', NULL, b'01'),
+(4, 27, 9, 31, NULL, '2021-04-01 14:46:35', 'AI Learning', 1, 'l1.jpg', 3, 10, 'OK!!! IT is very useful notes.. ', 'LJIET', 4, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '500', 'AI.pdf', '2021-02-23 09:49:08', NULL, '2021-02-23 09:49:08', NULL, b'01'),
 (10, 25, 6, 4, NULL, NULL, 'C++ Notes', 3, '4.jpg', 3, 100, 'C++ is the basic language...', 'IIT', 47, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'C++.pdf', '2021-03-01 10:34:28', NULL, '2021-03-01 10:34:28', NULL, b'01'),
 (15, 11, 6, 4, NULL, NULL, '.Net Notes', 1, '.net.jpg', 2, 20, '.Net is also very nice PL....', 'MS', 101, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'00', '0', 'Net.pdf', '2021-03-02 16:53:28', NULL, '2021-03-02 16:53:28', NULL, b'01'),
 (18, 22, 8, 31, '', '0000-00-00 00:00:00', 'Opentext', 2, '5.jpg', 3, 50, 'Open Text is also PL.....', 'GEC', 16, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '500', 'OpenText.pdf', '2021-03-02 18:49:39', NULL, '2021-03-02 18:49:39', NULL, b'01'),
 (20, 25, 7, 31, '', '0000-00-00 00:00:00', 'Spring ', 1, 's.jpg', 2, 100, 'yesssssssssssssssssssssssssssssssssssssssss', 'IIT', 17, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'Spring.pdf', '2021-03-02 18:56:15', NULL, '2021-03-02 18:56:15', NULL, b'01'),
-(21, 27, 11, 4, 'This Book is useless..', '2021-03-18 22:29:23', 'jjjjjj', 1, '3.jpg', 2, 20, 'yggggggggggggggggggggggggggggggg', 'IIT', 18, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'01', '950', 'J.pdf', '2021-03-02 19:07:24', NULL, '2021-03-02 19:07:24', NULL, b'01'),
-(23, 20, 11, 31, 'fine!!!!!!', '2021-03-24 22:29:23', 'eeeeeeeeee', 1, '5.jpg', 2, 50, 'Lorem is dummy text.', 'GEC', 17, 'GOGO', '023', 'Ridham', b'00', '0', 'E1.pdf', '2021-03-02 19:47:37', NULL, '2021-03-02 19:47:37', NULL, b'01'),
+(21, 27, 11, 4, 'This Book is useless..', '2021-03-18 22:29:23', 'jjjjjj', 1, '3.jpg', 2, 20, 'yggggggggggggggggggggggggggggggg', 'IIT', 18, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'01', '950', 'J.pdf', '2021-03-02 19:07:24', NULL, '2021-03-02 19:07:24', NULL, b'00'),
+(23, 20, 11, 31, 'fine!!!!!!', '2021-03-24 22:29:23', 'eeeeeeeeee', 1, '5.jpg', 2, 50, 'Lorem is dummy text.', 'GEC', 17, 'GOGO', '023', 'Ridham', b'00', '0', 'E1.pdf', '2021-03-02 19:47:37', NULL, '2021-03-02 19:47:37', NULL, b'00'),
 (24, 29, 9, 3, NULL, '2021-04-01 22:29:23', 'AWS', 2, '003.jpg', 3, 50, 'AWS is very big subject  & also very good one...', 'IIT', 101, 'GOGO', '023', 'MR. Ridham Gandhi', b'00', '0', 'AWS.pdf', '2021-03-04 15:12:20', NULL, '2021-03-04 15:12:20', NULL, b'01'),
 (25, 20, 11, 31, 'Not so useful!!', '2021-03-30 22:29:23', 'C Notes', 1, 'C.jpg', 2, 100, 'yesssss!!!!!!!!!!!@@@@########...............', 'LJIET', 2, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'C.pdf', '2021-03-04 15:18:40', NULL, '2021-03-04 15:18:40', NULL, b'00'),
 (26, 21, 9, 31, NULL, '2021-03-10 18:21:15', 'JAVA+++', 1, 'Java.jpg', 3, 100, 'yess!!! This is very nice book..!!!!', 'LDRP', 19, 'GOGO', '023', 'MR. Ridham Gandhi', b'01', '786', 'JAVA.pdf', '2021-03-04 15:54:04', NULL, '2021-03-04 15:54:04', NULL, b'01'),
-(27, 25, 11, 3, 'OKKKKKKKKKKKKKK!!!!!!!!!!!!!!!!', '2021-03-09 22:29:23', 'App Works', 3, 'a.jpg', 1, 20, 'ohhhhh !!!!!!!!!!!!!!!!!!', 'GEC', 52, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'00', '0', 'App.pdf', '2021-03-04 16:02:43', NULL, '2021-03-04 16:02:43', NULL, b'01'),
+(27, 25, 11, 3, 'OKKKKKKKKKKKKKK!!!!!!!!!!!!!!!!', '2021-03-09 22:29:23', 'App Works', 3, 'a.jpg', 1, 20, 'ohhhhh !!!!!!!!!!!!!!!!!!', 'GEC', 52, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'00', '0', 'App.pdf', '2021-03-04 16:02:43', NULL, '2021-03-04 16:02:43', NULL, b'00'),
 (28, 27, 9, 3, NULL, '2021-03-19 12:17:55', 'CN', 2, '1.jpg', 1, 100, 'ok... Fine We have to study CN subject!!', 'LDRP', 56, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '10000', 'CN.pdf', '2021-03-04 16:10:34', NULL, '2021-03-04 16:10:34', NULL, b'01'),
-(29, 22, 11, 3, 'Not Good..', '2021-04-01 11:43:49', 'DBMS', 3, '2.jpg', 3, 20, 'goooooooooooooood..................', 'GEC', 67, 'GOGO', '023', 'MR. Bhumin Mandal', b'00', '0', 'DBMS.pdf', '2021-03-04 16:20:53', NULL, '2021-03-04 16:20:53', NULL, b'01'),
+(29, 22, 11, 3, 'Not Good..', '2021-04-01 11:43:49', 'DBMS', 3, '2.jpg', 3, 20, 'goooooooooooooood..................', 'GEC', 67, 'GOGO', '023', 'MR. Bhumin Mandal', b'00', '0', 'DBMS.pdf', '2021-03-04 16:20:53', NULL, '2021-03-04 16:20:53', NULL, b'00'),
 (30, 25, 6, 3, NULL, NULL, 'Data Structure', 1, 'M1.jpg', 1, 50, 'Data Structure is very important subject..', 'LDRP', 50, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '950', 'DataStructure.pdf', '2021-03-04 16:37:39', NULL, '2021-03-04 16:37:39', NULL, b'01'),
-(31, 11, 10, 3, '', NULL, 'OS', 1, '3.jpg', 2, 20, 'Finally I did it..', 'IIT', 54, 'GOGO', '023', 'MR. Ridham Gandhi', b'01', '700', 'OS.pdf', '2021-03-04 16:45:21', NULL, '2021-03-04 16:45:21', NULL, b'01'),
-(32, 25, 11, 3, 'Not so useful for users!!!', '2021-04-02 11:57:57', 'WWW', 1, '5.jpg', 2, 100, 'uyjhhhhhhhhhhhhhhhhhhh', 'GEC', 2, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'00', '0', 'WWW.pdf', '2021-03-04 16:51:49', NULL, '2021-03-04 16:51:49', NULL, b'01'),
-(33, 11, 11, 3, 'Not Good..', '2021-03-19 12:18:07', 'DS', 1, '4.jpg', 1, 50, 'lllllllllllllllllllllllllllllllllllllllll', 'LJIET', 16, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '10000', 'DS.pdf', '2021-03-04 16:53:36', NULL, '2021-03-04 16:53:36', NULL, b'01'),
+(31, 11, 9, 3, '', NULL, 'OS', 1, '3.jpg', 2, 20, 'Finally I did it..', 'IIT', 54, 'GOGO', '023', 'MR. Ridham Gandhi', b'01', '700', 'OS.pdf', '2021-03-04 16:45:21', NULL, '2021-03-04 16:45:21', NULL, b'01'),
+(32, 25, 9, 3, '', '2021-04-02 11:57:57', 'WWW', 1, '5.jpg', 2, 100, 'uyjhhhhhhhhhhhhhhhhhhh', 'GEC', 2, 'GOGO', '023', 'Ms. Pooja A. Mehta', b'00', '0', 'WWW.pdf', '2021-03-04 16:51:49', NULL, '2021-03-04 16:51:49', NULL, b'01'),
+(33, 11, 11, 3, 'Not Good..', '2021-03-19 12:18:07', 'DS', 1, '4.jpg', 1, 50, 'lllllllllllllllllllllllllllllllllllllllll', 'LJIET', 16, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '10000', 'DS.pdf', '2021-03-04 16:53:36', NULL, '2021-03-04 16:53:36', NULL, b'00'),
 (34, 20, 9, 3, '', '2021-04-02 12:23:01', 'SE', 1, 'Book.jpg', 3, 50, 'ok.........................', 'MS', 22, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'SE.pdf', '2021-03-04 16:57:46', NULL, '2021-03-04 16:57:46', NULL, b'01'),
 (35, 27, 9, 30, NULL, '2021-02-11 22:34:22', 'EME', 2, 'software.jpg', 1, 100, 'DONE!!!!!!!!!!!!!!!!!!!!!!!!!', 'LDRP', 19, 'GOGO', '023', 'Ridham', b'00', '0', 'EME.pdf', '2021-03-04 17:06:08', NULL, '2021-03-04 17:06:08', NULL, b'01'),
 (36, 12, 9, 31, '', '2020-10-06 22:35:40', 'CD', 4, 'C1.jpg', 2, 20, 'CD is very nice subject..', 'IIT', 63, 'GOGO', '023', 'Ridham', b'01', '10000', 'CD.pdf', '2021-03-04 17:11:57', NULL, '2021-03-04 17:11:57', NULL, b'01'),
-(39, 10, 10, 30, 'This Note is not good for viewers..', '2021-04-02 15:40:07', 'Maths', 1, '1.jpg', 1, 50, 'lorem is dummy text.', 'IIT', 15, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'Maths.pdf', '2021-03-04 21:56:08', NULL, '2021-03-04 21:56:08', NULL, b'01'),
+(39, 10, 9, 30, 'This Note is not good for viewers..', '2021-04-02 15:40:07', 'Maths', 1, '1.jpg', 1, 50, 'lorem is dummy text.', 'IIT', 15, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'Maths.pdf', '2021-03-04 21:56:08', NULL, '2021-03-04 21:56:08', NULL, b'01'),
 (40, 23, 6, 3, NULL, NULL, 'CA1', 1, '1.jpg', 2, 50, 'This book is for CA student.', 'LDRP', 13, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '255', 'CA1.pdf', '2021-03-04 21:59:17', NULL, '2021-03-04 21:59:17', NULL, b'01'),
 (49, 29, 6, NULL, NULL, NULL, 'MVC', 2, 'M.jpg', 1, 100, 'okkkkkkkkkkkkkkkk', 'LDRP', 3, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '1000000', 'MVC.pdf', '2021-03-05 16:36:46', NULL, '2021-03-05 16:36:46', NULL, b'01'),
 (50, 29, 6, NULL, NULL, NULL, 'NCC', 1, 't6.jpg', 2, 50, 'fine!!!!!!!!!!!!!!!!!!!!!!!!', 'LJIET', 17, 'GOGO', '023', 'MR. Ridham Gandhi', b'00', '0', 'NCC.pdf', '2021-03-05 16:57:41', NULL, '2021-03-05 16:57:41', NULL, b'01'),
 (51, 29, 6, NULL, NULL, NULL, 'OM', 2, 'Books.jpg', 1, 100, 'Okkkkkkkkk', 'LJIET', 18, 'GOGO', '023', 'MR. Ridham Gandhi', b'00', '0', 'OM.pdf', '2021-03-05 17:02:32', NULL, '2021-03-05 17:02:32', NULL, b'01'),
 (52, 29, 6, NULL, NULL, NULL, 'DSS', 2, '3.jpg', 2, 20, 'okkkkkk!!!!!!!!!!!!!!', 'IIT', 56, 'GOGO', '023', 'MR. Bhumin Mandal', b'00', '0', 'DSS.pdf', '2021-03-05 17:06:45', NULL, '2021-03-05 17:06:45', NULL, b'01'),
 (53, 29, 6, NULL, NULL, NULL, 'ES', 3, '3.jpg', 1, 100, 'Good Notes.......', 'GEC', 48, 'GOGO', '023', 'MR. Bhumin Mandal', b'01', '789', 'ES.pdf', '2021-03-05 17:10:33', NULL, '2021-03-05 17:10:33', NULL, b'01'),
-(54, 10, 6, NULL, NULL, NULL, 'BM', 1, '2.jpg', 2, 200, 'okkkkkkkkkkkkkkkkkk', 'LDRP', 14, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'BM.pdf', '2021-03-05 17:15:31', NULL, '2021-03-05 17:15:31', NULL, b'01'),
-(55, 10, 7, NULL, NULL, NULL, 'S3 Service', 1, '3.jpg', 3, 100, 'Fine this book is very useful.', 'LJIET', 3, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'S3.pdf', '2021-03-26 23:38:39', NULL, '2021-03-26 23:38:39', NULL, b'01');
+(54, 10, 7, NULL, NULL, NULL, 'BM1', 1, '240445_Friends.jpg', 2, 100, 'okkkkkkkkkkkkkkk', 'LDRP', 5, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'BM.pdf', '2021-03-05 17:15:31', NULL, '2021-03-05 17:15:31', NULL, b'01'),
+(55, 10, 7, NULL, NULL, NULL, 'S3 Service', 1, '3.jpg', 3, 100, 'Fine this book is very useful.', 'LJIET', 3, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'00', '0', 'S3.pdf', '2021-03-26 23:38:39', NULL, '2021-03-26 23:38:39', NULL, b'01'),
+(56, 40, 7, NULL, NULL, NULL, 'Social Science', 2, '3.jpg', 4, 50, 'Social Science is very important subject and we have three parts in it.', 'IIT', 101, 'GOGO', '023', 'MR. A P J Abdul Kalam', b'01', '650', 'SS.pdf', '2021-04-16 11:59:29', NULL, '2021-04-16 11:59:29', NULL, b'01'),
+(57, 40, 8, NULL, NULL, NULL, 'Political economy', 4, '5.jpg', 3, 20, 'Political economy is the very useful note for history students.', 'LJIET', 101, 'Politics', '210567', 'MR. A P J Abdul Kalam', b'00', '0', 'Political economy.pdf', '2021-04-16 12:49:42', NULL, '2021-04-16 12:49:42', NULL, b'01');
 
 -- --------------------------------------------------------
 
@@ -488,7 +494,9 @@ INSERT INTO `sellernotesattachments` (`ID`, `NoteID`, `FileName`, `FilePath`, `C
 (28, 51, 'OM.pdf', 'Members/29/51/Attachments/OM.pdf', '2021-03-23 16:02:43', NULL, '2021-03-23 16:02:43', NULL, b'01'),
 (29, 52, 'DSS.pdf', 'Members/29/52/Attachments/DSS.pdf', '2021-03-23 16:02:43', NULL, '2021-03-23 16:02:43', NULL, b'01'),
 (30, 53, 'ES.pdf', 'Members/29/53/Attachments/ES.pdf', '2021-03-23 16:02:43', NULL, '2021-03-23 16:02:43', NULL, b'01'),
-(31, 24, 'AWS.pdf', 'Members/29/24/Attachments/AWS.pdf', '2021-03-23 16:02:43', NULL, '2021-03-23 16:02:43', NULL, b'01');
+(31, 24, 'AWS.pdf', 'Members/29/24/Attachments/AWS.pdf', '2021-03-23 16:02:43', NULL, '2021-03-23 16:02:43', NULL, b'01'),
+(2449, 56, 'SS.pdf', 'Members/40/56/Attachments/SS.pdf', '2021-04-16 11:59:29', NULL, '2021-04-16 11:59:29', NULL, b'01'),
+(2450, 57, 'Political economy.pdf', 'Members/40/57/Attachments/Political economy.pdf', '2021-04-16 12:49:42', NULL, '2021-04-16 12:49:42', NULL, b'01');
 
 -- --------------------------------------------------------
 
@@ -513,8 +521,9 @@ CREATE TABLE `sellernotesreportedissues` (
 --
 
 INSERT INTO `sellernotesreportedissues` (`ID`, `NoteID`, `ReportedBYID`, `AgainstDownloadID`, `Remarks`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`) VALUES
-(18, 39, 10, 13, 'This note is not so useful!!', '2021-03-24 13:39:51', NULL, '2021-03-24 13:39:51', NULL),
-(26, 4, 10, 4, 'Ok These is not interesting subject..', '2021-03-27 13:51:00', NULL, '2021-03-24 13:51:00', NULL);
+(18, 39, 10, 75, 'This note is not so useful!!', '2021-03-24 13:39:51', NULL, '2021-03-24 13:39:51', NULL),
+(26, 4, 10, 75, 'Ok These is not interesting subject..', '2021-03-27 13:51:00', NULL, '2021-03-24 13:51:00', NULL),
+(30, 20, 10, 75, 'This note is not so useful.', '2021-04-17 19:51:30', NULL, '2021-04-17 19:51:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -546,8 +555,9 @@ INSERT INTO `sellernotesreviews` (`ID`, `NoteID`, `ReviewedByID`, `AgainstDownlo
 (9, 4, 11, 20, '3', 'Great Book!! Helped a lot!! Thanks for the note.', '2021-03-24 13:59:39', NULL, '2021-03-24 13:59:39', NULL, b'01'),
 (10, 4, 24, 20, '4', 'Thanks for the note!!! Good One!', '2021-03-24 13:59:39', NULL, '2021-03-24 13:59:39', NULL, b'01'),
 (11, 18, 24, 20, '4', 'Thanks for the note!!! Good One!', '2021-03-24 13:59:39', NULL, '2021-03-24 13:59:39', NULL, b'01'),
-(13, 21, 10, 13, '3', 'Maths is my fav subject!', '2021-03-24 13:54:55', NULL, '2021-03-24 13:54:55', NULL, b'01'),
-(17, 39, 10, 13, '5', 'Maths is my fav subject!I like to do sums...', '2021-03-24 13:54:55', NULL, '2021-03-24 13:54:55', NULL, b'01');
+(13, 21, 10, 81, '3', 'Maths is my fav subject!', '2021-03-24 13:54:55', NULL, '2021-03-24 13:54:55', NULL, b'01'),
+(17, 39, 10, 81, '5', 'Maths is my fav subject!I like to do sums...', '2021-03-24 13:54:55', NULL, '2021-03-24 13:54:55', NULL, b'01'),
+(18, 24, 10, 76, '3', 'This is very nice note.', '2021-04-17 19:28:28', NULL, '2021-04-17 19:28:28', NULL, b'01');
 
 -- --------------------------------------------------------
 
@@ -571,7 +581,7 @@ CREATE TABLE `system_configuration` (
 --
 
 INSERT INTO `system_configuration` (`ID`, `KeyNote`, `Value`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
-(1, 'Support email address', 'gandhiridham@gmail.com', '2021-03-29 15:11:26', NULL, '2021-03-29 15:11:26', NULL, b'01'),
+(1, 'Support email address', 'krishnagandhi2112@gmail.com', '2021-03-29 15:11:26', NULL, '2021-03-29 15:11:26', NULL, b'01'),
 (2, 'Support phone number', '9856789562', '2021-03-29 15:11:26', NULL, '2021-03-29 15:11:26', NULL, b'01'),
 (3, 'Email Address(es)(for various events system will send notificatio to these users)', 'gandhiriya99@gmail.com', '2021-03-29 15:11:26', NULL, '2021-03-29 15:11:26', NULL, b'01'),
 (4, 'Facebook URL', 'https://facebook.com', '2021-03-29 15:11:26', NULL, '2021-03-29 15:11:26', NULL, b'01'),
@@ -660,8 +670,11 @@ INSERT INTO `userprofile` (`ID`, `UserID`, `DOB`, `Gender`, `SecondaryEmailAddre
 (16, 36, NULL, NULL, '', '+93', '9856887895', NULL, '', '', '', '', '', '', NULL, NULL, '2021-03-31 19:02:24', NULL, '2021-03-31 19:02:24', NULL),
 (17, 4, NULL, NULL, '', '+93', '9687848995', NULL, '', '', '', '', '', '', NULL, NULL, '2021-03-31 19:02:24', NULL, '2021-03-31 19:02:24', NULL),
 (18, 30, NULL, NULL, 'krishnacreation@gmail.com', '+93', '9898150042', 'about.png', '', '', '', '', '', '', NULL, NULL, '2021-04-01 14:41:09', NULL, '2021-04-01 14:41:09', NULL),
-(19, 25, '1998-12-10 00:00:00', 2, '', '+91', '9687848995', 'Diku.jpg', '22,susi society near bus station', 'vasna,Ahmedabad-380007', 'Ahmedabad', 'Gujarat', '380018', 'Bangladesh', 'GTU', 'GIT', '2021-04-02 16:35:28', NULL, '2021-04-02 16:35:28', NULL),
-(20, 19, '1995-07-05 00:00:00', 1, '', '+229', '9687848995', '006.jpg', '22,susi society near bus station', ',Bombay-75', 'Ahmedabad', 'Gujarat', '310007', 'Belarus', 'NIIT', 'LJIET', '2021-04-10 15:19:38', NULL, '2021-04-10 15:19:38', NULL);
+(19, 25, '1998-12-10 00:00:00', 2, '', '+91', '9687848995', 'Diku.jpg', '22,susi society near bus station', 'vasna,Ahmedabad-380018', 'Ahmedabad', 'Gujarat', '380018', 'Bangladesh', 'GTU', 'GIT', '2021-04-02 16:35:28', NULL, '2021-04-02 16:35:28', NULL),
+(20, 19, '1995-07-05 00:00:00', 1, '', '+229', '9687848995', '006.jpg', '22,susi society near bus station', ',Bombay-75', 'Ahmedabad', 'Gujarat', '310007', 'Belarus', 'NIIT', 'LJIET', '2021-04-10 15:19:38', NULL, '2021-04-10 15:19:38', NULL),
+(21, 40, '1999-12-10 00:00:00', 2, '', '+93', '9687848995', '240589_Flower Road.jpg', '22,susi society near bus station', ',Bombay-75', 'Ahmedabad', 'Gujarat', '380018', 'Belarus', 'NIIT', 'LJIET', '2021-04-16 10:17:11', NULL, '2021-04-16 10:17:11', NULL),
+(22, 26, '1999-10-06 00:00:00', 2, '', '+93', '9659859321', '240643_Cute Rabbit 2.jpg', '22,susi society near bus station', 'vasna,Ahmedabad-380007', 'Ahmedabad', 'Gujarat', '310007', 'India', 'NIIT', 'GEC', '2021-04-16 16:59:32', NULL, '2021-04-16 16:59:32', NULL),
+(23, 44, '1999-10-30 00:00:00', 1, '', '+91', '9016291149', '240585_Car 2.jpg', '302, Punit Society near bus stop', ',Bombay-75', 'Ahmedabad', 'Gujarat', '380008', 'Antarctica', 'GTU', 'LJIET', '2021-04-17 09:26:56', NULL, '2021-04-17 09:26:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -707,7 +720,7 @@ CREATE TABLE `users` (
   `CreatedBy` int(11) DEFAULT NULL COMMENT 'UserID who has created this record.',
   `ModifiedDate` datetime DEFAULT current_timestamp() COMMENT 'date and time when system has updated a record.',
   `ModifiedBy` int(11) DEFAULT NULL COMMENT 'UserID who updateds this record.',
-  `IsActive` bit(2) NOT NULL DEFAULT b'10' COMMENT 'Required Information, default set to true.'
+  `IsActive` bit(2) NOT NULL DEFAULT b'1' COMMENT 'Required Information, default set to true.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -716,7 +729,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `RoleID`, `FirstName`, `LastName`, `EmailID`, `Password`, `IsEmailVerified`, `CreatedDate`, `CreatedBy`, `ModifiedDate`, `ModifiedBy`, `IsActive`) VALUES
 (3, 1, 'Riya', 'Gandhi', 'riya1999@gmail.com', 'Riya@8589', b'01', '2021-02-20 13:15:27', NULL, '2021-02-20 13:15:27', NULL, b'01'),
-(4, 1, 'Ridham(Raddhu)', 'Gandhi', 'gandhiridham@gmail.com', 'Ridham(Raddhu)$4380', b'01', '2021-02-20 13:22:25', NULL, '2021-02-20 13:22:25', NULL, b'01'),
+(4, 1, 'Ridham(Raddhu)', 'Gandhi', 'gandhi@gmail.com', 'Ridham(Raddhu)$4380', b'01', '2021-02-20 13:22:25', NULL, '2021-02-20 13:22:25', NULL, b'01'),
 (10, 2, 'Mihir', 'Patel', 'mihirpatel06@gmail.com', 'Mihir$8558', b'01', '2021-02-20 18:47:53', NULL, '2021-02-20 18:47:53', NULL, b'01'),
 (11, 2, 'Deep', 'Dave', 'deepdave21@gmail.com', 'Deep#1212', b'01', '2021-02-20 18:50:58', NULL, '2021-02-20 18:50:58', NULL, b'01'),
 (12, 2, 'Shailvi', 'Gandhi', 'shailvigandhi@gmail.com', 'Shailvi^1589', b'01', '2021-02-20 19:05:25', NULL, '2021-02-20 19:05:25', NULL, b'01'),
@@ -733,11 +746,14 @@ INSERT INTO `users` (`ID`, `RoleID`, `FirstName`, `LastName`, `EmailID`, `Passwo
 (29, 2, 'Zen', 'Jadav', 'zenjadav8975@gmail.com', 'Zen$4589', b'01', '2021-03-05 14:49:16', NULL, '2021-03-05 14:49:16', NULL, b'01'),
 (30, 3, 'Manish12', 'Gandhi', 'gandhimanish22@gmail.com', 'Mkrr@2020', b'01', '2021-02-20 13:15:27', NULL, '2021-02-20 13:15:27', NULL, b'01'),
 (31, 3, 'Falu', 'Shah', 'shahfalu1789@gmail.com', 'Falu$6454', b'01', '2021-02-20 13:15:27', NULL, '2021-02-20 13:15:27', NULL, b'01'),
-(32, 1, 'Raxa', 'Desai', 'raxadesai@gmail.com', 'Raxa@0404', b'00', '2021-03-28 17:08:37', NULL, '2021-03-28 17:08:37', NULL, b'00'),
+(32, 1, 'Raxa', 'Desai', 'raxadesai@gmail.com', 'Raxa@0404', b'01', '2021-03-28 17:08:37', NULL, '2021-03-28 17:08:37', NULL, b'00'),
 (35, 1, 'Vinita Ben', 'Modi', 'Vinitamodi@gmail.com', 'VinitaBen$9772', b'01', '2021-03-29 14:35:23', NULL, '2021-03-29 14:35:23', NULL, b'01'),
 (36, 1, 'Vrushali', 'Shah', 'VrushaliShah0707@gmail.com', 'Vrushali$1070', b'00', '2021-03-31 18:49:09', NULL, '2021-03-31 18:49:09', NULL, b'01'),
 (38, 1, 'Binal', 'Dave', 'Binaldave5986@gmail.com', 'Binal$5930', b'00', '2021-03-31 19:02:24', NULL, '2021-03-31 19:02:24', NULL, b'01'),
-(40, 2, 'Tina', 'Desai', 'gandhiriya99@gmail.com', 'Tina@1010', b'00', '2021-04-09 22:25:57', NULL, '2021-04-09 22:25:57', NULL, b'10');
+(40, 2, 'Tina', 'Desai', 'TinaDesai7598@gmail.com', 'Tina@1010', b'01', '2021-04-09 22:25:57', NULL, '2021-04-09 22:25:57', NULL, b'01'),
+(44, 2, 'kaival', 'Shah', 'Kaivalshah30@gmail.com', 'Kaival@30', b'01', '2021-04-17 09:23:43', NULL, '2021-04-17 09:23:43', NULL, b'01'),
+(45, 2, 'xyz', 'test', 'rahulbhilesha077@gmail.com', 'Rahul#077', b'01', '2021-04-17 12:08:56', NULL, '2021-04-17 12:08:56', NULL, b'01'),
+(46, 2, 'zzz', 'Shah', 'gandhiridham@gmail.com', 'zzz$2675', b'01', '2021-04-17 16:36:05', NULL, '2021-04-17 16:36:05', NULL, b'01');
 
 --
 -- Indexes for dumped tables
@@ -860,7 +876,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `downloads`
 --
 ALTER TABLE `downloads`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=88;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `referencedata`
@@ -872,25 +888,25 @@ ALTER TABLE `referencedata`
 -- AUTO_INCREMENT for table `sellernotes`
 --
 ALTER TABLE `sellernotes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=56;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `sellernotesattachments`
 --
 ALTER TABLE `sellernotesattachments`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=2449;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=2451;
 
 --
 -- AUTO_INCREMENT for table `sellernotesreportedissues`
 --
 ALTER TABLE `sellernotesreportedissues`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=30;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sellernotesreviews`
 --
 ALTER TABLE `sellernotesreviews`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `system_configuration`
@@ -908,7 +924,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `userprofile`
 --
 ALTER TABLE `userprofile`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key', AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `userroles`
@@ -920,7 +936,7 @@ ALTER TABLE `userroles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=41;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PRIMARY KEY', AUTO_INCREMENT=53;
 
 --
 -- Constraints for dumped tables

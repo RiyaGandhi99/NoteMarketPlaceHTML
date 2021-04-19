@@ -9,7 +9,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -115,7 +115,7 @@
                                         }
                                         
                                         
-                                        $query = "SELECT * FROM downloads WHERE Seller=$ID AND IsAttachmentDownloaded=1";
+                                        $query = "SELECT * FROM downloads WHERE Seller=$ID AND IsAttachmentDownloaded=1 AND IsActive=1 ORDER BY AttachmentDownloadedDate DESC";
                                     
                                         $Search_all = mysqli_query($connection,$query);
                                         if(!$Search_all){
@@ -123,8 +123,6 @@
                                         }
                                 
                                         if(mysqli_num_rows($Search_all)==0){
-                                            echo "<tr><td colspan='8' class='text-center'><h1>Data Not Found</h1></td></tr>";
-                                        }else{
                                             $j=0;
                                             while($row =mysqli_fetch_assoc($Search_all)){
                                                 $Seller = $row['Seller'];
@@ -133,8 +131,10 @@
                                                 $NoteTitle = $row['NoteTitle'];
                                                 $NoteCategory = $row['NoteCategory'];
                                                 $Category = $row['NoteCategory'];
-                                                $AttachmentDownloadedDate = $row['AttachmentDownloadedDate'];
                                                 $Downloader = $row['Downloader'];
+                                                $AD = $row['AttachmentDownloadedDate'];   
+                                                
+                                                $AttachmentDownloadedDate = date("m-d-Y, H:i",strtotime($AD));
                                                   
                                                 if($Seller!=$Downloader){
                                                 

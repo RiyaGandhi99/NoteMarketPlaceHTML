@@ -3,7 +3,6 @@
 <?php include "Config/Database-Connection.php"; ?>
 <?php
     
-        //echo "HELLO";
         if(isset($_GET['Email'])){
             $EmailID = $_GET['Email'];
             

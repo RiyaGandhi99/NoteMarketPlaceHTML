@@ -84,7 +84,6 @@
        
     });
         
-     // window.history.back();  
         
 </script>   
    

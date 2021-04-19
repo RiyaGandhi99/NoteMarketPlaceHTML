@@ -1,50 +1,18 @@
 <!-- Header -->
-<?php include "Header.php"; ?>
+<?php ob_start(); ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
 
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-light navbar-expand-lg  white-nav-top fixed-top">
-            <div class="container">
-                <a id="user-header" class="navbar-brand" href="#">
-                    <img src="images/Homepage/logo.png" alt="Logo" class="img-responsive">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-current="true" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Mobile Menu Close Button -->
-                <span id="mobile-nav-close-btn">&times;</span>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="Search_Notes.html"><span>Search</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sell<span> Your</span><span class="space">Notes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="FAQ.html">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Contact_Us.html"><span>Contact</span><span class="space">Us</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <form class="form-inline my-2 my-lg-0">
-                                <a href="Login.php"><button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
-                            </form>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Header ENDS -->
+    <?php   
+        
+        session_start();
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+            include "Registered_Header.php"; 
+        }else{
+            include "Unregistered_Header.php";
+        }
+        
+    ?>
     
     <!-- Search Notes -->
     <section id="bg-image-search-notes" class="my-5">

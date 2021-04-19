@@ -12,6 +12,13 @@
             alert("Email Address must be filled out");
             return false;
         }
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email_Address))
+        {
+            return true;
+        }else{
+            alert("You have entered an invalid email address!")
+            return false;
+        }
     }
 
 </script>

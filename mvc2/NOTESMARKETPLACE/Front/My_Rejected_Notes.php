@@ -9,7 +9,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -119,9 +119,7 @@
                                         die("Query Failed" . mysqli_error($connection));
                                     }
                                 
-                                    if(mysqli_num_rows($Search_all)==0){
-                                        echo "<tr><td colspan='9' class='text-center'><h1>Data Not Found</h1></td></tr>";
-                                    }else{
+                                    if(mysqli_num_rows($Search_all)!=0){
                                         $j=0;
                                         while($row =mysqli_fetch_assoc($Search_all)){
                                             $IsPaid = $row['IsPaid'];
@@ -149,7 +147,7 @@
                                             
                                             $j++;
                                             echo "<tr><th scope='row'>$j</th>
-                                            <td><a href='Notes_Details.php?EYE=$ID'>$Title</a></td>
+                                            <td><a href='Notes_Details.php?Note=$ID'>$Title</a></td>
                                             <td>$Category</td>
                                             <td>$AdminRemarks</td>
                                             <td><a href='#'>Clone</a></td>

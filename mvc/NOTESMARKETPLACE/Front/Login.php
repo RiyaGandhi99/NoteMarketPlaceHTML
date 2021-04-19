@@ -1,8 +1,43 @@
 <!-- Header -->
 <?php ob_start(); ?>
-<?php include "Header.php"; ?>
 <!-- Database Coonection -->
 <?php include "Config/Database-Connection.php"; ?>
+
+      
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--Important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+
+    <!--Title-->
+    <title>NOTES MARKETPLACE</title>
+
+    <!--Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Homepage/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    
+    <!-- datatable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
 
 <script>
 
@@ -17,10 +52,21 @@
             alert("Password must be filled out");
             return false;
         }
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email_Address))
+        {
+            alert("You have entered an invalid email address!")
+            return false;
+        }
+        if (/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$/.test(Password))
+        {
+            alert("You have entered an invalid Pattern Password!")
+            return false;
+        }
+        return true;
     }
 
 </script>
-      
+
     <section id="login-body">
         <section id="login">
             <div class="content-box-login">
@@ -46,7 +92,7 @@
                                 }  
                                 
                                 //Validate the user
-                                $query = "SELECT * FROM users WHERE EmailID='$EmailID'";
+                                $query = "SELECT * FROM users WHERE EmailID='$EmailID' AND IsActive=1";
                                 $Users_select = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($Users_select)){
                                     $EmailID_New = $row['EmailID'];
@@ -59,7 +105,7 @@
                                         ?>
                                         
                                             <script type="text/javascript">
-                                                alert("Please Sign Up First to continue Login");
+                                                alert("Please Sign Up First to continue Login Or May be admin remove you as user");
                                             </script>
                                             
                                         <?php
@@ -70,6 +116,9 @@
                                         
                                         /*Ismailverification=0 => Mail to user to verifty email first.*/
                                         $to = $EmailID;
+                                        
+                                        $host =  $_SERVER["HTTP_HOST"]; 
+                                        $path = rtrim(dirname($_SERVER["PHP_SELF"]),"/\\");
                                         
                                         $header = "MIME_Version:1.0" . "\r\n";
                                         $header .= "Content-type: text/html; charset=iso-8859-1"."\r\n";
@@ -92,7 +141,7 @@
                                                     </h5>
                                                     <p style='font-family: Open Sans, sans-serif;font-size: 16px;font-weight: 400;line-height: 20px;color: #333333;padding-bottom: 25px;margin-left: 420px'>Thank you for Signup!<br><br>Simply Click below for email verification.</p>
                                                     <form action='' method='post'>    
-                                                        <a href='http://localhost:8080/NOTESMARKETPLACE/front/Update_Email_Status.php?Email=$EmailID'><button type='submit' name='Email_Verification' style='width: 560px;height: 50px;margin-left: 420px;background-color:#6255a5;color:#fff;text-transform:uppercase;border: transparent;font-weight: 600'>Verify Email Address</button></a>
+                                                        <a href='http://$host$path/Front/Update_Email_Status.php?Email=$EmailID'><button type='submit' name='Email_Verification' style='width: 560px;height: 50px;margin-left: 420px;background-color:#6255a5;color:#fff;text-transform:uppercase;border: transparent;font-weight: 600'>Verify Email Address</button></a>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -105,7 +154,14 @@
                                         if(!mail($to,$subject,$comments,$header)){
                                             die("Email verification Failed");
                                         }
-                                    
+                                        ?>
+                                     
+                                            <script type="text/javascript">
+                                                alert("Please Do email verification First to continue Login!");
+                                            </script>
+                                            
+                                        <?php
+                                        
                                     }else{
                                         if($Password==$Password_New){
                                                 //echo "YESSS...";
@@ -116,7 +172,7 @@
                                         session_start();
                                         $_SESSION['loggedin'] = true;
                                         $_SESSION['EmailID'] = $EmailID;
-                                        
+                                        header("Location: Search_Notes.php");
                                     }
                                 }    
                             }
@@ -146,7 +202,7 @@
                                     <a href="Forgot_Password.php" class="text-right">Forgot Password?</a>
                                     <input type="password" style="border-color:<?php if(isset($count)){ echo " #ff0000"; }else{ echo "#6255a5";} ?>;" name="Password" class="form-control" placeholder="Enter your password" id="password-field" required>
                                     <div class="input-group-append">
-                                        <span toggle="#password-field" class="eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
+                                        <span toggle="#password-field" id="P1" class="eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
                                     </div>
                                     
                                     <span id="login-msg" style="display:<?php if(isset($count)){ echo "block"; }else{ echo "none";} ?>;">The password that you've entered is incorrect.</span>
@@ -162,7 +218,7 @@
 
                             <div class="col-lg-12 col-md-12 col-sm-12 btn-general-one">
                                 <button type="submit" name="Login" class="btn btn-info btn-rich-blue">Login</button>
-                                <p>Don't have an account? <a href="Sign_Up.php">Sign Up</a></p>
+                                <p>Don't have an account? <a href="Sign_Up.php" style="text-decoration:none;color:#6255a5;">Sign Up</a></p>
                             </div>
                         </form>
                         

@@ -189,9 +189,7 @@
                                 alert("'.$error.'");
                             </script>';
                     }
-                }
-                
-                
+                }   
             }
                 
                 //session.start();

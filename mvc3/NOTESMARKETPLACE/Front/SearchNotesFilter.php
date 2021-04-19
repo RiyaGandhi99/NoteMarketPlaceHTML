@@ -338,7 +338,7 @@
                         //$N= $Page+$C;
                     ?>    
                         <li class="page-item">
-                            <a class="page-link" href="Search_Notes.php?Page=<?php echo $P; ?>" aria-label="Previous">
+                            <a class="page-link" href="Search_Notes.php" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
                         </li>
@@ -366,7 +366,7 @@
                         ?>
                         
                         <li class="page-item">
-                            <a class="page-link" href="Search_Notes.php?Page=<?php echo $N; ?>" aria-label="Previous">
+                            <a class="page-link" href="Search_Notes.php" aria-label="Previous">
                                 <span aria-hidden='true'>&gt;</span>
                             </a>
                         </li>

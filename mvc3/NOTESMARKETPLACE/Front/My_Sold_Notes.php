@@ -115,7 +115,7 @@
                                         }
                                         
                                         
-                                        $query = "SELECT * FROM downloads WHERE Seller=$ID AND IsAttachmentDownloaded=1 AND IsActive=1";
+                                        $query = "SELECT * FROM downloads WHERE Seller=$ID AND IsAttachmentDownloaded=1 AND IsActive=1 ORDER BY AttachmentDownloadedDate DESC";
                                     
                                         $Search_all = mysqli_query($connection,$query);
                                         if(!$Search_all){
@@ -131,8 +131,10 @@
                                                 $NoteTitle = $row['NoteTitle'];
                                                 $NoteCategory = $row['NoteCategory'];
                                                 $Category = $row['NoteCategory'];
-                                                $AttachmentDownloadedDate = $row['AttachmentDownloadedDate'];
                                                 $Downloader = $row['Downloader'];
+                                                $AD = $row['AttachmentDownloadedDate'];   
+                                                
+                                                $AttachmentDownloadedDate = date("m-d-Y, H:i",strtotime($AD));
                                                   
                                                 if($Seller!=$Downloader){
                                                 

@@ -84,8 +84,7 @@
 
 </script>
    
-    
-    
+   
     <!-- Dashboard -->
     <section id="dashboard-notes">
 

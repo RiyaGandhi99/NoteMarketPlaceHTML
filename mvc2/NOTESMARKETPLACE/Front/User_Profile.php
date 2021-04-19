@@ -9,7 +9,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -28,6 +28,7 @@
             Profile.textContent = "Profile Photo " + file;
         }
     }
+    
     function validateForm() {
         
         var First_Name = document.forms["User_Profile_Form"]["firstname"].value;
@@ -136,9 +137,17 @@
                     die("Query Failed" . mysqli_error($connection));
                 }
                 
-                //echo    $Profile_Picture; 
-                
-                $query = "INSERT INTO userprofile( `UserID`, `DOB`, `Gender`, `Phone number - Country Code`, `Phone number`, `Profile Picture`, `Address Line 1`, `Address Line 2`, `City`, `State`, `Zip Code`, `Country`, `University`, `College`) VALUES ('{$UserID}','{$dob}','{$GenderID}','+{$country_code}','{$Phone_No}','{$Profile_Picture}','{$add1}','{$add2}','{$City}','{$state}','{$zip_code}','{$country}','{$university}','{$College}')";
+                $query = "SELECT * FROM userprofile WHERE UserID=$UserID";
+                $UPselect = mysqli_query($connection,$query);
+                if(!$UPselect){
+                    die("Query Failed" . mysqli_error($connection));    
+                }
+                    
+                if(mysqli_num_rows($UPselect)==0){
+                    $query = "INSERT INTO userprofile( `UserID`, `DOB`, `Gender`, `Phone number - Country Code`, `Phone number`, `Profile Picture`, `Address Line 1`, `Address Line 2`, `City`, `State`, `Zip Code`, `Country`, `University`, `College`) VALUES ('{$UserID}','{$dob}','{$GenderID}','+{$country_code}','{$Phone_No}','{$Profile_Picture}','{$add1}','{$add2}','{$City}','{$state}','{$zip_code}','{$country}','{$university}','{$College}')";
+                }else{
+                    $query = "UPDATE userprofile SET `DOB`='{$dob}', `Gender`='{$GenderID}', `Phone number - Country Code`='+{$country_code}', `Phone number`='{$Phone_No}', `Profile Picture`='{$Profile_Picture}', `Address Line 1`='{$add1}', `Address Line 2`='{$add2}',`City`='{$City}', `State`='{$state}', `Zip Code`='{$zip_code}', `Country`='{$country}', `University`='{$university}', `College`='{$College}' WHERE `UserID`=$UserID";
+                }
                     
                 $errors     = array();
                 $maxsize    = 10000000;
@@ -180,11 +189,9 @@
                                 alert("'.$error.'");
                             </script>';
                     }
-                }
-                
-                
+                }   
             }
-            
+                
                 //session.start();
                 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
                     $EmailID = $_SESSION['EmailID']; 
@@ -192,12 +199,30 @@
                     $query = "SELECT * FROM users WHERE EmailID='{$EmailID}'";
                     $Users_select = mysqli_query($connection,$query);
                     while($row = mysqli_fetch_assoc($Users_select)){
+                        $UID = $row['ID'];
                         $EmailID = $row['EmailID'];
                         $FirstName = $row['FirstName'];
                         $LastName = $row['LastName'];
+                    }  
+                    
+                    $query = "SELECT * FROM userprofile WHERE UserID=$UID";
+                    $Users_Profile_select = mysqli_query($connection,$query);
+                    while($row = mysqli_fetch_assoc($Users_Profile_select)){
+                        $DOBOLD = $row['DOB'];
+                        $GenderOLD = $row['Gender'];
+                        $CCOLD = $row['Phone number - Country Code'];
+                        $PhonenumberOLD = $row['Phone number'];
+                        $ProfilePictureOLD = $row['Profile Picture'];
+                        $AddressLine1OLD = $row['Address Line 1'];
+                        $AddressLine2OLD = $row['Address Line 2'];
+                        $CityOLD = $row['City'];
+                        $StateOLD = $row['State'];
+                        $ZipCodeOLD = $row['Zip Code'];
+                        $CountryOLD = $row['Country'];
+                        $UniversityOLD = $row['University'];
+                        $CollegeOLD = $row['College'];
                     }
-                    
-                    
+                    $profile_Count = mysqli_num_rows($Users_Profile_select);
                 }
             ?>
            
@@ -236,7 +261,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="dob" id="dob">Date Of Birth</label>
-                                    <input type="date" name="dob" class="form-control" id="d.o.b" placeholder="Enter your date of birth" required>
+                                    <input type="date" value="<?php if($profile_Count){ echo $DOBOLD; } ?>" name="dob" class="form-control" id="d.o.b" placeholder="Enter your date of birth" required>
                                     <span class="shift-right-r"></span>
                                 </div>
                             </div>
@@ -244,7 +269,7 @@
                                 <div class="form-group">
                                     <label for="gender" id="seller-label">Gender</label>
                                     <select id="gender" name="gender" class="form-control custom-select" required>
-                                        <option selected>Gender</option>
+                                        <option selected disabled>Gender</option>
                                         <?php
                                         
                                             //Country Details
@@ -281,7 +306,7 @@
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-7">
                                             <div id="phone-no">
-                                                <input type="text" name="Phone_No" class="form-control" placeholder="Enter your phone number " id="phoneno" required pattern="[7-9]{1}[0-9]{9}">
+                                                <input type="text" name="Phone_No" value="<?php if($profile_Count){ echo $PhonenumberOLD; } ?>" class="form-control" placeholder="Enter your phone number " id="phoneno" required pattern="[7-9]{1}[0-9]{9}">
                                             </div>
 
                                         </div>
@@ -321,7 +346,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="add1">Address Line 1*</label>
-                                    <input type="text" name="add1" class="form-control" id="add1" placeholder="Enter your address" required>
+                                    <input type="text" name="add1" value="<?php if($profile_Count){ echo $AddressLine1OLD; } ?>" class="form-control" id="add1" placeholder="Enter your address" required>
 
 
                                 </div>
@@ -329,7 +354,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="add2">Address Line 2*</label>
-                                    <input type="text" name="add2" class="form-control" id="add2" placeholder="Enter your address" required>
+                                    <input type="text" name="add2" value="<?php if($profile_Count){ echo $AddressLine2OLD; } ?>" class="form-control" id="add2" placeholder="Enter your address" required>
 
 
                                 </div>
@@ -337,7 +362,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="City">City*</label>
-                                    <input type="text" name="City" class="form-control" id="CIty" placeholder="Enter your city" required>
+                                    <input type="text" name="City" value="<?php if($profile_Count){ echo $CityOLD; } ?>" class="form-control" id="CIty" placeholder="Enter your city" required>
 
 
                                 </div>
@@ -345,7 +370,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="state">State*</label>
-                                    <input type="text" name="state" class="form-control" id="state" placeholder="Enter your state" required>
+                                    <input type="text" name="state" value="<?php if($profile_Count){ echo $StateOLD; } ?>" class="form-control" id="state" placeholder="Enter your state" required>
 
 
                                 </div>
@@ -353,14 +378,15 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="zip_code">ZipCode*</label>
-                                    <input type="text" name="zip_code" class="form-control" id="zip-code" placeholder="Enter your zipcode" required>
+                                    <input type="text" name="zip_code" value="<?php if($profile_Count){ echo $ZipCodeOLD; } ?>" class="form-control" id="zip-code" placeholder="Enter your zipcode" required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="country" id="seller-label">Country</label>
                                     <select id="country" name="country" class="form-control custom-select">
-                                        <option selected>Select your country</option>
+                                        <option selected disabled>Select your country</option>
+                                        <?php if($profile_Count){ echo "<option value='". $CountryOLD . "' selected>" .$CountryOLD ."</option>"; } ?>
                                         <?php
                                         
                                         //Country Details
@@ -393,7 +419,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="university">University</label>
-                                    <input type="text" name="university" class="form-control" id="university" placeholder="Enter your university">
+                                    <input type="text" name="university" value="<?php if($profile_Count){ echo $UniversityOLD; } ?>" class="form-control" id="university" placeholder="Enter your university">
 
 
                                 </div>
@@ -401,7 +427,7 @@
                             <div class="col-md-6 col-sm-12 col-12">
                                 <div class="form-group">
                                     <label for="College">College</label>
-                                    <input type="text" name="College" class="form-control" id="college" placeholder="Enter your college">
+                                    <input type="text" name="College" value="<?php if($profile_Count){ echo $CollegeOLD; } ?>" class="form-control" id="college" placeholder="Enter your college">
                                 </div>
                             </div>
                         </div>

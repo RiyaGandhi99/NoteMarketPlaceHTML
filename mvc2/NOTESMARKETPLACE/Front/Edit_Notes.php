@@ -9,7 +9,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
 ?>
@@ -114,6 +114,8 @@
         $Country = $_POST['country'];
         $Institute_Name = $_POST['institute_name'];
         $Proffessor = $_POST['proffessor'];
+        $CourseName = $_POST['CourseName'];
+        $CourseCode = $_POST['CourseCode'];
         $sell = $_POST['sell'];        
         $sell_price = $_POST['sell_price'];
         $Upload_File = $_FILES['upload_file']['name'];
@@ -161,7 +163,7 @@
         }
         
         //Update Data into sellernotes table..
-        $query = "UPDATE sellernotes SET  Status='6',Title='{$Title}',Category='{$CategoryID}',DisplayPicture='{$Display_Picture}',NoteType='{$TypeID}',NumberOfPages='{$Pages}',Description='{$Description}',UniversityName='{$Institute_Name}',Country='{$CountryID}',Course='GOGO',CourseCode='023',Professor='{$Proffessor}',IsPaid=$sell,SellingPrice='{$sell_price}',NotesPreview='{$Upload_File}' WHERE ID=$ID";
+        $query = "UPDATE sellernotes SET  Status='6',Title='{$Title}',Category='{$CategoryID}',DisplayPicture='{$Display_Picture}',NoteType='{$TypeID}',NumberOfPages='{$Pages}',Description='{$Description}',UniversityName='{$Institute_Name}',Country='{$CountryID}',Course='{$CourseName}',CourseCode='{$CourseCode}',Professor='{$Proffessor}',IsPaid=$sell,SellingPrice='{$sell_price}',NotesPreview='{$Upload_File}' WHERE ID=$ID";
         
         $Notes_Details = mysqli_query($connection,$query);
         if(!$Notes_Details){
@@ -169,7 +171,7 @@
         }    
         
         //Update Attachments sellernotesattachments in table..
-        $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$ID}',FileName='{$Upload_Notes}',FilePath='Members/{$Id}/{$ID}/Attachments/$Upload_Notes' WHERE ID=$ID";
+        $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$ID}',FileName='{$Upload_Notes}',FilePath='Members/{$Id}/{$ID}/Attachments/$Upload_Notes' WHERE NoteID=$ID";
         
         $Notes_Attachments = mysqli_query($connection,$query_Attachments);
         if(!$Notes_Attachments){
@@ -292,9 +294,11 @@
                                 <label for="note_pages">Pages*</label>
                                 <select class="form-control custom-select" name="note_pages" id="note-pages" required>
                                     <option value="<?php if(isset($_GET['edit'])){echo $PagesOld; }else if(isset($_POST['save'])){echo $Pages;} ?>" selected>Enter number of note pages</option>
+                                    <option>10</option>
                                     <option>20</option>
-                                    <option>100</option>
                                     <option>50</option>
+                                    <option>100</option>
+                                    <option>200</option>
                                 </select>
                             </div>
                         </div>
@@ -310,7 +314,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="heading">
-                                <h2>Institute Details</h2>
+                                <h2>Institute Information</h2>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
@@ -323,14 +327,9 @@
                                         //Country Details
                                         $query = "SELECT * FROM countries";
                                         $Country_select = mysqli_query($connection,$query);
-                                        if(isset($_GET['edit'])){
-                                                echo "<option value='" . $CountryIDOld . "' selected> " . $CountryIDOld . "</option>";
-                                        }
                                         while($row = mysqli_fetch_assoc($Country_select)){
                                             $CountryName = $row['Name'];
-                                            if($CountryIDOld!=$CountryName){
-                                                echo "<option value='". $CountryName . "'>" . $CountryName ."</option>";
-                                            }
+                                            echo "<option value='". $CountryName . "'>" . $CountryName ."</option>";
                                         } 
                                     ?>
                                 </select>
@@ -341,6 +340,30 @@
                                 <label for="institute_name">Institution name</label>
                                 <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $Institute_Name;} ?>" class="form-control" name="institute_name" id="institute_name"
                                     placeholder="Enter your institute name" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="institute-information-form">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="heading">
+                                <h2>Course Details</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Name">Course Name</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $CourseOld; }else if(isset($_POST['save'])){echo $CourseName;} ?>" class="form-control" name="CourseName" id="Course_Name"
+                                    placeholder="Enter your Course Name">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label for="Course_Code">Course Code</label>
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $CourseCodeOld; }else if(isset($_POST['save'])){echo $CourseCode;} ?>" class="form-control" name="CourseCode" id="Course_Code"
+                                    placeholder="Enter your Course Code">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
