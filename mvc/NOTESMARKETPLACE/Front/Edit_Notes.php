@@ -9,7 +9,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
 ?>
@@ -162,6 +162,17 @@
             
         }
         
+        if($Display_Picture==""){
+            $Display_Picture = $DisplayPictureOld; 
+        }
+        if($Upload_Notes==""){
+            $Upload_Notes = $FileNameOld; 
+        }
+        if($Upload_File==""){
+            $Upload_File = $NotesPreviewOld; 
+        }
+        
+        
         //Update Data into sellernotes table..
         $query = "UPDATE sellernotes SET  Status='6',Title='{$Title}',Category='{$CategoryID}',DisplayPicture='{$Display_Picture}',NoteType='{$TypeID}',NumberOfPages='{$Pages}',Description='{$Description}',UniversityName='{$Institute_Name}',Country='{$CountryID}',Course='{$CourseName}',CourseCode='{$CourseCode}',Professor='{$Proffessor}',IsPaid=$sell,SellingPrice='{$sell_price}',NotesPreview='{$Upload_File}' WHERE ID=$ID";
         
@@ -293,7 +304,12 @@
                             <div class="form-group">
                                 <label for="note_pages">Pages*</label>
                                 <select class="form-control custom-select" name="note_pages" id="note-pages" required>
-                                    <option value="<?php if(isset($_GET['edit'])){echo $PagesOld; }else if(isset($_POST['save'])){echo $Pages;} ?>" selected>Enter number of note pages</option>
+                                    <option value="<?php if(isset($_GET['edit'])){echo $NumberOfNotesOld; }else if(isset($_POST['save'])){echo $Pages;} ?>" selected>Enter number of note pages</option>
+                                    <?php
+                                        if(isset($_GET['edit'])){
+                                                echo "<option value='" . $NumberOfNotesOld . "' selected> " . $NumberOfNotesOld . "</option>";
+                                        }
+                                    ?>
                                     <option>10</option>
                                     <option>20</option>
                                     <option>50</option>
@@ -305,7 +321,7 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="Description" id="description">Description*</label>
-                                <textarea class="form-control"  placeholder="<?php if(isset($_GET['edit'])){echo $DescriptionOld; }else if(isset($_POST['save'])){echo $Description;}else{ echo "Enter your Description"; } ?>" name="Description" id="Description" required></textarea>
+                                <textarea class="form-control"  placeholder="Enter your Description" name="Description" id="Description" required><?php if(isset($_GET['edit'])){echo $DescriptionOld; }else if(isset($_POST['save'])){echo $Description;}else{ echo ""; } ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -321,15 +337,20 @@
                             <div class="form-group">
                                 <label for="country">Country*</label>
                                 <select class="form-control custom-select" name="country" id="country" required>
-                                    <option value="<?php if(isset($_GET['edit'])){echo $CountryOld; }else if(isset($_POST['save'])){echo $Country;} ?>" selected>Select your Country</option>
+                                    <option value="<?php if(isset($_GET['edit'])){echo $CountryIDOld; }else if(isset($_POST['save'])){echo $Country;} ?>" selected>Select your Country</option>
                                     <?php
                                         
                                         //Country Details
                                         $query = "SELECT * FROM countries";
                                         $Country_select = mysqli_query($connection,$query);
+                                        if(isset($_GET['edit'])){
+                                                echo "<option value='" . $CountryIDOld . "' selected> " . $CountryIDOld . "</option>";
+                                        }
                                         while($row = mysqli_fetch_assoc($Country_select)){
                                             $CountryName = $row['Name'];
-                                            echo "<option value='". $CountryName . "'>" . $CountryName ."</option>";
+                                            if($CountryIDOld!=$CountryName){
+                                                echo "<option value='". $CountryName . "'>" . $CountryName ."</option>";
+                                            }
                                         } 
                                     ?>
                                 </select>
@@ -385,16 +406,15 @@
                         <div class="col-md-6 col-sm-12 col-12">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-12">
-                                    
                                     <label for="sell" id="#sell">Sell For*</label><br>
-                                    <input type="radio" id="free" name="sell" value="0" checked>
+                                    <input type="radio" id="free" name="sell" value="0" <?php if($sellOld==0){echo "checked"; }?>>
                                     <label for="free" id="free-lbl">Free</label>
-                                    <input type="radio" id="paid" name="sell" value="1">
+                                    <input type="radio" id="paid" name="sell" value="1" <?php if($sellOld==1){echo "checked"; }?>>
                                     <label for="paid" id="paid-lbl">Paid</label>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-12">
                                     <label for="sell_price">Sell Price</label>
-                                    <input type="text" value="<?php if(isset($_GET['edit'])){echo $sell_priceOld; }else if(isset($_POST['save'])){echo $sell_price;}else{echo "0";} ?>" name="sell_price" class="form-control" id="sell-price" placeholder="Enter your price">
+                                    <input type="text" value="<?php if(isset($_GET['edit'])){echo $sell_priceOld; }else if(isset($_POST['save'])){echo $sell_price;}else{echo "0";} ?>" name="sell_price" class="form-control" id="sell-price" placeholder="Enter your price" readonly>
                                 </div>
                             </div>
                         </div>
@@ -470,8 +490,18 @@
         </section>
     </div>
     <!-- Add Notes ENDS -->  
- 
+
+<script src="js/jquery-min.js"></script>
 <script>    
+        
+        $('input[type=radio]').change(function(){
+            var SellType = $(this).val();
+            if(SellType==0){
+                $('#sell-price').prop('readonly',true);
+            }else{
+                $('#sell-price').prop('readonly',false);
+            }
+        });
     
         function PublishNotes(){
             

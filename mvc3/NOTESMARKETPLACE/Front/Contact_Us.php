@@ -95,7 +95,7 @@
                         $comments .= "<br><br>Regards, <br>" . $firstname;
                         
                         if(mail($to,$subject,$comments,$header)){
-                            echo "<h2>Email Sended Successfully..!!</h2>";
+                            echo "<h2 style='color:#6255a5;'>Email Sended Successfully..!!</h2>";
                         }else{
                             echo "Email Failed";
                         }

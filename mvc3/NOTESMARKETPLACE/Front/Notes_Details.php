@@ -7,9 +7,9 @@
 
     function PaidDownload(){
         if(confirm("“Are you sure you want to download this Paid note. Please confirm.”")){
+            $('#PaidDL').attr('data-toggle','modal').attr('data-target','#ThankModalCenter');
             return true;
         }else{
-            //$('#PaidDL').modal('hide').css('data-backdrop','static');
             return false;
         }
     }
@@ -148,7 +148,7 @@
                                     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                         if($SellType=='Paid'){
                                             echo "<a href='Attachments_Downloads.php?DownloadPaid=$ID'>
-                                                    <button type='button' class='btn btn-primary btn-Blue ' id='PaidDL' data-toggle='modal' data-target='#ThankModalCenter' onclick='return PaidDownload()'>
+                                                    <button type='button' class='btn btn-primary btn-Blue ' id='PaidDL' onclick='return PaidDownload()'>
                                                         Download/$$SellingPrice
                                                     </button>
                                                   </a>";

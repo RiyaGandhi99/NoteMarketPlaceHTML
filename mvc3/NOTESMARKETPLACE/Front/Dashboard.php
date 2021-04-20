@@ -174,21 +174,21 @@
                                 <h4>My Earning</h4>
                             </div>
                             <div class="col-md-4 col-sm-6 col-6">
-                                <span><h4><?php echo $SoldNotes_Count; ?></h4>
+                                <span><h4><a href="My_Sold_Notes.php" style="text-decoration:none;color:#6255a5;"><?php echo $SoldNotes_Count; ?></a></h4>
                                 <p>Number Of Notes Sold</p></span>
                                 <span><h4>$<?php echo $Total_Earned; ?></h4>
                                 <p>Money Earned</p></span>
                             </div>
                             <div class="col-md-1 col-sm-10 col-10 dashboard-gap">
-                                <h4><?php echo $Downloads_Count; ?></h4>
+                                <h4><a href="My_Downloads.php" style="text-decoration:none;color:#6255a5;"><?php echo $Downloads_Count; ?></a></h4>
                                 <p>My Downloads</p>
                             </div>
                             <div class="col-md-2 col-sm-10 col-10 dashboard-gap">
-                                <h4><?php echo $Rejected_Count; ?></h4>
+                                <h4><a href="My_Rejected_Notes.php" style="text-decoration:none;color:#6255a5;"><?php echo $Rejected_Count; ?></a></h4>
                                 <p>My Rejected<br>Notes</p>
                             </div>
                             <div class="col-md-2 col-sm-10 col-10 dashboard-gap">
-                                <h4><?php echo $Buyer_Request_Count; ?></h4>
+                                <h4><a href="Buyer_Requests.php" style="text-decoration:none;color:#6255a5;"><?php echo $Buyer_Request_Count; ?></a></h4>
                                 <p>Buyer Requests</p>
                             </div>
                         </div>

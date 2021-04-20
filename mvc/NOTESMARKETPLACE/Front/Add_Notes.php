@@ -10,7 +10,7 @@
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
             include "Registered_Header.php"; 
         }else{
-            header("Location: Login.php");
+            header("Location: ../Login.php");
         }
         
     ?>
@@ -293,8 +293,8 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="Description" id="description">Description*</label>
-                                <textarea class="form-control"  value="<?php if(isset($_GET['edit'])){echo $DescriptionOld; }else if(isset($_POST['save'])){echo $Description;} ?>" name="Description" id="Description"
-                                    placeholder="Enter your Description" required></textarea>
+                                <textarea class="form-control" name="Description" id="Description"
+                                    placeholder="Enter your Description" required><?php if(isset($_POST['save'])){echo $Description;}else{ echo ""; } ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -374,16 +374,15 @@
                         <div class="col-md-6 col-sm-12 col-12">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-12">
-                                    
                                     <label for="sell" id="#sell">Sell For*</label><br>
-                                    <input type="radio" id="free" name="sell" value="0" checked>
+                                    <input type="radio" id="free" name="sell" value="0" <?php if($sellOld==0){echo "checked"; }?>>
                                     <label for="free" id="free-lbl">Free</label>
-                                    <input type="radio" id="paid" name="sell" value="1">
+                                    <input type="radio" id="paid" name="sell" value="1" <?php if($sellOld==1){echo "checked"; }?>>
                                     <label for="paid" id="paid-lbl">Paid</label>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-12">
                                     <label for="sell_price">Sell Price</label>
-                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $sell_priceOld; }else if(isset($_POST['save'])){echo $sell_price;}else{echo "0";} ?>" name="sell_price" class="form-control" id="sell-price" placeholder="Enter your price" >
+                                <input type="text" value="<?php if(isset($_GET['edit'])){echo $sell_priceOld; }else if(isset($_POST['save'])){echo $sell_price;}else{echo "0";} ?>" name="sell_price" class="form-control" id="sell-price" placeholder="Enter your price" readonly>
                                 </div>
                             </div>
                         </div>
@@ -480,7 +479,17 @@
     </div>
     <!-- Add Notes ENDS -->  
  
+<script src="js/jquery-min.js"></script>
 <script>    
+        
+        $('input[type=radio]').change(function(){
+            var SellType = $(this).val();
+            if(SellType==0){
+                $('#sell-price').prop('readonly',true);
+            }else{
+                $('#sell-price').prop('readonly',false);
+            }
+        });
     
         function PublishNotes(){
             

@@ -338,7 +338,7 @@
                                                     die("Query Failed" . mysqli_error($connection));
                                                 }
 
-                                            $query = "SELECT * FROM downloads WHERE NoteId=$ID";
+                                            $query = "SELECT * FROM downloads WHERE NoteId=$ID AND IsAttachmentDownloaded=1 AND IsActive=1";
                                                 $Download_Select = mysqli_query($connection,$query);
                                                 if(!$Download_Select){
                                                     die("Query Failed" . mysqli_error($connection));
@@ -490,7 +490,7 @@
         
         if(isset($_POST['Unpublish'])){
             $Remark = $_POST['message-text'];
-            $ID = $_POST['ID'];
+            $ID = $_POST['Reject'];
             
             $EmailID = $_SESSION['EmailID'];
             $query = "SELECT * FROM users WHERE EmailID='{$EmailID}'";
@@ -548,7 +548,7 @@
             if(!mail($to,$subject,$comments,$header)){
                 die("Email verification Failed");
             }
-            header("Location: Published_Notes.php");
+            header("Location: Dashboard.php");
         }    
     ?>
 

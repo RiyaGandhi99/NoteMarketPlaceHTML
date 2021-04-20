@@ -51,13 +51,12 @@
             alert("Password must be filled out");
             return false;
         }
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email_Address))
-        {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(Email_Address)){
             alert("You have entered an invalid email address!")
             return false;
         }
-        if (/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$/.test(Password))
-        {
+        if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$/.test(Password)){
             alert("You have entered an invalid Pattern Password!")
             return false;
         }
@@ -92,7 +91,7 @@
                                 }  
                                 
                                 //Validate the user
-                                $query = "SELECT * FROM users WHERE EmailID='$EmailID' AND IsActive=1";
+                                $query = "SELECT * FROM users WHERE EmailID='$EmailID' AND Password='$Password' AND IsActive=1";
                                 $Users_select = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($Users_select)){
                                     $ID = $row['ID'];
@@ -105,9 +104,8 @@
                                 
                                 if(mysqli_num_rows($Users_select)==0){
                                         ?>
-                                        
                                             <script type="text/javascript">
-                                                alert("Please Sign Up First to continue Login Or May be admin remove you as user");
+                                                alert("Please Enter the valid Information");
                                             </script>
                                             
                                         <?php
@@ -160,17 +158,13 @@
                                         ?>
                                      
                                             <script type="text/javascript">
-                                                alert("Please Do email verification First to continue Login!");
+                                                alert("Do email verification First to continue Login!");
                                             </script>
                                             
                                         <?php
                                         
                                     }else{
                                         if($Password==$Password_New){
-                                            
-                                        }else{
-                                            $count=1;
-                                        }
                                         
                                         session_start();
                                         $_SESSION['loggedin'] = true;
@@ -189,6 +183,10 @@
                                         }else{
                                             header("Location: admin/Dashboard.php");
                                             
+                                        }
+                                        
+                                        }else{
+                                            $count=1;
                                         }
                                     }
                                 }    
@@ -216,7 +214,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="form-group text-left">
                                     <label for="Password">Password</label>
-                                    <a href="Forgot_Password.php" class="text-right">Forgot Password?</a>
+                                    <a href="Forgot_Password.php" style="text-decoration:none;" class="text-right">Forgot Password?</a>
                                     <input type="password" style="border-color:<?php if(isset($count)){ echo " #ff0000"; }else{ echo "#6255a5";} ?>;" name="Password" class="form-control" placeholder="Enter your password" id="password-field" required>
                                     <div class="input-group-append">
                                         <span toggle="#password-field" id="P1" class="eye field-icon toggle-password"><img src="Front/images/pre-login/eye.png" alt="eye"></span>

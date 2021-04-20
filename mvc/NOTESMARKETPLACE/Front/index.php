@@ -87,7 +87,7 @@
                         ?>
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0" action="" method="post">
-                                <button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onclick="return LogoutUser()">Logout</button>
+                                <button class="btn my-2 my-sm-0 btn-Blue" name="Logout" type="submit" onclick="return LogoutUser()">Logout</button>
                             </form>
                         </li>
                         <?php 
@@ -95,7 +95,7 @@
                         ?>
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0">
-                                <a href="../Login.php"><button class="btn btn-outline-success my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
+                                <a href="Login.php"><button class="btn my-2 my-sm-0 btn-Blue" type="button">Login</button></a>
                             </form>
                         </li>
                         <?php
@@ -103,7 +103,7 @@
                             if(isset($_POST['Logout'])){
                                 session_start(); //to ensure you are using same session
                                 session_destroy(); //destroy the session
-                                header("Location: ../Login.php"); 
+                                header("Location: Login.php"); 
                                 exit();
                             }
                         

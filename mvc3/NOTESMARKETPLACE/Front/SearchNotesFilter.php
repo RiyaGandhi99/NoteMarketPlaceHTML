@@ -224,7 +224,7 @@
                     
                 ?> 
                 <div class="card">
-                    <a href="<?php echo"Notes_Details.php?Note=$ID"; ?>"><img src="<?php echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$DisplayPicture"; ?>" class="card-img-top" alt="BOOK1"></a>
+                    <a href="<?php echo"Notes_Details.php?Note=$ID"; ?>" style="text-decoration:none;"><img src="<?php echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$DisplayPicture"; ?>" class="card-img-top" alt="BOOK1">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $Title; ?></h5>
                         <p class="card-text">
@@ -316,7 +316,7 @@
                             </span>
                         </div>
                         </p>
-                    </div>
+                    </div></a>
                 </div>    
                 
                 <?php                      
@@ -332,11 +332,7 @@
 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                    <?php 
-                        //$C=1;
-                        //$P = $Page-$C;
-                        //$N= $Page+$C;
-                    ?>    
+                      
                         <li class="page-item">
                             <a class="page-link" href="Search_Notes.php" aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>

@@ -282,21 +282,12 @@
                                                 <a href='Notes_Under_Review.php?Approve=$ID'>
                                                     <button type='button' class='btn btn-success' onclick='return Approve()'>Approve</button>
                                                 </a>
-                                                    <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#ReviewModal$j' >Reject</button>";
-                                                if($StatusID==8){
-                                                    echo "<button type='button' class='btn
-                                                        btn-light' onclick='return
-                                                        NotesUnderReview()'>Notes Under Review</button>";
-                                                }else{
-                                                    echo "<a href='Notes_Under_Review.php?Review=$ID'>       
+                                                    <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#ReviewModal$j' >Reject</button><a href='Notes_Under_Review.php?Review=$ID'>       
                                                         <button type='button' class='btn
                                                         btn-light' onclick='return
                                                         Review()'>InReview</button>
-                                                    </a>";
-                                                }    
-                                                
-                                            
-                                            echo "</td>
+                                                    </a>
+                                            </td>
                                             <td>
                                                 <div class='dropdown'>
                                                     <img src='images/tables/dots.png' alt='Setting Image' class='dropbtn'>
