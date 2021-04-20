@@ -52,8 +52,8 @@
             alert("Password must be filled out");
             return false;
         }
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(Email_Address))
-        {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(Email_Address)){
             alert("You have entered an invalid email address!")
             return false;
         }
@@ -92,7 +92,7 @@
                                 }  
                                 
                                 //Validate the user
-                                $query = "SELECT * FROM users WHERE EmailID='$EmailID' AND IsActive=1";
+                                $query = "SELECT * FROM users WHERE EmailID='$EmailID' AND Password='$Password' AND IsActive=1";
                                 $Users_select = mysqli_query($connection,$query);
                                 while($row = mysqli_fetch_assoc($Users_select)){
                                     $EmailID_New = $row['EmailID'];
@@ -105,7 +105,7 @@
                                         ?>
                                         
                                             <script type="text/javascript">
-                                                alert("Please Sign Up First to continue Login Or May be admin remove you as user");
+                                                alert("Please Enter the valid Information");
                                             </script>
                                             
                                         <?php
