@@ -291,6 +291,14 @@
                             }
                             
                         }else{
+                            if($Notes_Photo==""){
+                                $Notes_Photo=$NOLD;
+                            }
+                            if($Upload_Notes==""){
+                                $Profile_Photo = $POLD; 
+                            }
+                            
+                            
                             
                             //Update Support email address
                             $query = "UPDATE system_configuration SET
@@ -318,7 +326,7 @@
                             
                             //Update Facebook URL
                             $query = "UPDATE system_configuration SET
-                            Value='{$Facebook_URL}' WHERE KeyNot='Facebook URL'";
+                            Value='{$Facebook_URL}' WHERE KeyNote='Facebook URL'";
                             $Facebook_Details = mysqli_query($connection,$query);
                                 
                             if(!$Facebook_Details){

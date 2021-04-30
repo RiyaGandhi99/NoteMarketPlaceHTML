@@ -208,14 +208,14 @@
                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                <div class="form-group text-left">
                                    <label for="First_Name">First Name<span> *</span></label>
-                                   <input type="text" name="First_Name" class="form-control" placeholder="Enter your first name" required pattern="[a-zA-Z]{3,15}">
+                                   <input type="text" name="First_Name" class="form-control" placeholder="Enter your first name" required>
                                </div>
                            </div>
 
                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                <div class="form-group text-left">
                                    <label for="Last_Name">Last Name<span> *</span></label>
-                                   <input type="text" name="Last_Name" class="form-control" placeholder="Enter your last name" required pattern="[a-zA-Z]{4,15}">
+                                   <input type="text" name="Last_Name" class="form-control" placeholder="Enter your last name" required>
                                </div>
                            </div>
 
@@ -229,7 +229,7 @@
                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                <div class="form-group text-left">
                                    <label for="Password">Password</label>
-                                   <input type="password" name="Password" class="form-control" placeholder="Enter your password" id="password-field4" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$">
+                                   <input type="password" name="Password" class="form-control" placeholder="Enter your password" id="password-field4" required>
                                    <span toggle="#password-field4" class="P1 eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
                                </div>
                            </div>
@@ -237,7 +237,7 @@
                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                <div class="form-group text-left">
                                    <label for="Confirm_Password"> Confirm Password</label>
-                                   <input type="password" name="Confirm_Password" class="form-control" placeholder="Re-enter your password" id="password-field5" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^%*?&])[A-Za-z\d@$!#^%*?&]{8,24}$">
+                                   <input type="password" name="Confirm_Password" class="form-control" placeholder="Re-enter your password" id="password-field5" required>
                                    <span toggle="#password-field5" class="P1 eye field-icon toggle-password"><img src="images/pre-login/eye.png" alt="eye"></span>
                                </div>
                            </div>

@@ -36,34 +36,38 @@
         
         $Title = $_POST['notes_title'];
         $Category = $_POST['Category'];
-        $Display_Picture = $_FILES['dp']['name']; 
+        !empty($_FILES['dp']['name'])?$Display_Picture = $_FILES['dp']['name']:$Display_Picture = "";
         $Display_Picture_tempname = $_FILES['dp']['tmp_name'];
         $Display_Picture_Type = $_FILES['dp']['type'];
-        $Upload_Notes[] = $_FILES['upload_notes']['name'];
         $Upload_Notes_tempname[] = $_FILES['upload_notes']['tmp_name'];
         $Upload_Notes_Type[] = $_FILES['upload_notes']['type'];
-        $Type = $_POST['note_type'];
+        !empty($_FILES['upload_notes']['name'])?$Upload_Notes[] = $_FILES['upload_notes']['name']:$Upload_Notes[] = "";
+        !empty($_POST['note_type'])?$Type = $_POST['note_type']:$Type = "";
         $Pages = $_POST['note_pages'];
         $Description = $_POST['Description'];
         $Country = $_POST['country'];
-        $Institute_Name = $_POST['institute_name'];
-        $CourseName = $_POST['CourseName'];
+        !empty($_POST['institute_name'])?$Institute_Name = $_POST['institute_name']:$Institute_Name = "";
+        !empty($_POST['CourseName'])?$CourseName = $_POST['CourseName']:$CourseName = "";
         $CourseCode = $_POST['CourseCode'];
         $Proffessor = $_POST['proffessor'];
         $sell = $_POST['sell'];        
-        $sell_price = $_POST['sell_price'];
-        $Upload_File = $_FILES['upload_file']['name'];
+        !empty($_POST['sell_price'])?$sell_price = $_POST['sell_price']:$sell_price = "";
+        !empty($_FILES['upload_file']['name'])?$Upload_File = $_FILES['upload_file']['name']:$Upload_File = "";
         $Upload_File_tempname = $_FILES['upload_file']['tmp_name'];
         $Upload_File_Type = $_FILES['upload_file']['type'];
         
 
         //Type Details 
-        $query = "SELECT * FROM types WHERE Name='{$Type}'";
-        $Type_select_all = mysqli_query($connection,$query);
-        if($row = mysqli_fetch_assoc($Type_select_all)){
-            $TypeID = $row['ID'];
-        }else {
-            die("Query Failed" . mysqli_error($connection));
+        if(!empty($Type)){
+            $query = "SELECT * FROM types WHERE Name='{$Type}'";
+            $Type_select_all = mysqli_query($connection,$query);
+            if($row = mysqli_fetch_assoc($Type_select_all)){
+                $TypeID = $row['ID'];
+            }else {
+                die("Query Failed aaa" . mysqli_error($connection));
+            }
+        }else{
+            $TypeID=1;
         }
         
         //Category Details
@@ -85,7 +89,7 @@
             die("Query Failed" . mysqli_error($connection));
         }
         
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             $EmailID=  $_SESSION['EmailID'];
             $query = "SELECT * FROM users WHERE EmailID='$EmailID'";
                              
@@ -117,7 +121,7 @@
                     $errors[] = 'Invalid file type. Only PDF types are accepted.';
         }
         
-        if(count($errors) === 0) {
+        if(count($errors) === 0 || empty($Display_Picture_Type) || empty($Upload_Notes_Type) || empty($Upload_File_Type)) {
                 
         
         //Insert Data into sellernotes table..
@@ -326,7 +330,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <label for="institute_name">Institution name</label>
+                                <label for="institute_name">Institution name*</label>
                                 <input type="text" value="<?php if(isset($_GET['edit'])){echo $UniversityNameOld; }else if(isset($_POST['save'])){echo $Institute_Name;} ?>" class="form-control" name="institute_name" id="institute_name"
                                     placeholder="Enter your institute name" required>
                             </div>
@@ -357,7 +361,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-6">
                             <div class="form-group">
-                                <label for="proffessor">Proffessor/lecturer</label>
+                                <label for="proffessor">Proffessor/lecturer*</label>
                                 <input type="text" value="<?php if(isset($_GET['edit'])){ echo $ProffessorOld; }else if(isset($_POST['save'])){echo $Proffessor;} ?>" class="form-control" name="proffessor" id="professor"
                                     placeholder="Enter your proffessor name" required>
                             </div>
@@ -375,9 +379,9 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-12">
                                     <label for="sell" id="#sell">Sell For*</label><br>
-                                    <input type="radio" id="free" name="sell" value="0" <?php if($sellOld==0){echo "checked"; }?>>
+                                    <input type="radio" id="free" name="sell" value="0" checked>
                                     <label for="free" id="free-lbl">Free</label>
-                                    <input type="radio" id="paid" name="sell" value="1" <?php if($sellOld==1){echo "checked"; }?>>
+                                    <input type="radio" id="paid" name="sell" value="1" >
                                     <label for="paid" id="paid-lbl">Paid</label>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-12">
@@ -486,8 +490,10 @@
             var SellType = $(this).val();
             if(SellType==0){
                 $('#sell-price').prop('readonly',true);
+                $('#upload_file').prop('required',true);
             }else{
                 $('#sell-price').prop('readonly',false);
+                $('#upload_file').prop('required',false);
             }
         });
     

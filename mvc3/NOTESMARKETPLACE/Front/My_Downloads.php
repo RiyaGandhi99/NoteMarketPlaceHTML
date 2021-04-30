@@ -217,20 +217,20 @@
                                                     <h5 class="modal-title" id="ReviewModalLabel">Add Review</h5>
                                                     <form action="" method="post">
                                                     <div class="rate form-group">
-                                                        <input type="radio" id="star5<?php echo $j; ?>" name="rates" value="5" />
+                                                        <input type="radio" id="star5<?php echo $j; ?>" name="rates" value="5" / required>
                                                         <label for="star5<?php echo $j; ?>" title="text">5 stars</label>
-                                                        <input type="radio" id="star4<?php echo $j; ?>" name="rates" value="4" />
+                                                        <input type="radio" id="star4<?php echo $j; ?>" name="rates" value="4" / required>
                                                         <label for="star4<?php echo $j; ?>" title="text">4 stars</label>
-                                                        <input type="radio" id="star3<?php echo $j; ?>" name="rates" value="3" />
+                                                        <input type="radio" id="star3<?php echo $j; ?>" name="rates" value="3" / required>
                                                         <label for="star3<?php echo $j; ?>" title="text">3 stars</label>
-                                                        <input type="radio" id="star2<?php echo $j; ?>" name="rates" value="2" />
+                                                        <input type="radio" id="star2<?php echo $j; ?>" name="rates" value="2" / required>
                                                         <label for="star2<?php echo $j; ?>" title="text">2 stars</label>
-                                                        <input type="radio" id="star1<?php echo $j; ?>" name="rates" value="1" />
+                                                        <input type="radio" id="star1<?php echo $j; ?>" name="rates" value="1" / required>
                                                         <label for="star1<?php echo $j; ?>" title="text">1 star</label>
                                                     </div><br>
                                                         <div class="form-group">
                                                             <label for="message-text" class="col-form-label" style="margin-right:280px;" >Comments<span> *</span></label>
-                                                            <textarea class="form-control" id="message-text<?php echo $j; ?>" name="Comments" placeholder="Comments..."></textarea>
+                                                            <textarea class="form-control" id="message-text<?php echo $j; ?>" name="Comments" placeholder="Comments..." required></textarea>
                                                             <input type="hidden" name="NoteID" value="<?php echo $ID; ?>">
                                                             <input type="hidden" name="DownloadID" value="<?php echo $DownloadID; ?>">
                                                             
@@ -257,7 +257,7 @@
                                                     <form action="" method="post">
                                                         <div class="form-group">
                                                             <label for="messages-texts<?php echo $j; ?>" class="col-form-label">Remarks</label>
-                                                            <textarea class="form-control" id="messages-texts<?php echo $j; ?>" name="Remark" placeholder="Write remarks"></textarea>
+                                                            <textarea class="form-control" id="messages-texts<?php echo $j; ?>" name="Remark" placeholder="Write remarks" required></textarea>
                                                             <input type="hidden" name="NoteID" value="<?php echo $ID; ?>">
                                                             <input type="hidden" name="DownloadID" value="<?php echo $DownloadID; ?>">
                                                         </div>

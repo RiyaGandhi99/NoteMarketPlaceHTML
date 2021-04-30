@@ -113,6 +113,12 @@
                         }
                         
                     }
+                
+                    $query = "SELECT * FROM system_configuration WHERE ID=7";
+                    $Notes_photo = mysqli_query($connection,$query);
+                    if($row = mysqli_fetch_assoc($Notes_photo)){
+                        $Note= $row['Value'];
+                    }
                 ?>
                 
                 
@@ -123,7 +129,7 @@
                         
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-6">
-                                <img src="<?php if(isset($_GET['Note'])){ echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$Display_Picture"; }else{ echo 'images/Search/1.jpg';} ?>" alt="Book Image" class="img-responsive">
+                                <img src="<?php if(isset($_GET['Note']) && $Display_Picture!= "" ){ echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$Display_Picture"; }else{ echo '../Uploads/Default_Images/'.$Note;} ?>" alt="Book Image" class="img-responsive">
                             </div>
                             <div class="col-md-8 col-sm-8 col-6">
                                 <div class="horizontal-heading">
@@ -198,22 +204,26 @@
                                         <p><?php if(isset($_GET['Note'])){ echo $Country; }else{ echo "United State"; } ?></p>
                                     </div>
                                 </div>
+                                <?php if(isset($_GET['Note']) && $Course!=""){ ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Course Name:</p>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 member-Blue">
-                                        <p><?php if(isset($_GET['Note'])){ echo $Course; }else{ echo "Computer Engineering"; } ?></p>
+                                        <p><?php echo $Course; ?></p>
                                     </div>
                                 </div>
+                                <?php }else{ echo ""; }?>
+                                <?php if(isset($_GET['Note']) && $CourseCode!=""){ ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Course Code:</p>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 member-Blue">
-                                        <p><?php if(isset($_GET['Note'])){ echo $CourseCode; }else{ echo "248705"; } ?></p>
+                                        <p><?php echo $CourseCode;  ?></p>
                                     </div>
                                 </div>
+                                <?php }else{ echo ""; }?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Professor:</p>

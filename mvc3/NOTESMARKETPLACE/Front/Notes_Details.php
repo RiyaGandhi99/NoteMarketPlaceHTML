@@ -260,22 +260,26 @@
                                         <p><?php if(isset($_GET['Note'])){ echo $Country; }else{ echo "United State"; } ?></p>
                                     </div>
                                 </div>
+                                <?php if(isset($_GET['Note']) && $Course!=""){ ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Course Name:</p>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 member-Blue">
-                                        <p><?php if(isset($_GET['Note'])){ echo $Course; }else{ echo "Computer Engineering"; } ?></p>
+                                        <p><?php echo $Course; ?></p>
                                     </div>
                                 </div>
+                                <?php }else{ echo ""; }?>
+                                <?php if(isset($_GET['Note']) && $CourseCode!=""){ ?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Course Code:</p>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-6 member-Blue">
-                                        <p><?php if(isset($_GET['Note'])){ echo $CourseCode; }else{ echo "248705"; } ?></p>
+                                        <p><?php echo $CourseCode;  ?></p>
                                     </div>
                                 </div>
+                                <?php }else{ echo ""; }?>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-6">
                                         <p>Professor:</p>

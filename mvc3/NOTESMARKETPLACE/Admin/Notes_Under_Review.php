@@ -96,12 +96,22 @@
             header("Location: Notes_Under_Review.php");    
         }
 
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            $EmailID=  $_SESSION['EmailID'];
+            $query = "SELECT * FROM users WHERE EmailID='$EmailID'";
+                             
+            $Users_select = mysqli_query($connection,$query);
+            while($row = mysqli_fetch_assoc($Users_select)){
+                $UserID = $row['ID'];
+            }
+        }
+        
         if(isset($_GET['Approve'])){
             $ID = $_GET['Approve'];
             
             $PublishedDate = date('Y-m-d h:i:s');
             //Update status of notes 
-            $query = "UPDATE sellernotes SET Status=9,PublishedDate='{$PublishedDate}' WHERE ID=$ID";
+            $query = "UPDATE sellernotes SET Status=9,ActionBy=$UserID,PublishedDate='{$PublishedDate}' WHERE ID=$ID";
             $Notes_Update = mysqli_query($connection,$query);
             if(!$Notes_Update){
                 die("Query Failed" . mysqli_error($connection));

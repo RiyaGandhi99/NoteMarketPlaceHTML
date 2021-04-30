@@ -222,9 +222,14 @@
                     }
                     
                     
+                    $query = "SELECT * FROM system_configuration WHERE ID=7";
+                    $Default_select = mysqli_query($connection,$query);
+                    while($row = mysqli_fetch_assoc($Default_select)){
+                        $Default_IMG = $row['Value'];
+                    }
                 ?> 
                 <div class="card">
-                    <a href="<?php echo"Notes_Details.php?Note=$ID"; ?>" style="text-decoration:none;"><img src="<?php echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$DisplayPicture"; ?>" class="card-img-top" alt="BOOK1">
+                    <a href="<?php echo"Notes_Details.php?Note=$ID"; ?>" style="text-decoration:none;"><img src="<?php if($DisplayPicture!=""){ echo "../Uploads/Members/{$Id}/{$NoteID}/Images/$DisplayPicture"; }else{echo "../Uploads/Default_Images/$Default_IMG";} ?>" class="card-img-top" alt="BOOK1">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $Title; ?></h5>
                         <p class="card-text">

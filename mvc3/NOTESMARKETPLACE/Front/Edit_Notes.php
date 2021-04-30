@@ -104,30 +104,38 @@
         
         $Title = $_POST['notes_title'];
         $Category = $_POST['Category'];
-        $Display_Picture = $_FILES['dp']['name']; 
+        !empty($_FILES['dp']['name'])?$Display_Picture = $_FILES['dp']['name']:$Display_Picture = "";
         $Display_Picture_tempname = $_FILES['dp']['tmp_name'];
-        $Upload_Notes = $_FILES['upload_notes']['name'];
-        $Upload_Notes_tempname = $_FILES['upload_notes']['tmp_name'];
-        $Type = $_POST['note_type'];
+        $Display_Picture_Type = $_FILES['dp']['type'];
+        $Upload_Notes_tempname[] = $_FILES['upload_notes']['tmp_name'];
+        $Upload_Notes_Type[] = $_FILES['upload_notes']['type'];
+        !empty($_FILES['upload_notes']['name'])?$Upload_Notes[] = $_FILES['upload_notes']['name']:$Upload_Notes[] = "";
+        !empty($_POST['note_type'])?$Type = $_POST['note_type']:$Type = "";
         $Pages = $_POST['note_pages'];
         $Description = $_POST['Description'];
         $Country = $_POST['country'];
-        $Institute_Name = $_POST['institute_name'];
-        $Proffessor = $_POST['proffessor'];
-        $CourseName = $_POST['CourseName'];
+        !empty($_POST['institute_name'])?$Institute_Name = $_POST['institute_name']:$Institute_Name = "";
+        !empty($_POST['CourseName'])?$CourseName = $_POST['CourseName']:$CourseName = "";
         $CourseCode = $_POST['CourseCode'];
+        $Proffessor = $_POST['proffessor'];
         $sell = $_POST['sell'];        
-        $sell_price = $_POST['sell_price'];
-        $Upload_File = $_FILES['upload_file']['name'];
+        !empty($_POST['sell_price'])?$sell_price = $_POST['sell_price']:$sell_price = "";
+        !empty($_FILES['upload_file']['name'])?$Upload_File = $_FILES['upload_file']['name']:$Upload_File = "";
         $Upload_File_tempname = $_FILES['upload_file']['tmp_name'];
+        $Upload_File_Type = $_FILES['upload_file']['type'];
         
+
         //Type Details 
-        $query = "SELECT * FROM types WHERE Name='{$Type}'";
-        $Type_select_all = mysqli_query($connection,$query);
-        if($row = mysqli_fetch_assoc($Type_select_all)){
-            $TypeID = $row['ID'];
-        }else {
-            die("Query Failed" . mysqli_error($connection));
+        if(!empty($Type)){
+            $query = "SELECT * FROM types WHERE Name='{$Type}'";
+            $Type_select_all = mysqli_query($connection,$query);
+            if($row = mysqli_fetch_assoc($Type_select_all)){
+                $TypeID = $row['ID'];
+            }else {
+                die("Query Failed aaa" . mysqli_error($connection));
+            }
+        }else{
+            $TypeID=1;
         }
         
         //Category Details
@@ -181,24 +189,27 @@
             die("Query Failed" . mysqli_error($connection));
         }    
         
-        //Update Attachments sellernotesattachments in table..
-        $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$ID}',FileName='{$Upload_Notes}',FilePath='Members/{$Id}/{$ID}/Attachments/$Upload_Notes' WHERE NoteID=$ID";
-        
-        $Notes_Attachments = mysqli_query($connection,$query_Attachments);
-        if(!$Notes_Attachments){
-            die("Query Failed" . mysqli_error($connection));
-        }
         
         
-        //Check Whether Folder Exist and put file/img in it
-        $Folder = "../Uploads/Members/{$Id}/{$ID}/Images";
-        if(!is_dir($Folder))  { 
-            mkdir($Folder,0777,true);
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture"); 
-            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
-        }else{
-            move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture"); 
-            move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
+        if(!empty($Display_Picture_Type) && !empty($Upload_Notes_Type) && !empty($Upload_File_Type)){
+            //Update Attachments sellernotesattachments in table..
+            $query_Attachments = "UPDATE sellernotesattachments SET NoteID='{$ID}',FileName='{$Upload_Notes}',FilePath='Members/{$Id}/{$ID}/Attachments/$Upload_Notes' WHERE NoteID=$ID";
+        
+            $Notes_Attachments = mysqli_query($connection,$query_Attachments);
+            if(!$Notes_Attachments){
+                die("Query Failed" . mysqli_error($connection));
+            }
+            
+            //Check Whether Folder Exist and put file/img in it
+            $Folder = "../Uploads/Members/{$Id}/{$ID}/Images";
+            if(!is_dir($Folder)) {
+                mkdir($Folder,0777,true);
+                move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture");
+                move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
+            }else{
+                move_uploaded_file($Display_Picture_tempname,"../Uploads/Members/{$Id}/{$ID}/Images/$Display_Picture");
+                move_uploaded_file($Upload_File_tempname, "../Uploads/Members/{$Id}/{$ID}/Images/$Upload_File");
+            }
         }
         
     }

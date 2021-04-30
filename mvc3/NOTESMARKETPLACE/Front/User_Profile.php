@@ -97,12 +97,12 @@
             
             <?php
                 if(isset($_POST['Profile'])){
-        
+                
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
                 $EmailID = $_POST['EmailID'];
                 $dob = $_POST['dob'];
-                $gender = $_POST['gender'];
+                isset($_POST['gender'])?$gender = $_POST['gender']:$gender = "";
                 $country_code = $_POST['country_code'];
                 $Phone_No = $_POST['Phone_No'];
                 $Profile_Picture = $_FILES['upload_img']['name']; 
@@ -114,7 +114,7 @@
                 $City = $_POST['City'];
                 $state = $_POST['state'];
                 $zip_code = $_POST['zip_code'];
-                $country = $_POST['country'];
+                isset($_POST['country'])?$country = $_POST['country']:$country = "";
                 $university = $_POST['university'];
                 $College = $_POST['College'];
                 
@@ -129,12 +129,16 @@
                 }
                     
                 //Gender Details
-                $query = "SELECT * FROM referencedata WHERE Value='{$gender}'";
-                $Gender_select = mysqli_query($connection,$query);
-                if($row = mysqli_fetch_assoc($Gender_select)){
-                    $GenderID = $row['ID'];
-                }else {
-                    die("Query Failed" . mysqli_error($connection));
+                if(isset($_POST['gender'])){
+                    $query = "SELECT * FROM referencedata WHERE Value='{$gender}'";
+                    $Gender_select = mysqli_query($connection,$query);
+                    if($row = mysqli_fetch_assoc($Gender_select)){
+                        $GenderID = $row['ID'];
+                    }else {
+                        die("Query Failed" . mysqli_error($connection));
+                    }
+                }else{
+                    $GenderID=1;
                 }
                 
                 $query = "SELECT * FROM userprofile WHERE UserID=$UserID";
@@ -159,7 +163,7 @@
                 );
                     
                     
-                if(($Profile_Picture_Size >= $maxsize) || ($Profile_Picture_Size == 0)) {
+                if(($Profile_Picture_Size >= $maxsize) || ($Profile_Picture_Size == 0) && (!empty($Profile_Picture_Type))) {
                     $errors[] = 'File too large. File must be less than 10 megabytes.';
                 }
 
@@ -177,7 +181,7 @@
                     
                     $User_Details = mysqli_query($connection,$query);
                     if(!$User_Details){
-                        die("Query Failed" . mysqli_error($connection));
+                        die("Query Failed aaa" . mysqli_error($connection));
                     }else{
                         header("Location: Search_Notes.php");
                     }
